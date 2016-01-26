@@ -1,0 +1,6 @@
+framework module Pods_AllstateCarProject {
+  umbrella header "Pods-AllstateCarProject-umbrella.h"
+
+  export *
+  module * { export * }
+}
