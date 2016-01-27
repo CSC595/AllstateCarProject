@@ -12,7 +12,7 @@ import FMDB
 
 
 // Data which save in "user_data_table"
-// [0] dTime               TEXT   PRIMARY KEY
+// [0] dTime               TEXT         PRIMARY KEY
 // [1] dTimeInterval       REAL
 // [2] distance            REAL
 // [3] aTimeInterval       REAL
@@ -20,18 +20,20 @@ import FMDB
 // [5] dTH                 REAL
 // [6] avgSpeed            REAL
 // [7] speedsTableName     TEXT
-// [8] dActionsTableName   TEXT
 
 
 
-// Data which save in "\(departureTime.timeIntervalSince1970)_dangerous_actions_table"
-// [0] time                REAL
-// [1] dAction             INTEGER
+// Data which save in "user_dangerous_actions_table"
+// [0] id                  INTEGER      PRIMARY KEY
+// [1] driveTimeInterval   REAL
+// [2] sTimeInterval       REAL
+// [3] dAction             TEXT
+// [4] eTimeInterval       REAL
 
 
 
 // Data which save in "\(departureTime.timeIntervalSince1970)_speeds_table"
-// [0] time                REAL
+// [0] timeInterval        REAL
 // [1] speed               REAL
 
 
@@ -64,9 +66,10 @@ class DataBaseManager {
         
         if !NSFileManager.defaultManager().fileExistsAtPath(self.dbPath) {
             if self.open() {
-                let sql = "CREATE TABLE IF NOT EXISTS user_data_table (dTime TEXT NOT NULL PRIMARY KEY, dTimeInterval REAL, distance REAL, aTimeInterval REAL, dTS INTEGER, dTH INTEGER, avgSpeed REAL, speedsTableName TEXT, dActionsTableName TEXT)"
-                
-                self.db.executeStatements(sql)
+                let sql1 = "CREATE TABLE IF NOT EXISTS user_data_table (dTime TEXT NOT NULL PRIMARY KEY, dTimeInterval REAL, distance REAL, aTimeInterval REAL, dTS INTEGER, dTH INTEGER, avgSpeed REAL, speedsTableName TEXT)"
+                let sql2 = "CREATE TABLE IF NOT EXISTS user_dangerous_actions_table (id INTEGER PRIMARY KEY, driveTimeInterval REAL, sTimeInterval REAL, dAction TEXT, eTimeInterval REAL)"
+                self.db.executeStatements(sql1)
+                self.db.executeStatements(sql2)
                 print("Creation Success")
                 self.close()
             }else {
@@ -88,15 +91,23 @@ class DataBaseManager {
         return self.db.close()
     }
     
-    func insertData(data:Data) -> Bool{
+    func insert(collector: DataCollector) -> Bool{
         if db.open() {
             do{
-                try self.db.executeUpdate("insert into user_data_table (dTime, dTimeInterval, distance, aTimeInterval, dTS, dTH, avgSpeed,speedsTableName, dActionsTableName) values (?,?,?,?,?,?,?,?,?)", values: data.createStatisticsData())
+                try self.db.executeUpdate("INSERT INTO user_data_table (dTime, dTimeInterval, distance, aTimeInterval, dTS, dTH, avgSpeed,speedsTableName) VALUSE (?,?,?,?,?,?,?,?)", values: collector.statisticsData())
                 print("Inserted one data into user_data_table")
-                let createDActionsTableSql = "CREATE TABLE IF NOT EXISTS \(data.dActionsTableName()) (time REAL NOT NULL PRIMARY KEY, dAction INTEGER)"
-                let createSpeedsTableSql = "CREATE TABLE IF NOT EXISTS \(data.speedsTableName()) (time REAL NOT NULL PRIMARY KEY, speed REAL)"
-                self.db.executeStatements(createDActionsTableSql)
-                self.db.executeStatements(createSpeedsTableSql)
+                if let dangerousActionsData = collector.dangerousActionsData() {
+                    for dActionData in dangerousActionsData {
+                        try self.db.executeUpdate("INSERT INTO user_dangerous_actions_table (id, driveTimeInterval, sTimeInterval, dAction, eTimeInterval) VALUSE (NULL,?,?,?,?)", values: dActionData)
+                    }
+                }
+                if let speedsData = collector.speedsData() {
+                    let createSpeedsTableSql = "CREATE TABLE IF NOT EXISTS \(collector.speedsTableName()) (timeInterval REAL NOT NULL PRIMARY KEY, speed REAL)"
+                    self.db.executeStatements(createSpeedsTableSql)
+                    for speedData in speedsData {
+                        try self.db.executeUpdate("INSERT INTO \(collector.speedsTableName()) (timeInterval, speed) VALUES (?,?)", values: speedData)
+                    }
+                }
                 
                 self.close()
                 return true

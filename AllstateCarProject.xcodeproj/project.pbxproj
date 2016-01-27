@@ -14,9 +14,9 @@
 		32D567291C556ACE008EB5EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D567271C556ACE008EB5EF /* LaunchScreen.storyboard */; };
 		32D567341C556ACE008EB5EF /* AllstateCarProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D567331C556ACE008EB5EF /* AllstateCarProjectTests.swift */; };
 		32D5673F1C556ACF008EB5EF /* AllstateCarProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5673E1C556ACF008EB5EF /* AllstateCarProjectUITests.swift */; };
-		32D5674D1C556BAF008EB5EF /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5674C1C556BAF008EB5EF /* DataBaseManager.swift */; settings = {ASSET_TAGS = (); }; };
-		32D5674F1C55871F008EB5EF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5674E1C55871F008EB5EF /* Data.swift */; settings = {ASSET_TAGS = (); }; };
-		32D567531C55C5B9008EB5EF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D567521C55C5B9008EB5EF /* Extension.swift */; settings = {ASSET_TAGS = (); }; };
+		32D5674D1C556BAF008EB5EF /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5674C1C556BAF008EB5EF /* DataBaseManager.swift */; };
+		32D5674F1C55871F008EB5EF /* DataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5674E1C55871F008EB5EF /* DataCollector.swift */; };
+		32D567531C55C5B9008EB5EF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D567521C55C5B9008EB5EF /* Extension.swift */; };
 		91019BB30FE2420D5A256D5F /* Pods_AllstateCarProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C1481B48EEC01BE1EEC5CD /* Pods_AllstateCarProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +54,7 @@
 		32D5673E1C556ACF008EB5EF /* AllstateCarProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllstateCarProjectUITests.swift; sourceTree = "<group>"; };
 		32D567401C556ACF008EB5EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32D5674C1C556BAF008EB5EF /* DataBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
-		32D5674E1C55871F008EB5EF /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		32D5674E1C55871F008EB5EF /* DataCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCollector.swift; sourceTree = "<group>"; };
 		32D567521C55C5B9008EB5EF /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = ../Extension.swift; sourceTree = "<group>"; };
 		C8A5C1620A1ACCD523CB01FB /* Pods-AllstateCarProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllstateCarProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-AllstateCarProject/Pods-AllstateCarProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,7 +118,7 @@
 				32D567271C556ACE008EB5EF /* LaunchScreen.storyboard */,
 				32D5672A1C556ACE008EB5EF /* Info.plist */,
 				32D5674C1C556BAF008EB5EF /* DataBaseManager.swift */,
-				32D5674E1C55871F008EB5EF /* Data.swift */,
+				32D5674E1C55871F008EB5EF /* DataCollector.swift */,
 			);
 			path = AllstateCarProject;
 			sourceTree = "<group>";
@@ -346,7 +346,7 @@
 				32D567211C556ACE008EB5EF /* ViewController.swift in Sources */,
 				32D5674D1C556BAF008EB5EF /* DataBaseManager.swift in Sources */,
 				32D5671F1C556ACE008EB5EF /* AppDelegate.swift in Sources */,
-				32D5674F1C55871F008EB5EF /* Data.swift in Sources */,
+				32D5674F1C55871F008EB5EF /* DataCollector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

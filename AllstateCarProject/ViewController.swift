@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let date = NSDate()
+      /*  let date = NSDate()
         var dAS = DangerousActionSet()
         dAS.addAction(DangerousActionType.MicTooLoud, time: NSDate())
         var sA = SpeedArr()
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         let data = Data(departureTime: date, dangerousActionSet: dAS, speedArr: sA, distance: 0.0, arrivalTime: date.dateByAddingTimeInterval(999))
         DataBaseManager.defaultManager().insertData(data)
         //let datas = DataBaseManager.defaultManager().getAllData()
-        print(datas[0].departureTime.toString())
+        print(datas[0].departureTime.toString())*/
     }
 
     override func didReceiveMemoryWarning() {
