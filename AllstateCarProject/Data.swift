@@ -8,14 +8,14 @@
 
 import Foundation
 
-enum DangerousActionType {
+enum DangerousActionTypes {
     case LookPhone
     case MicTooLoud
     case OverSpeeded
     
 }
 
-struct DangerousActionSet {
+/*struct DangerousActionSet {
     private var result: [(DangerousActionType,NSDate)]
     
     init(){
@@ -67,13 +67,13 @@ struct SpeedArr {
     func encodeToNSData() -> NSData {
         return NSData(bytes: result, length: result.count * sizeof(Double))
     }
-}
+}*/
 
 struct Data {
     
     let departureTime: NSDate
-    let dangerousActionSet: DangerousActionSet
-    let speedArr: SpeedArr
+    var dangerousActionSet = [(NSDate, DangerousActionTypes)]()
+    var speedArr = [(NSDate, Double)]()
     let distance: Double
     let arrivalTime: NSDate
     let drivingTimeSecond: Int
@@ -83,7 +83,7 @@ struct Data {
     
     
     
-    init(departureTime: NSDate, dangerousActionSet: DangerousActionSet, speedArr: SpeedArr, distance: Double, arrivalTime: NSDate) {
+    init(departureTime: NSDate, dangerousActionSet: [(NSDate, DangerousActionTypes)], speedArr: [(NSDate, Double)], distance: Double, arrivalTime: NSDate) {
         self.departureTime = departureTime
         self.dangerousActionSet = dangerousActionSet
         self.speedArr = speedArr
@@ -98,16 +98,24 @@ struct Data {
     // Data which save in DB
     // [0] dTime               TEXT   PRIMARY KEY
     // [1] dTimeInterval       REAL
-    // [2] dangerousActionSet  BLOB
-    // [3] speedArr            BLOB
-    // [4] distance            REAL
-    // [5] aTimeInterval       REAL
-    // [6] dTS                 INTEGER
-    // [7] dTH                 REAL
-    // [8] avgSpeed            REAL
+    // [2] distance            REAL
+    // [3] aTimeInterval       REAL
+    // [4] dTS                 INTEGER
+    // [5] dTH                 REAL
+    // [6] avgSpeed            REAL
+    // [7] speedTableName      TEXT
+    // [8] dActionsTableName   TEXT
     
-    func toArray() -> [AnyObject] {
-        return [departureTime.toString(), departureTime.timeIntervalSince1970, dangerousActionSet.encodeToNSData(), speedArr.encodeToNSData(), distance, arrivalTime.timeIntervalSince1970, drivingTimeSecond, drivingTimeHour ,avgSpeed]
+    func createStatisticsData() -> [AnyObject] {
+        return [departureTime.toString(), departureTime.timeIntervalSince1970, distance, arrivalTime.timeIntervalSince1970, drivingTimeSecond, drivingTimeHour ,avgSpeed, "\(departureTime.timeIntervalSince1970)_speed_table", "\(departureTime.timeIntervalSince1970)_dangerous_actions_table"]
+    }
+    
+    func dActionTableName() -> String {
+        return "\(departureTime.timeIntervalSince1970)_dangerous_actions_table"
+    }
+    
+    func speedArrTableName() -> String {
+        return "\(departureTime.timeIntervalSince1970)_speed_table"
     }
     
     

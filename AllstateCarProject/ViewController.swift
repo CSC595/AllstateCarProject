@@ -22,8 +22,8 @@ class ViewController: UIViewController {
         sA.addAction(123.3)
         let data = Data(departureTime: date, dangerousActionSet: dAS, speedArr: sA, distance: 0.0, arrivalTime: date.dateByAddingTimeInterval(999))
         DataBaseManager.defaultManager().insertData(data)
-        let datas = DataBaseManager.defaultManager().getAllData()
-        print(datas.count)
+        //let datas = DataBaseManager.defaultManager().getAllData()
+        print(datas[0].departureTime.toString())
     }
 
     override func didReceiveMemoryWarning() {

@@ -14,13 +14,13 @@ import FMDB
 // Data which save in DB
 // [0] dTime               TEXT   PRIMARY KEY
 // [1] dTimeInterval       REAL
-// [2] dangerousActionSet  BLOB
-// [3] speedArr            BLOB
-// [4] distance            REAL
-// [5] aTimeInterval       REAL
-// [6] dTS                 INTEGER
-// [7] dTH                 REAL
-// [8] avgSpeed            REAL
+// [2] distance            REAL
+// [3] aTimeInterval       REAL
+// [4] dTS                 INTEGER
+// [5] dTH                 REAL
+// [6] avgSpeed            REAL
+// [7] speedTableName   TEXT
+// [8] dActionsTableName   TEXT
 
 class DataBaseManager {
     var db:FMDatabase
@@ -50,7 +50,7 @@ class DataBaseManager {
         
         if !NSFileManager.defaultManager().fileExistsAtPath(self.dbPath) {
             if self.open() {
-                let sql = "CREATE TABLE IF NOT EXISTS user_data_table (dTime TEXT NOT NULL PRIMARY KEY, dTimeInterval REAL, dangerousActionSet BLOB, speedArr BLOB, distance REAL, aTimeInterval REAL, dTS INTEGER, dTH INTEGER, avgSpeed REAL)"
+                let sql = "CREATE TABLE IF NOT EXISTS user_data_table (dTime TEXT NOT NULL PRIMARY KEY, dTimeInterval REAL, distance REAL, aTimeInterval REAL, dTS INTEGER, dTH INTEGER, avgSpeed REAL, speedTableName TEXT, dActionTableName TEXT)"
                 
                 self.db.executeStatements(sql)
                 print("Creation Success")
@@ -77,9 +77,9 @@ class DataBaseManager {
     func insertData(data:Data) -> Bool{
         if db.open() {
             do{
-                try self.db.executeUpdate("insert into user_data_table (dTime, dTimeInterval, dangerousActionSet, speedArr, distance, aTimeInterval, dTS, dTH, avgSpeed) values (?,?,?,?,?,?,?,?,?)", values: data.toArray())
-                
+                try self.db.executeUpdate("insert into user_data_table (dTime, dTimeInterval, distance, aTimeInterval, dTS, dTH, avgSpeed,speedTableName, dActionTableName) values (?,?,?,?,?,?,?,?,?)", values: data.createStatisticsData())
                 print("Inserted one data")
+                
                 self.close()
                 return true
             }catch _ {
@@ -94,7 +94,7 @@ class DataBaseManager {
     }
     
     
-    func getAllData() -> [Data] {
+  /*  func getAllData() -> [Data] {
         if db.open() {
             var result = [Data]()
             do{
@@ -115,6 +115,6 @@ class DataBaseManager {
             print("Open error")
         }
         return []
-    }
+    }*/
     
 }
