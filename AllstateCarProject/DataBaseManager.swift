@@ -11,7 +11,7 @@ import FMDB
 
 
 
-// Data which save in DB
+// Data which save in "user_data_table"
 // [0] dTime               TEXT   PRIMARY KEY
 // [1] dTimeInterval       REAL
 // [2] distance            REAL
@@ -19,8 +19,22 @@ import FMDB
 // [4] dTS                 INTEGER
 // [5] dTH                 REAL
 // [6] avgSpeed            REAL
-// [7] speedTableName   TEXT
+// [7] speedsTableName     TEXT
 // [8] dActionsTableName   TEXT
+
+
+
+// Data which save in "\(departureTime.timeIntervalSince1970)_dangerous_actions_table"
+// [0] time                REAL
+// [1] dAction             INTEGER
+
+
+
+// Data which save in "\(departureTime.timeIntervalSince1970)_speeds_table"
+// [0] time                REAL
+// [1] speed               REAL
+
+
 
 class DataBaseManager {
     var db:FMDatabase
@@ -50,7 +64,7 @@ class DataBaseManager {
         
         if !NSFileManager.defaultManager().fileExistsAtPath(self.dbPath) {
             if self.open() {
-                let sql = "CREATE TABLE IF NOT EXISTS user_data_table (dTime TEXT NOT NULL PRIMARY KEY, dTimeInterval REAL, distance REAL, aTimeInterval REAL, dTS INTEGER, dTH INTEGER, avgSpeed REAL, speedTableName TEXT, dActionTableName TEXT)"
+                let sql = "CREATE TABLE IF NOT EXISTS user_data_table (dTime TEXT NOT NULL PRIMARY KEY, dTimeInterval REAL, distance REAL, aTimeInterval REAL, dTS INTEGER, dTH INTEGER, avgSpeed REAL, speedsTableName TEXT, dActionsTableName TEXT)"
                 
                 self.db.executeStatements(sql)
                 print("Creation Success")
@@ -77,8 +91,12 @@ class DataBaseManager {
     func insertData(data:Data) -> Bool{
         if db.open() {
             do{
-                try self.db.executeUpdate("insert into user_data_table (dTime, dTimeInterval, distance, aTimeInterval, dTS, dTH, avgSpeed,speedTableName, dActionTableName) values (?,?,?,?,?,?,?,?,?)", values: data.createStatisticsData())
-                print("Inserted one data")
+                try self.db.executeUpdate("insert into user_data_table (dTime, dTimeInterval, distance, aTimeInterval, dTS, dTH, avgSpeed,speedsTableName, dActionsTableName) values (?,?,?,?,?,?,?,?,?)", values: data.createStatisticsData())
+                print("Inserted one data into user_data_table")
+                let createDActionsTableSql = "CREATE TABLE IF NOT EXISTS \(data.dActionsTableName()) (time REAL NOT NULL PRIMARY KEY, dAction INTEGER)"
+                let createSpeedsTableSql = "CREATE TABLE IF NOT EXISTS \(data.speedsTableName()) (time REAL NOT NULL PRIMARY KEY, speed REAL)"
+                self.db.executeStatements(createDActionsTableSql)
+                self.db.executeStatements(createSpeedsTableSql)
                 
                 self.close()
                 return true

@@ -95,7 +95,7 @@ struct Data {
         
     }
     
-    // Data which save in DB
+    // Data which save in user_data_table
     // [0] dTime               TEXT   PRIMARY KEY
     // [1] dTimeInterval       REAL
     // [2] distance            REAL
@@ -103,19 +103,19 @@ struct Data {
     // [4] dTS                 INTEGER
     // [5] dTH                 REAL
     // [6] avgSpeed            REAL
-    // [7] speedTableName      TEXT
+    // [7] speedsTableName     TEXT
     // [8] dActionsTableName   TEXT
     
     func createStatisticsData() -> [AnyObject] {
-        return [departureTime.toString(), departureTime.timeIntervalSince1970, distance, arrivalTime.timeIntervalSince1970, drivingTimeSecond, drivingTimeHour ,avgSpeed, "\(departureTime.timeIntervalSince1970)_speed_table", "\(departureTime.timeIntervalSince1970)_dangerous_actions_table"]
+        return [departureTime.toString(), departureTime.timeIntervalSince1970, distance, arrivalTime.timeIntervalSince1970, drivingTimeSecond, drivingTimeHour ,avgSpeed, "\(departureTime.timeIntervalSince1970)_speeds_table", "\(departureTime.timeIntervalSince1970)_dangerous_actions_table"]
     }
     
-    func dActionTableName() -> String {
+    func dActionsTableName() -> String {
         return "\(departureTime.timeIntervalSince1970)_dangerous_actions_table"
     }
     
-    func speedArrTableName() -> String {
-        return "\(departureTime.timeIntervalSince1970)_speed_table"
+    func speedsTableName() -> String {
+        return "\(departureTime.timeIntervalSince1970)_speeds_table"
     }
     
     
