@@ -138,7 +138,7 @@ class DataCollector {
         }
     }
     
-    func collectingSpeed(arr:[(NSDate, Double)]) {
+    func collectingSpeeds(arr:[(NSDate, Double)]) {
         speedArr = arr
     }
     
@@ -147,7 +147,8 @@ class DataCollector {
     // Data Sending Part
     func statisticsData() -> [AnyObject]? {
         if let departureTime = self.departureTime, let distance = self.distance, let arrivalTime = self.arrivalTime, let drivingTimeSecond = self.drivingTimeSecond, let drivingTimeHour = self.drivingTimeHour, let avgSpeed = self.avgSpeed {
-            return [departureTime.toString(), departureTime.timeIntervalSince1970, distance, arrivalTime.timeIntervalSince1970, drivingTimeSecond, drivingTimeHour ,avgSpeed, "\(departureTime.timeIntervalSince1970)_speeds_table"]
+            return [departureTime.toString(), departureTime.timeIntervalSince1970, distance, arrivalTime.timeIntervalSince1970, drivingTimeSecond, drivingTimeHour ,avgSpeed, departureTime.createSpeedsTableName()]
+            
         }
         return nil
     }
@@ -156,7 +157,7 @@ class DataCollector {
     
     func speedsTableName() -> String? {
         if let departureTime = self.departureTime {
-            return "\(departureTime.timeIntervalSince1970)_speeds_table"
+            return departureTime.createSpeedsTableName()
         }
         return nil
     }

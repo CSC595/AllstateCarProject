@@ -94,18 +94,23 @@ class DataBaseManager {
     func insert(collector: DataCollector) -> Bool{
         if db.open() {
             do{
-                try self.db.executeUpdate("INSERT INTO user_data_table (dTime, dTimeInterval, distance, aTimeInterval, dTS, dTH, avgSpeed,speedsTableName) VALUSE (?,?,?,?,?,?,?,?)", values: collector.statisticsData())
-                print("Inserted one data into user_data_table")
+                if let statisticsData = collector.statisticsData() {
+                    try self.db.executeUpdate("INSERT INTO user_data_table (dTime, dTimeInterval, distance, aTimeInterval, dTS, dTH, avgSpeed, speedsTableName) values (?,?,?,?,?,?,?,?)", values: statisticsData)
+                    print("Inserted one data into user_data_table")
+                }
                 if let dangerousActionsData = collector.dangerousActionsData() {
                     for dActionData in dangerousActionsData {
-                        try self.db.executeUpdate("INSERT INTO user_dangerous_actions_table (id, driveTimeInterval, sTimeInterval, dAction, eTimeInterval) VALUSE (NULL,?,?,?,?)", values: dActionData)
+                        try self.db.executeUpdate("INSERT INTO user_dangerous_actions_table (id, driveTimeInterval, sTimeInterval, dAction, eTimeInterval) values (NULL,?,?,?,?)", values: dActionData)
+                        print("Inserted one data into user_dangerous_actions_table")
                     }
                 }
-                if let speedsData = collector.speedsData() {
-                    let createSpeedsTableSql = "CREATE TABLE IF NOT EXISTS \(collector.speedsTableName()) (timeInterval REAL NOT NULL PRIMARY KEY, speed REAL)"
+                if let tableName = collector.speedsTableName(), let speedsData = collector.speedsData() {
+                    let createSpeedsTableSql = "CREATE TABLE IF NOT EXISTS \(tableName) (timeInterval REAL NOT NULL PRIMARY KEY, speed REAL)"
                     self.db.executeStatements(createSpeedsTableSql)
+                    print("success")
                     for speedData in speedsData {
-                        try self.db.executeUpdate("INSERT INTO \(collector.speedsTableName()) (timeInterval, speed) VALUES (?,?)", values: speedData)
+                        try self.db.executeUpdate("INSERT INTO \(tableName) (timeInterval, speed) values (?,?)", values: speedData)
+                        print("Inserted one data into \(tableName)")
                     }
                 }
                 

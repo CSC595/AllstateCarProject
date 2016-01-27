@@ -16,6 +16,11 @@ extension NSDate {
         return dateFormatter.stringFromDate(self)
     }
     
+    func createSpeedsTableName() -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmmss"
+        return "speeds_table_\(dateFormatter.stringFromDate(self))"
+    }
     
     func durationSeconds(date: NSDate) -> Int {
         return Int(self.timeIntervalSince1970) - Int(date.timeIntervalSince1970)
