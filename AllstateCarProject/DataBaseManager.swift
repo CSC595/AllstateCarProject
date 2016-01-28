@@ -32,7 +32,7 @@ import FMDB
 
 
 
-// Data which save in "\(departureTime.timeIntervalSince1970)_speeds_table"
+// Data which save in "\(dTimeInterval.createSpeedsTableName())"
 // [0] timeInterval        REAL
 // [1] speed               REAL
 
@@ -128,17 +128,82 @@ class DataBaseManager {
     }
     
     
-  /*  func getAllData() -> [Data] {
+    
+    func loadData() -> [Data] {
         if db.open() {
             var result = [Data]()
             do{
-                let rs = try self.db.executeQuery("select * from user_data_table", values:nil)
-                while rs.next() {
-                    let data = Data(departureTime: NSDate(timeIntervalSince1970: rs.doubleForColumn("dTimeInterval")), dangerousActionSet: DangerousActionSet(data: rs.dataForColumn("dangerousActionSet")), speedArr: SpeedArr(data: rs.dataForColumn("speedArr")), distance: rs.doubleForColumn("distance"), arrivalTime: NSDate(timeIntervalSince1970: rs.doubleForColumn("aTimeInterval")))
-                    result.append(data)
+                let dAResult = try self.db.executeQuery("SELECT * FROM user_dangerous_actions_table ORDER BY driveTimeInterval ASC, sTimeInterval ASC", values: nil)
+                var allDangerousActionsData = [NSDate:[(NSDate, DangerousActionTypes, NSDate)]]()
+                
+                if dAResult.next()  {
+                    var tmpDangerousActionsSet = [(NSDate, DangerousActionTypes, NSDate)]()
+                    var drivingTime = dAResult.doubleForColumn("driveTimeInterval")
+                    switch dAResult.stringForColumn("dAction") {
+                    case "Look Phone":
+                        tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.LookPhone, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
+                    case "Mic Too Loud":
+                        tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.MicTooLoud, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
+                    case "Over Speeded":
+                        tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.OverSpeeded, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
+                    default:
+                        break;
+                    }
+
+                    while dAResult.next() {
+                        if dAResult.doubleForColumn("driveTimeInterval") == drivingTime {
+                            switch dAResult.stringForColumn("dAction") {
+                            case "Look Phone":
+                                tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.LookPhone, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
+                            case "Mic Too Loud":
+                                tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.MicTooLoud, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
+                            case "Over Speeded":
+                                tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.OverSpeeded, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
+                            default:
+                                break;
+                            }
+                        } else {
+                            allDangerousActionsData[NSDate(timeIntervalSince1970: drivingTime)] = tmpDangerousActionsSet
+                            drivingTime = dAResult.doubleForColumn("driveTimeInterval")
+                            tmpDangerousActionsSet.removeAll()
+                            switch dAResult.stringForColumn("dAction") {
+                            case "Look Phone":
+                                tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.LookPhone, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
+                            case "Mic Too Loud":
+                                tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.MicTooLoud, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
+                            case "Over Speeded":
+                                tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.OverSpeeded, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
+                            default:
+                                break;
+                            }
+                        }
+                    }
+                }
+                
+
+                let userDataResult = try self.db.executeQuery("SELECT * FROM user_data_table ORDER BY dTimeInterval ASC", values: nil)
+                while userDataResult.next() {
+                    let departureTime = NSDate(timeIntervalSince1970: userDataResult.doubleForColumn("dTimeInterval"))
+                    let distance = userDataResult.doubleForColumn("distance")
+                    let arrivalTime = NSDate(timeIntervalSince1970: userDataResult.doubleForColumn("aTimeInterval"))
+                    let drivingTimeSecond = Int(userDataResult.intForColumn("dTS"))
+                    let drivingTimeHour = userDataResult.doubleForColumn("dTH")
+                    let avgSpeed = userDataResult.doubleForColumn("avgSpeed")
+                    let speedsTableName = userDataResult.stringForColumn("speedsTableName")
+                    let speedsResult = try self.db.executeQuery("SELECT * FROM \(speedsTableName) ORDER BY timeInterval ASC", values: nil)
+                    var speedArr = [(NSDate,Double)]()
+                    while speedsResult.next() {
+                        speedArr.append((NSDate(timeIntervalSince1970: speedsResult.doubleForColumn("timeInterval")),speedsResult.doubleForColumn("speed")))
+                    }
+                    if let dangerousActionSet = allDangerousActionsData[departureTime] {
+                        result.append(Data(departureTime: departureTime, dangerousActionSet: dangerousActionSet, speedArr: speedArr, distance: distance, arrivalTime: arrivalTime, drivingTimeSecond: drivingTimeSecond, drivingTimeHour: drivingTimeHour, avgSpeed: avgSpeed))
+                    } else {
+                        result.append(Data(departureTime: departureTime, dangerousActionSet: [], speedArr: speedArr, distance: distance, arrivalTime: arrivalTime, drivingTimeSecond: drivingTimeSecond, drivingTimeHour: drivingTimeHour, avgSpeed: avgSpeed))
+                    }
                     
                 }
-                print("Get Data")
+                
+                print("Get \(result.count) Data")
                 self.close()
                 return result
             }catch _ {
@@ -149,6 +214,6 @@ class DataBaseManager {
             print("Open error")
         }
         return []
-    }*/
+    }
     
 }

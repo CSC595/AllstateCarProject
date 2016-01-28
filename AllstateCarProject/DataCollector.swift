@@ -41,10 +41,8 @@ struct Data {
 }
 
 
-/*
 
 
-*/
 
 
 // Data which save in "user_data_table"
@@ -68,12 +66,14 @@ struct Data {
 
 
 
-// Data which save in "\(departureTime.timeIntervalSince1970)_speeds_table"
+// Data which save in "\(dTimeInterval.createSpeedsTableName())"
 // [0] timeInterval        REAL
 // [1] speed               REAL
 
 
 class DataCollector {
+    
+    
     
     private var departureTime: NSDate?
     private var dangerousActionSet = [(NSDate, DangerousActionTypes, NSDate)]()

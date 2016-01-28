@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		320D616E1C598D1200814A47 /* ShowDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */; };
 		32D5671F1C556ACE008EB5EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5671E1C556ACE008EB5EF /* AppDelegate.swift */; };
 		32D567211C556ACE008EB5EF /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D567201C556ACE008EB5EF /* DemoViewController.swift */; };
 		32D567241C556ACE008EB5EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D567221C556ACE008EB5EF /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		13C1481B48EEC01BE1EEC5CD /* Pods_AllstateCarProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllstateCarProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		242B5B4B15FC66E8AE8D4D0D /* Pods-AllstateCarProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllstateCarProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllstateCarProject/Pods-AllstateCarProject.debug.xcconfig"; sourceTree = "<group>"; };
+		320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDataTableViewController.swift; sourceTree = "<group>"; };
 		32D5671B1C556ACE008EB5EF /* AllstateCarProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllstateCarProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D5671E1C556ACE008EB5EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32D567201C556ACE008EB5EF /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				32D5672A1C556ACE008EB5EF /* Info.plist */,
 				32D5674C1C556BAF008EB5EF /* DataBaseManager.swift */,
 				32D5674E1C55871F008EB5EF /* DataCollector.swift */,
+				320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */,
 			);
 			path = AllstateCarProject;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				320D616E1C598D1200814A47 /* ShowDataTableViewController.swift in Sources */,
 				32D567531C55C5B9008EB5EF /* Extension.swift in Sources */,
 				32D567211C556ACE008EB5EF /* DemoViewController.swift in Sources */,
 				32D5674D1C556BAF008EB5EF /* DataBaseManager.swift in Sources */,
