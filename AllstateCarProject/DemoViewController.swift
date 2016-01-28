@@ -35,7 +35,6 @@ class DemoViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func buttonShow(isDriving: Bool) {
@@ -71,12 +70,12 @@ class DemoViewController: UIViewController {
     
     @IBAction func MicTooLoudButtonPressed(sender: UIButton) {
         DataCollector.defaultCollector().catchDangerousAciton(DangerousActionTypes.MicTooLoud)
-        timer2 = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: "MicTooLoudFinished", userInfo: nil, repeats: false)
+        timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "MicTooLoudFinished", userInfo: nil, repeats: false)
         sender.enabled = false
     }
     
     @IBAction func OverSpeededButtonPressed(sender: AnyObject) {
-        DataCollector.defaultCollector().catchDangerousAciton(DangerousActionTypes.MicTooLoud)
+        DataCollector.defaultCollector().catchDangerousAciton(DangerousActionTypes.OverSpeeded)
         timer3 = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "OverSpeededFinished", userInfo: nil, repeats: false)
         OverSpeededButton.enabled = false
     }
@@ -87,18 +86,19 @@ class DemoViewController: UIViewController {
         LookPhoneButton.enabled = true
     }
     func MicTooLoudFinished(){
-        DataCollector.defaultCollector().releaseDangerousAction(DangerousActionTypes.LookPhone)
+        DataCollector.defaultCollector().releaseDangerousAction(DangerousActionTypes.MicTooLoud)
         timer2?.invalidate()
         MicTooLoudButton.enabled = true
     }
     func OverSpeededFinished(){
-        DataCollector.defaultCollector().releaseDangerousAction(DangerousActionTypes.LookPhone)
+        DataCollector.defaultCollector().releaseDangerousAction(DangerousActionTypes.OverSpeeded)
         timer3?.invalidate()
         OverSpeededButton.enabled = true
     }
     func getSpeed() {
         tmpSpeedsArr.append((NSDate(),Double(lround((Double(arc4random()) / 0xFFFFFFFF  * (20 - 0) + 0) * 1000)) / 1000))
     }
+   
     
 
 }

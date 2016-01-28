@@ -16,27 +16,20 @@ class ShowDataTableViewController: UITableViewController {
         super.viewDidLoad()
         
         datas = DataBaseManager.defaultManager().loadData()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: Selector("loadData"), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refreshControl
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return datas.count
     }
 
@@ -46,12 +39,22 @@ class ShowDataTableViewController: UITableViewController {
         let data = datas[indexPath.row]
         
         cell.textLabel?.text = "Start Time: \(data.departureTime.toString())"
-        print("############################\nStart Time: \(data.departureTime.toString())\nEnd Time: \(data.arrivalTime.toString())\nDistance: \(data.distance)\nDurtion Hour: \(data.drivingTimeHour)\nDurtion Second: \(data.drivingTimeSecond)\nAvg Speed: \(data.avgSpeed)\n Number of Dangerous Actions: \(data.dangerousActionSet.count)\n############################")
         return cell
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
+        return 50
+    }
+    
+    func loadData() {
+        datas = DataBaseManager.defaultManager().loadData()
+        tableView.reloadData()
+        refreshControl?.endRefreshing()
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let data = datas[indexPath.row]
+        data.printSelf()
     }
     
 

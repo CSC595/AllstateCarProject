@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dUR-lG-wlW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dUR-lG-wlW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -54,10 +54,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jyG-kW-Qve">
                                 <rect key="frame" x="114" y="396" width="200" height="30"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jti-fW-Dpl">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jti-fW-Dpl">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bZR-0F-Xmb">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bZR-0F-Xmb">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="q9h-Am-cbC"/>
@@ -82,6 +82,7 @@
                             <constraint firstItem="saG-Fw-TEM" firstAttribute="leading" secondItem="f1Z-F5-Wts" secondAttribute="leadingMargin" constant="20" id="6gt-HZ-Uap"/>
                             <constraint firstItem="v1C-GY-ujw" firstAttribute="top" secondItem="cOA-dg-2Zk" secondAttribute="bottom" constant="100" id="Jjf-or-Bgf"/>
                             <constraint firstItem="36q-ZK-XHI" firstAttribute="top" secondItem="saG-Fw-TEM" secondAttribute="bottom" constant="100" id="S7g-Kk-kqw"/>
+                            <constraint firstItem="bZR-0F-Xmb" firstAttribute="top" secondItem="b0s-Vn-a9o" secondAttribute="bottom" constant="96" id="SHP-NA-Xl4"/>
                             <constraint firstItem="S2X-PE-OqQ" firstAttribute="leading" secondItem="f1Z-F5-Wts" secondAttribute="leadingMargin" constant="7" id="V9a-QZ-cLU"/>
                             <constraint firstItem="saG-Fw-TEM" firstAttribute="top" secondItem="pmt-hs-mQK" secondAttribute="bottom" constant="120" id="cdp-kU-bBd"/>
                             <constraint firstItem="b0s-Vn-a9o" firstAttribute="centerX" secondItem="f1Z-F5-Wts" secondAttribute="centerX" id="dQS-NR-aeJ"/>
@@ -91,6 +92,7 @@
                             <constraint firstItem="S2X-PE-OqQ" firstAttribute="top" secondItem="36q-ZK-XHI" secondAttribute="bottom" constant="100" id="p3E-XN-bLi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v1C-GY-ujw" secondAttribute="trailing" constant="-6" id="s6H-yh-nyi"/>
                             <constraint firstItem="36q-ZK-XHI" firstAttribute="leading" secondItem="f1Z-F5-Wts" secondAttribute="leadingMargin" constant="3" id="wJl-74-FKv"/>
+                            <constraint firstItem="bZR-0F-Xmb" firstAttribute="leading" secondItem="S2X-PE-OqQ" secondAttribute="trailing" constant="15" id="yth-qz-vNR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Demo" id="YEY-AW-5E9" userLabel="Demo"/>

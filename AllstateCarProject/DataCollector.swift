@@ -15,6 +15,22 @@ enum DangerousActionTypes:String {
     
 }
 
+
+/************************************************************************************************************************
+ //
+ // Data structure which save a whole trip data in it
+ //
+ // departureTime: Departure time of trip
+ // dangerousActionSet: Saved all dangerous Actions during this trip --> [(Strat time, Dangerous action type, End time)]
+ // speedArr: Save speed(mile/hour) data of whole trip --> [(Time point, Speed)]
+ // distane: Distance(mile) of one trip
+ // arrivaltime: Arrival time of trip
+ // driingTimeSecond: Time(second) spent in the trip
+ // duringTimeHour: Time(hour) Spent in the trip
+ // avgSpeed: Average speed(mile/hour) during whole trip
+ //
+ ************************************************************************************************************************/
+
 struct Data {
     let departureTime: NSDate
     let dangerousActionSet: [(NSDate, DangerousActionTypes, NSDate)]
@@ -35,41 +51,40 @@ struct Data {
         self.drivingTimeSecond = drivingTimeSecond
         self.drivingTimeHour = drivingTimeHour
         self.avgSpeed = avgSpeed
-        
-  
+    }
+    
+    /*************************
+     //
+     // Call to print itself
+     //
+     *************************/
+    func printSelf() {
+        print("############################\nStart Time: \(self.departureTime.toString())\nEnd Time: \(self.arrivalTime.toString())\nDistance: \(self.distance)\nDurtion Hour: \(self.drivingTimeHour)\nDurtion Second: \(self.drivingTimeSecond)\nAvg Speed: \(self.avgSpeed)\nNumber of Dangerous Actions: \(self.dangerousActionSet.count)")
+        for i in dangerousActionSet {
+            print("From \(i.0.toString()) to \(i.2.toString()): \(i.1.rawValue)")
+        }
+        for i in speedArr {
+            print("\(i.0.toString()): \(i.1) mile/h")
+        }
+        print("############################")
     }
 }
 
 
-
-
-
-
-// Data which save in "user_data_table"
-// [0] dTime               TEXT         PRIMARY KEY
-// [1] dTimeInterval       REAL
-// [2] distance            REAL
-// [3] aTimeInterval       REAL
-// [4] dTS                 INTEGER
-// [5] dTH                 REAL
-// [6] avgSpeed            REAL
-// [7] speedsTableName     TEXT
-
-
-
-// Data which save in "user_dangerous_actions_table"
-// [0] id                  INTEGER      PRIMARY KEY
-// [1] driveTimeInterval   REAL
-// [2] sTimeInterval       REAL
-// [3] dAction             TEXT
-// [4] eTimeInterval       REAL
-
-
-
-// Data which save in "\(dTimeInterval.createSpeedsTableName())"
-// [0] timeInterval        REAL
-// [1] speed               REAL
-
+/************************************************************************************************************************
+ //
+ // Singleton object used to collect driving data and save it to database
+ //
+ // departureTime: Departure time of trip
+ // dangerousActionSet: Saved all dangerous Actions during this trip --> [(Strat time, Dangerous action type, End time)]
+ // speedArr: Save speed(mile/hour) data of whole trip --> [(Time point, Speed)]
+ // distane: Distance(mile) of one trip
+ // arrivaltime: Arrival time of trip
+ // driingTimeSecond: Time(second) spent in the trip
+ // duringTimeHour: Time(hour) Spent in the trip
+ // avgSpeed: Average speed(mile/hour) during whole trip
+ //
+ ************************************************************************************************************************/
 
 class DataCollector {
     
@@ -108,11 +123,18 @@ class DataCollector {
         avgSpeed = nil
     }
     
-    //Data Collecting Part
+    /*********************************************************************************************
+     //
+     // Data collecting part
+     //
+     *********************************************************************************************/
+    
+    // Start a new collection
     func start() {
         departureTime = NSDate()
     }
     
+    // Finish the collection
     func end(distance: Double) {
         if let departureTime = self.departureTime {
             arrivalTime = NSDate()
@@ -123,37 +145,40 @@ class DataCollector {
             DataBaseManager.defaultManager().insert(self)
             initData()
         }
-        
     }
     
+    // Cell it when catch a dangerous action
     func catchDangerousAciton(type: DangerousActionTypes) {
         if tmpDangerousActions[type] == nil {
             tmpDangerousActions[type] = NSDate()
         }
     }
     
+    // Remember to release dangerous action
     func releaseDangerousAction(type: DangerousActionTypes) {
         if let startTime = tmpDangerousActions[type] {
             dangerousActionSet.append((startTime, type, NSDate()))
         }
     }
     
+    // This is just a interface to get the Speed. We'll use Allstate API to full it
     func collectingSpeeds(arr:[(NSDate, Double)]) {
         speedArr = arr
     }
     
     
     
-    // Data Sending Part
+    /*********************************************************************************************
+     //
+     // Data saving part
+     //
+     *********************************************************************************************/
     func statisticsData() -> [AnyObject]? {
         if let departureTime = self.departureTime, let distance = self.distance, let arrivalTime = self.arrivalTime, let drivingTimeSecond = self.drivingTimeSecond, let drivingTimeHour = self.drivingTimeHour, let avgSpeed = self.avgSpeed {
             return [departureTime.toString(), departureTime.timeIntervalSince1970, distance, arrivalTime.timeIntervalSince1970, drivingTimeSecond, drivingTimeHour ,avgSpeed, departureTime.createSpeedsTableName()]
-            
         }
         return nil
     }
-    
-    
     
     func speedsTableName() -> String? {
         if let departureTime = self.departureTime {
@@ -183,8 +208,6 @@ class DataCollector {
         }
         return nil
     }
-    
-    
     
 }
 

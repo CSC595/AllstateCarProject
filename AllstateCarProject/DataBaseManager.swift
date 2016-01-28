@@ -10,34 +10,44 @@ import Foundation
 import FMDB
 
 
-
-// Data which save in "user_data_table"
-// [0] dTime               TEXT         PRIMARY KEY
-// [1] dTimeInterval       REAL
-// [2] distance            REAL
-// [3] aTimeInterval       REAL
-// [4] dTS                 INTEGER
-// [5] dTH                 REAL
-// [6] avgSpeed            REAL
-// [7] speedsTableName     TEXT
-
-
-
-// Data which save in "user_dangerous_actions_table"
-// [0] id                  INTEGER      PRIMARY KEY
-// [1] driveTimeInterval   REAL
-// [2] sTimeInterval       REAL
-// [3] dAction             TEXT
-// [4] eTimeInterval       REAL
+/****************************************************************
+ 
+ // Data which save in "user_data_table"
+ // [0] dTime               TEXT         PRIMARY KEY
+ // [1] dTimeInterval       REAL
+ // [2] distance            REAL
+ // [3] aTimeInterval       REAL
+ // [4] dTS                 INTEGER
+ // [5] dTH                 REAL
+ // [6] avgSpeed            REAL
+ // [7] speedsTableName     TEXT
 
 
 
-// Data which save in "\(dTimeInterval.createSpeedsTableName())"
-// [0] timeInterval        REAL
-// [1] speed               REAL
+ // Data which save in "user_dangerous_actions_table"
+ // [0] id                  INTEGER      PRIMARY KEY
+ // [1] driveTimeInterval   REAL
+ // [2] sTimeInterval       REAL
+ // [3] dAction             TEXT
+ // [4] eTimeInterval       REAL
 
 
 
+ // Data which save in "\(dTimeInterval.createSpeedsTableName())"
+ // [0] timeInterval        REAL
+ // [1] speed               REAL
+ 
+****************************************************************/
+
+ 
+ 
+ 
+ 
+/*************************************************************************************************************************
+ //
+ // This is a singleton object to manage database
+ //
+ *************************************************************************************************************************/
 class DataBaseManager {
     var db:FMDatabase
     var dbPath: String
@@ -91,6 +101,12 @@ class DataBaseManager {
         return self.db.close()
     }
     
+    /******************************************************************************************
+     //
+     // This is called by DataCollector.defaultCollector() to insert driving data to database
+     //
+     ******************************************************************************************/
+    
     func insert(collector: DataCollector) -> Bool{
         if db.open() {
             do{
@@ -127,18 +143,22 @@ class DataBaseManager {
         return false
     }
     
-    
+    /******************************************************************************************
+     //
+     // Call this function to get all the data from database
+     //
+     ******************************************************************************************/
     
     func loadData() -> [Data] {
         if db.open() {
             var result = [Data]()
             do{
-                let dAResult = try self.db.executeQuery("SELECT * FROM user_dangerous_actions_table ORDER BY driveTimeInterval ASC, sTimeInterval ASC", values: nil)
+                let dAResult = try self.db.executeQuery("SELECT * FROM user_dangerous_actions_table ORDER BY driveTimeInterval ASC", values: nil)
                 var allDangerousActionsData = [NSDate:[(NSDate, DangerousActionTypes, NSDate)]]()
-                
+                var tmpDangerousActionsSet = [(NSDate, DangerousActionTypes, NSDate)]()
+                var drivingTime: Double?
                 if dAResult.next()  {
-                    var tmpDangerousActionsSet = [(NSDate, DangerousActionTypes, NSDate)]()
-                    var drivingTime = dAResult.doubleForColumn("driveTimeInterval")
+                    drivingTime = dAResult.doubleForColumn("driveTimeInterval")
                     switch dAResult.stringForColumn("dAction") {
                     case "Look Phone":
                         tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.LookPhone, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
@@ -163,7 +183,7 @@ class DataBaseManager {
                                 break;
                             }
                         } else {
-                            allDangerousActionsData[NSDate(timeIntervalSince1970: drivingTime)] = tmpDangerousActionsSet
+                            allDangerousActionsData[NSDate(timeIntervalSince1970: drivingTime!)] = tmpDangerousActionsSet
                             drivingTime = dAResult.doubleForColumn("driveTimeInterval")
                             tmpDangerousActionsSet.removeAll()
                             switch dAResult.stringForColumn("dAction") {
@@ -179,7 +199,9 @@ class DataBaseManager {
                         }
                     }
                 }
-                
+                if let d = drivingTime {
+                    allDangerousActionsData[NSDate(timeIntervalSince1970: d)] = tmpDangerousActionsSet
+                }
 
                 let userDataResult = try self.db.executeQuery("SELECT * FROM user_data_table ORDER BY dTimeInterval ASC", values: nil)
                 while userDataResult.next() {
@@ -200,9 +222,7 @@ class DataBaseManager {
                     } else {
                         result.append(Data(departureTime: departureTime, dangerousActionSet: [], speedArr: speedArr, distance: distance, arrivalTime: arrivalTime, drivingTimeSecond: drivingTimeSecond, drivingTimeHour: drivingTimeHour, avgSpeed: avgSpeed))
                     }
-                    
                 }
-                
                 print("Get \(result.count) Data")
                 self.close()
                 return result
