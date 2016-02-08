@@ -80,6 +80,16 @@ class DemoViewController: UIViewController {
         OverSpeededButton.enabled = false
     }
     
+    @IBAction func BeaconPressed(sender: AnyObject) {
+        
+        // Not Implemented
+        let controller = UIAlertController(title: "Not Implemented", message: nil, preferredStyle: .Alert)
+        let noAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+        controller.addAction(noAction)
+        presentViewController(controller, animated: true, completion: nil)
+        
+    }
+    
     func lookPhoneFinished() {
         DataCollector.defaultCollector().releaseDangerousAction(DangerousActionTypes.LookPhone)
         timer1?.invalidate()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		205409F91C69061300E13463 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205409F81C69061300E13463 /* MoreViewController.swift */; };
 		320D616E1C598D1200814A47 /* ShowDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */; };
 		32D5671F1C556ACE008EB5EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5671E1C556ACE008EB5EF /* AppDelegate.swift */; };
 		32D567211C556ACE008EB5EF /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D567201C556ACE008EB5EF /* DemoViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		13C1481B48EEC01BE1EEC5CD /* Pods_AllstateCarProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllstateCarProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		205409F81C69061300E13463 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		242B5B4B15FC66E8AE8D4D0D /* Pods-AllstateCarProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllstateCarProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllstateCarProject/Pods-AllstateCarProject.debug.xcconfig"; sourceTree = "<group>"; };
 		320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDataTableViewController.swift; sourceTree = "<group>"; };
 		32D5671B1C556ACE008EB5EF /* AllstateCarProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllstateCarProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				32D567521C55C5B9008EB5EF /* Extension.swift */,
 				32D5671E1C556ACE008EB5EF /* AppDelegate.swift */,
 				32D567221C556ACE008EB5EF /* Main.storyboard */,
+				205409F81C69061300E13463 /* MoreViewController.swift */,
 				32D567251C556ACE008EB5EF /* Assets.xcassets */,
 				32D567271C556ACE008EB5EF /* LaunchScreen.storyboard */,
 				32D5672A1C556ACE008EB5EF /* Info.plist */,
@@ -231,7 +234,7 @@
 				TargetAttributes = {
 					32D5671A1C556ACE008EB5EF = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 3YN8TBBFZ4;
+						DevelopmentTeam = 53QW47KCT9;
 					};
 					32D5672E1C556ACE008EB5EF = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -345,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205409F91C69061300E13463 /* MoreViewController.swift in Sources */,
 				320D616E1C598D1200814A47 /* ShowDataTableViewController.swift in Sources */,
 				32D567531C55C5B9008EB5EF /* Extension.swift in Sources */,
 				32D567211C556ACE008EB5EF /* DemoViewController.swift in Sources */,
@@ -491,10 +495,13 @@
 			baseConfigurationReference = 242B5B4B15FC66E8AE8D4D0D /* Pods-AllstateCarProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AllstateCarProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.depaul.csc471.AllstateCarProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -503,10 +510,13 @@
 			baseConfigurationReference = C8A5C1620A1ACCD523CB01FB /* Pods-AllstateCarProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AllstateCarProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.depaul.csc471.AllstateCarProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
