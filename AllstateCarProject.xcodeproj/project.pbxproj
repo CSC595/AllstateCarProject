@@ -117,7 +117,6 @@
 				32D567521C55C5B9008EB5EF /* Extension.swift */,
 				32D5671E1C556ACE008EB5EF /* AppDelegate.swift */,
 				32D567221C556ACE008EB5EF /* Main.storyboard */,
-				205409F81C69061300E13463 /* MoreViewController.swift */,
 				32D567251C556ACE008EB5EF /* Assets.xcassets */,
 				32D567271C556ACE008EB5EF /* LaunchScreen.storyboard */,
 				32D5672A1C556ACE008EB5EF /* Info.plist */,
@@ -125,6 +124,7 @@
 				32D5674E1C55871F008EB5EF /* DataCollector.swift */,
 				320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */,
 				32D567201C556ACE008EB5EF /* DemoViewController.swift */,
+				205409F81C69061300E13463 /* MoreViewController.swift */,
 			);
 			path = AllstateCarProject;
 			sourceTree = "<group>";

@@ -50,6 +50,7 @@ class DemoViewController: UIViewController {
         buttonShow(true)
         distanceTextField.text = "\(Double(lround((Double(arc4random()) / 0xFFFFFFFF  * (60 - 10) + 10) * 1000)) / 1000)"
         DataCollector.defaultCollector().start()
+        getSpeed()
         timer4 = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "getSpeed", userInfo: nil, repeats: true)
         
     }

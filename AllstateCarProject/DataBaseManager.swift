@@ -236,4 +236,36 @@ class DataBaseManager {
         return []
     }
     
+    /******************************************************************************************
+     //
+     // Call this function to delete old database and create new one
+     //
+     ******************************************************************************************/
+    
+    func clearData() -> Bool {
+        let dbDirectory = NSHomeDirectory() + "/Documents/database"
+        do {
+            try NSFileManager.defaultManager().removeItemAtPath(dbDirectory)
+            try NSFileManager.defaultManager().createDirectoryAtPath(dbDirectory, withIntermediateDirectories: false, attributes: nil)
+        } catch _ {
+            print("Clear Data error!")
+            return false
+        }
+        self.db = FMDatabase(path: self.dbPath)
+        if !NSFileManager.defaultManager().fileExistsAtPath(self.dbPath) {
+            if self.open() {
+                let sql1 = "CREATE TABLE IF NOT EXISTS user_data_table (dTime TEXT NOT NULL PRIMARY KEY, dTimeInterval REAL, distance REAL, aTimeInterval REAL, dTS INTEGER, dTH INTEGER, avgSpeed REAL, speedsTableName TEXT)"
+                let sql2 = "CREATE TABLE IF NOT EXISTS user_dangerous_actions_table (id INTEGER PRIMARY KEY, driveTimeInterval REAL, sTimeInterval REAL, dAction TEXT, eTimeInterval REAL)"
+                self.db.executeStatements(sql1)
+                self.db.executeStatements(sql2)
+                print("Clear Data Successful")
+                self.close()
+            }else {
+                print("Open error")
+                return false
+            }
+        }
+        return true
+    }
+    
 }

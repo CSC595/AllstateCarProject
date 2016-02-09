@@ -68,6 +68,23 @@ struct Data {
         }
         print("############################")
     }
+    
+    /*************************
+     //
+     // Data to String
+     //
+     *************************/
+    
+    func toString() -> String {
+        var str = "Start Time: \(self.departureTime.toString())\nEnd Time: \(self.arrivalTime.toString())\nDistance: \(self.distance)\nDurtion Hour: \(self.drivingTimeHour)\nDurtion Second: \(self.drivingTimeSecond)\nAvg Speed: \(self.avgSpeed)\nNumber of Dangerous Actions: \(self.dangerousActionSet.count)\n"
+        for i in dangerousActionSet {
+            str = str + "From \(i.0.toString()) to \(i.2.toString()): \(i.1.rawValue)\n"
+        }
+        for i in speedArr {
+            str = str + "\(i.0.toString()): \(i.1) mile/h\n"
+        }
+        return str
+    }
 }
 
 

@@ -12,7 +12,17 @@ class MoreViewController: UIViewController {
 
     
     @IBAction func ClearDataPressed(sender: AnyObject) {
-        notImplemented()
+        if DataBaseManager.defaultManager().clearData() {
+            let controller = UIAlertController(title: "Clear Successful", message: nil, preferredStyle: .Alert)
+            let noAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+            controller.addAction(noAction)
+            presentViewController(controller, animated: true, completion: nil)
+        } else {
+            let controller = UIAlertController(title: "Clear Error", message: nil, preferredStyle: .Alert)
+            let noAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+            controller.addAction(noAction)
+            presentViewController(controller, animated: true, completion: nil)
+        }
     }
     
     @IBAction func DebugModePressed(sender: AnyObject) {

@@ -20,6 +20,11 @@ class ShowDataTableViewController: UITableViewController {
         refreshControl.addTarget(self, action: Selector("loadData"), forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl = refreshControl
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        datas = DataBaseManager.defaultManager().loadData()
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
