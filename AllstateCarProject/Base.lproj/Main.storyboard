@@ -118,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="-511" y="-639"/>
         </scene>
-        <!--Data-->
+        <!--Trip History-->
         <scene sceneID="MVD-KB-wHP">
             <objects>
                 <tableViewController id="Otv-nD-kmx" customClass="ShowDataTableViewController" customModule="AllstateCarProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -127,13 +127,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="showData" id="i3u-Zo-Rlg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="showData" id="i3u-Zo-Rlg">
                                 <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i3u-Zo-Rlg" id="gcY-0T-apt">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="lMO-z5-c33" kind="show" id="fcV-3b-Tvn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -141,11 +144,96 @@
                             <outlet property="delegate" destination="Otv-nD-kmx" id="3UE-No-bi7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Data" id="Lk8-H9-UqJ"/>
+                    <navigationItem key="navigationItem" title="Trip History" id="Lk8-H9-UqJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rhq-eQ-uKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-27" y="203"/>
+        </scene>
+        <!--Summary-->
+        <scene sceneID="lGM-4B-zNF">
+            <objects>
+                <viewController id="lMO-z5-c33" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZtV-SG-n9o"/>
+                        <viewControllerLayoutGuide type="bottom" id="X4h-Gi-j8q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6VN-ab-lZ2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIr-KJ-ZmY" customClass="BooleanChart" customModule="AllstateCarProject" customModuleProvider="target">
+                                <rect key="frame" x="20" y="72" width="374" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face Detection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1n-RU-8nl">
+                                        <rect key="frame" x="129.5" y="65.5" width="115" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="n1n-RU-8nl" firstAttribute="centerX" secondItem="JIr-KJ-ZmY" secondAttribute="centerX" id="AEX-Pe-3kh"/>
+                                    <constraint firstItem="n1n-RU-8nl" firstAttribute="centerY" secondItem="JIr-KJ-ZmY" secondAttribute="centerY" id="OOE-V4-YID"/>
+                                    <constraint firstAttribute="height" constant="150" id="UFZ-QH-U1D"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhx-5d-lsZ" customClass="BooleanChart" customModule="AllstateCarProject" customModuleProvider="target">
+                                <rect key="frame" x="20" y="230" width="374" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Look Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIU-EW-lkJ">
+                                        <rect key="frame" x="142" y="65" width="90.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="HIU-EW-lkJ" firstAttribute="centerY" secondItem="Hhx-5d-lsZ" secondAttribute="centerY" id="dYR-jU-lgo"/>
+                                    <constraint firstAttribute="height" constant="150" id="eSd-X1-OT1"/>
+                                    <constraint firstItem="HIU-EW-lkJ" firstAttribute="centerX" secondItem="Hhx-5d-lsZ" secondAttribute="centerX" id="x1q-KS-aAy"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cR6-h9-3D8" customClass="BooleanChart" customModule="AllstateCarProject" customModuleProvider="target">
+                                <rect key="frame" x="20" y="388" width="374" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Microphone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpS-HM-a6A">
+                                        <rect key="frame" x="141" y="65" width="91.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="CJz-uN-dbs"/>
+                                    <constraint firstItem="GpS-HM-a6A" firstAttribute="centerY" secondItem="cR6-h9-3D8" secondAttribute="centerY" id="EhS-Ma-S26"/>
+                                    <constraint firstItem="GpS-HM-a6A" firstAttribute="centerX" secondItem="cR6-h9-3D8" secondAttribute="centerX" id="jE4-LC-bdZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hhx-5d-lsZ" firstAttribute="top" secondItem="JIr-KJ-ZmY" secondAttribute="bottom" constant="8" id="7Jc-2b-KiZ"/>
+                            <constraint firstItem="JIr-KJ-ZmY" firstAttribute="top" secondItem="ZtV-SG-n9o" secondAttribute="bottom" constant="8" id="BUO-xQ-02Z"/>
+                            <constraint firstItem="JIr-KJ-ZmY" firstAttribute="leading" secondItem="6VN-ab-lZ2" secondAttribute="leadingMargin" id="JtY-Gf-GSt"/>
+                            <constraint firstItem="Hhx-5d-lsZ" firstAttribute="leading" secondItem="6VN-ab-lZ2" secondAttribute="leadingMargin" id="RU4-5a-DJe"/>
+                            <constraint firstItem="cR6-h9-3D8" firstAttribute="top" secondItem="Hhx-5d-lsZ" secondAttribute="bottom" constant="8" id="Yl0-re-YA0"/>
+                            <constraint firstItem="JIr-KJ-ZmY" firstAttribute="trailing" secondItem="6VN-ab-lZ2" secondAttribute="trailingMargin" id="hp5-5f-IPs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hhx-5d-lsZ" secondAttribute="trailing" id="t26-9N-I84"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cR6-h9-3D8" secondAttribute="trailing" id="ypv-Ut-Il6"/>
+                            <constraint firstItem="cR6-h9-3D8" firstAttribute="leading" secondItem="6VN-ab-lZ2" secondAttribute="leadingMargin" id="z9S-Sv-7wc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Summary" id="DCO-Lv-rWr"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="736"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10s-X3-v3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="500" y="203"/>
         </scene>
         <!--showData-->
         <scene sceneID="asH-RX-XjS">
