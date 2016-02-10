@@ -22,6 +22,8 @@
 		32D5674D1C556BAF008EB5EF /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5674C1C556BAF008EB5EF /* DataBaseManager.swift */; };
 		32D5674F1C55871F008EB5EF /* DataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5674E1C55871F008EB5EF /* DataCollector.swift */; };
 		32D567531C55C5B9008EB5EF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D567521C55C5B9008EB5EF /* Extension.swift */; };
+		7C7DF2071C6BB24400B9499F /* BooleanChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DF2061C6BB24400B9499F /* BooleanChartData.swift */; };
+		7C7DF2091C6BB53B00B9499F /* RewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DF2081C6BB53B00B9499F /* RewardsViewController.swift */; };
 		91019BB30FE2420D5A256D5F /* Pods_AllstateCarProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C1481B48EEC01BE1EEC5CD /* Pods_AllstateCarProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		32D5674C1C556BAF008EB5EF /* DataBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		32D5674E1C55871F008EB5EF /* DataCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCollector.swift; sourceTree = "<group>"; };
 		32D567521C55C5B9008EB5EF /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = ../Extension.swift; sourceTree = "<group>"; };
+		7C7DF2061C6BB24400B9499F /* BooleanChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooleanChartData.swift; sourceTree = "<group>"; };
+		7C7DF2081C6BB53B00B9499F /* RewardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsViewController.swift; sourceTree = "<group>"; };
 		C8A5C1620A1ACCD523CB01FB /* Pods-AllstateCarProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllstateCarProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-AllstateCarProject/Pods-AllstateCarProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +124,7 @@
 		32D5671D1C556ACE008EB5EF /* AllstateCarProject */ = {
 			isa = PBXGroup;
 			children = (
+				7C7DF2061C6BB24400B9499F /* BooleanChartData.swift */,
 				32D567521C55C5B9008EB5EF /* Extension.swift */,
 				32D5671E1C556ACE008EB5EF /* AppDelegate.swift */,
 				32D567221C556ACE008EB5EF /* Main.storyboard */,
@@ -134,6 +139,7 @@
 				320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */,
 				32D567201C556ACE008EB5EF /* DemoViewController.swift */,
 				205409F81C69061300E13463 /* MoreViewController.swift */,
+				7C7DF2081C6BB53B00B9499F /* RewardsViewController.swift */,
 			);
 			path = AllstateCarProject;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				205409F91C69061300E13463 /* MoreViewController.swift in Sources */,
+				7C7DF2071C6BB24400B9499F /* BooleanChartData.swift in Sources */,
 				320D616E1C598D1200814A47 /* ShowDataTableViewController.swift in Sources */,
 				32D567531C55C5B9008EB5EF /* Extension.swift in Sources */,
 				32D567211C556ACE008EB5EF /* DemoViewController.swift in Sources */,
@@ -366,6 +373,7 @@
 				32D5671F1C556ACE008EB5EF /* AppDelegate.swift in Sources */,
 				32D5674F1C55871F008EB5EF /* DataCollector.swift in Sources */,
 				203255001C6A70E500A4C353 /* BooleanChart.swift in Sources */,
+				7C7DF2091C6BB53B00B9499F /* RewardsViewController.swift in Sources */,
 				203255021C6ABBFC00A4C353 /* SummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
