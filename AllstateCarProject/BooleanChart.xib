@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BooleanChart" customModule="AllstateCarProject" customModuleProvider="target">
             <connections>
+                <outlet property="chartSpace" destination="lnv-Jy-8yN" id="6ni-ia-xgb"/>
+                <outlet property="time" destination="gh2-PN-VNx" id="1WM-Uc-jIb"/>
+                <outlet property="title" destination="nFj-z3-OfK" id="E2V-mg-dd7"/>
                 <outlet property="view" destination="iN0-l3-epB" id="MeM-HP-kUP"/>
             </connections>
         </placeholder>

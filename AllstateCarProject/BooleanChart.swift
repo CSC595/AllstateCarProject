@@ -10,13 +10,13 @@ import UIKit
 
 class BooleanChart: UIView {
     
-    var resultArray:[Bool] = []
+    var data:Data?
+    var type:DangerousActionTypes?
     
     @IBOutlet var view: UIView!
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//    }
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var chartSpace: UIView!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -25,65 +25,88 @@ class BooleanChart: UIView {
         view.frame = self.bounds
     }
     
-    override func drawRect(rect: CGRect) {
-        //let path = UIBezierPath(rect: rect)
-        let count = resultArray.count
+    func setData(data:Data, type:DangerousActionTypes) {
         
-//        UIColor.grayColor().setFill()
-//        path.fill()
-        
-        if count == 0 {
-            return
+        switch(type) {
+        case DangerousActionTypes.LookPhone:
+            title.text = "Motion"
+        case DangerousActionTypes.MicTooLoud:
+            title.text = "Microphone"
+        case DangerousActionTypes.OverSpeeded:
+            title.text = "Speeding"
         }
         
-        // Drawing variables
-        var x:CGFloat = 0
-        let y:CGFloat = 0
-        let w:CGFloat = frame.width / CGFloat(count)
-        let h = frame.height
+        self.data = data
+        self.type = type
         
-        // Loop through the elments in the array
-        var index = 0
-        while index < count {
-            
-            let currentResult = resultArray[index]
-            
-            // Determine the next color
-            if resultArray[index] {
-                UIColor.greenColor().setFill()
-                UIColor.greenColor().setStroke()
-            }
-            else {
-                UIColor.redColor().setFill()
-                UIColor.redColor().setStroke()
-            }
-            
-            // Determine the size of the next color
-            var wNext:CGFloat = 0
-            while (index < resultArray.count && resultArray[index] == currentResult) {
-                wNext += w
-                index++
-            }
-            let resultPath = UIBezierPath(rect:CGRect(x: x, y: y, width: wNext, height: h))
-            //            UIGraphicsBeginImageContext(<#T##size: CGSize##CGSize#>)
-            //            UIGraphicsGetCurrentContext()
-            //            CGContextMoveToPoint(<#T##c: CGContext?##CGContext?#>, <#T##x: CGFloat##CGFloat#>, <#T##y: CGFloat##CGFloat#>)
-            //            CGContextAddLines(<#T##c: CGContext?##CGContext?#>, <#T##points: UnsafePointer<CGPoint>##UnsafePointer<CGPoint>#>, <#T##count: Int##Int#>)
-            //            let new = UIGraphicsGetImageFromCurrentImageContext()
-            
-            // Draw rectangle
-            resultPath.fill()
-            resultPath.stroke()
-            
-            // Increment to next rectangle
-            x += wNext
-            
-        }
-        
-    }
-    
-    func addResult(result: Bool) -> Void {
-        resultArray.append(result)
         setNeedsDisplay()
+    }
+    override func drawRect(rect: CGRect) {
+        
+        if let d = data {
+
+            let totalTime:Double = d.arrivalTime.timeIntervalSinceDate(d.departureTime)
+            
+            print("totalTime \(totalTime)")
+            
+        }
+        
+        
+        
+        
+//        //let path = UIBezierPath(rect: rect)
+//        let count = resultArray.count
+//        
+////        UIColor.grayColor().setFill()
+////        path.fill()
+//        
+//        if count == 0 {
+//            return
+//        }
+//        
+//        // Drawing variables
+//        var x:CGFloat = 0
+//        let y:CGFloat = 0
+//        let w:CGFloat = frame.width / CGFloat(count)
+//        let h = frame.height
+//        
+//        // Loop through the elments in the array
+//        var index = 0
+//        while index < count {
+//            
+//            let currentResult = resultArray[index]
+//            
+//            // Determine the next color
+//            if resultArray[index] {
+//                UIColor.greenColor().setFill()
+//                UIColor.greenColor().setStroke()
+//            }
+//            else {
+//                UIColor.redColor().setFill()
+//                UIColor.redColor().setStroke()
+//            }
+//            
+//            // Determine the size of the next color
+//            var wNext:CGFloat = 0
+//            while (index < resultArray.count && resultArray[index] == currentResult) {
+//                wNext += w
+//                index++
+//            }
+//            let resultPath = UIBezierPath(rect:CGRect(x: x, y: y, width: wNext, height: h))
+//            //            UIGraphicsBeginImageContext(<#T##size: CGSize##CGSize#>)
+//            //            UIGraphicsGetCurrentContext()
+//            //            CGContextMoveToPoint(<#T##c: CGContext?##CGContext?#>, <#T##x: CGFloat##CGFloat#>, <#T##y: CGFloat##CGFloat#>)
+//            //            CGContextAddLines(<#T##c: CGContext?##CGContext?#>, <#T##points: UnsafePointer<CGPoint>##UnsafePointer<CGPoint>#>, <#T##count: Int##Int#>)
+//            //            let new = UIGraphicsGetImageFromCurrentImageContext()
+//            
+//            // Draw rectangle
+//            resultPath.fill()
+//            resultPath.stroke()
+//            
+//            // Increment to next rectangle
+//            x += wNext
+//            
+//        }
+        
     }
 }

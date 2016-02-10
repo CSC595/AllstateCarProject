@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		203254FE1C6A69F100A4C353 /* BooleanChart.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203254FD1C6A69F100A4C353 /* BooleanChart.xib */; };
 		203255001C6A70E500A4C353 /* BooleanChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203254FF1C6A70E500A4C353 /* BooleanChart.swift */; };
+		203255021C6ABBFC00A4C353 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203255011C6ABBFC00A4C353 /* SummaryViewController.swift */; };
 		205409F91C69061300E13463 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205409F81C69061300E13463 /* MoreViewController.swift */; };
 		320D616E1C598D1200814A47 /* ShowDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */; };
 		32D5671F1C556ACE008EB5EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5671E1C556ACE008EB5EF /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 		13C1481B48EEC01BE1EEC5CD /* Pods_AllstateCarProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllstateCarProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		203254FD1C6A69F100A4C353 /* BooleanChart.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BooleanChart.xib; sourceTree = "<group>"; };
 		203254FF1C6A70E500A4C353 /* BooleanChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooleanChart.swift; sourceTree = "<group>"; };
+		203255011C6ABBFC00A4C353 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		205409F81C69061300E13463 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		242B5B4B15FC66E8AE8D4D0D /* Pods-AllstateCarProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllstateCarProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllstateCarProject/Pods-AllstateCarProject.debug.xcconfig"; sourceTree = "<group>"; };
 		320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDataTableViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				32D567521C55C5B9008EB5EF /* Extension.swift */,
 				32D5671E1C556ACE008EB5EF /* AppDelegate.swift */,
 				32D567221C556ACE008EB5EF /* Main.storyboard */,
+				203255011C6ABBFC00A4C353 /* SummaryViewController.swift */,
 				32D567251C556ACE008EB5EF /* Assets.xcassets */,
 				32D567271C556ACE008EB5EF /* LaunchScreen.storyboard */,
 				32D5672A1C556ACE008EB5EF /* Info.plist */,
@@ -363,6 +366,7 @@
 				32D5671F1C556ACE008EB5EF /* AppDelegate.swift in Sources */,
 				32D5674F1C55871F008EB5EF /* DataCollector.swift in Sources */,
 				203255001C6A70E500A4C353 /* BooleanChart.swift in Sources */,
+				203255021C6ABBFC00A4C353 /* SummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

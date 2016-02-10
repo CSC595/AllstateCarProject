@@ -62,6 +62,16 @@ class ShowDataTableViewController: UITableViewController {
         data.printSelf()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        // Get the sending cell
+        let senderCell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(senderCell)!
+        
+        // Get the destination VC and set the selected Item
+        let destinationVC = segue.destinationViewController as! SummaryViewController
+        destinationVC.data = datas[indexPath.row]
+    }
 
 
 }
