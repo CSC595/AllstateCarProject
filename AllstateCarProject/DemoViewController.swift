@@ -6,7 +6,10 @@
 //  Copyright © 2016 ZZC. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import AVFoundation
+import CoreAudio
 
 
 
@@ -25,11 +28,58 @@ class DemoViewController: UIViewController {
     var timer4: NSTimer?
     
     var tmpSpeedsArr = [(NSDate, Double)]()
-    
+
+    //sound
+    var recorder: AVAudioRecorder!
+    var levelTimer = NSTimer()
+    var lowPassResults: Double = 0.0
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonShow(false)
+
+        //make an AudioSession, set it to PlayAndRecord and make it active
+        let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        } catch _ {
+        }
+        do {
+            try audioSession.setActive(true)
+        } catch _ {
+        }
+
+        //set up the URL for the audio file
+        let documents: AnyObject = NSSearchPathForDirectoriesInDomains( NSSearchPathDirectory.DocumentDirectory,  NSSearchPathDomainMask.UserDomainMask, true)[0]
+        let str =  documents.stringByAppendingPathComponent("recordTest.caf")
+        let url = NSURL.fileURLWithPath(str as String)
+
+        // make a dictionary to hold the recording settings so we can instantiate our AVAudioRecorder
+        let recordSettings: [String : AnyObject]  = [
+            AVFormatIDKey:NSNumber(unsignedInt:kAudioFormatAppleIMA4),
+            AVSampleRateKey:44100.0,
+            AVNumberOfChannelsKey:2,AVEncoderBitRateKey:12800,
+            AVLinearPCMBitDepthKey:16,
+            AVEncoderAudioQualityKey:AVAudioQuality.Max.rawValue
+
+        ]
+
+
+
+
+        try! recorder = AVAudioRecorder(URL:url, settings: recordSettings)
+
+        //If there's an error, print it - otherwise, run prepareToRecord and meteringEnabled to turn on metering (must be run in that order)
+
+        recorder.prepareToRecord()
+        recorder.meteringEnabled = true
+
+        //start recording
+
+
+        //instantiate a timer to be called with whatever frequency we want to grab metering values
+        self.levelTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("levelTimerCallback"), userInfo: nil, repeats: true)
         
     }
 
@@ -70,9 +120,7 @@ class DemoViewController: UIViewController {
     }
     
     @IBAction func MicTooLoudButtonPressed(sender: UIButton) {
-        DataCollector.defaultCollector().catchDangerousAciton(DangerousActionTypes.MicTooLoud)
-        timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "MicTooLoudFinished", userInfo: nil, repeats: false)
-        sender.enabled = false
+        MicTooLoudStart()
     }
     
     @IBAction func OverSpeededButtonPressed(sender: AnyObject) {
@@ -96,6 +144,11 @@ class DemoViewController: UIViewController {
         timer1?.invalidate()
         LookPhoneButton.enabled = true
     }
+    func MicTooLoudStart(){
+        DataCollector.defaultCollector().catchDangerousAciton(DangerousActionTypes.MicTooLoud)
+        timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "MicTooLoudFinished", userInfo: nil, repeats: false)
+        MicTooLoudButton.enabled = false
+    }
     func MicTooLoudFinished(){
         DataCollector.defaultCollector().releaseDangerousAction(DangerousActionTypes.MicTooLoud)
         timer2?.invalidate()
@@ -108,6 +161,22 @@ class DemoViewController: UIViewController {
     }
     func getSpeed() {
         tmpSpeedsArr.append((NSDate(),Double(lround((Double(arc4random()) / 0xFFFFFFFF  * (20 - 0) + 0) * 1000)) / 1000))
+    }
+
+    //This selector/function is called every time our timer (levelTime) fires
+    func levelTimerCallback() {
+        //we have to update meters before we can get the metering values
+        recorder.record()
+        recorder.updateMeters()
+        if recorder.averagePowerForChannel(0) > -30 {
+            MicTooLoudStart()
+
+        } else {
+
+        }
+        recorder.stop()
+        
+        
     }
    
     
