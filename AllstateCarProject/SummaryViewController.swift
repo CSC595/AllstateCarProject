@@ -18,9 +18,13 @@ class SummaryViewController : UIViewController {
     
     override func viewDidLoad() {
         if let d = data {
-            motionChart.setData(d, type: DangerousActionTypes.LookPhone)
-            microphoneChart.setData(d, type: DangerousActionTypes.MicTooLoud)
-            
+            motionChart.setData(d, actionType: DangerousActionTypes.LookPhone)
+            microphoneChart.setData(d, actionType: DangerousActionTypes.MicTooLoud)
+            cameraChart.setData(d, actionType: DangerousActionTypes.OverSpeeded)
         }
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
     }
 }

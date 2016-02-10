@@ -4,30 +4,66 @@
 //
 //  Created by Martin Roeder on 1/23/16.
 //  Copyright © 2016. All rights reserved.
+//  http://supereasyapps.com/blog/2014/12/15/create-an-ibdesignable-uiview-subclass-with-code-from-an-xib-file-in-xcode-6
 
-import Foundation
 import UIKit
 
-class BooleanChart: UIView {
+@IBDesignable class BooleanChart: UIView {
     
-    var data:Data?
-    var type:DangerousActionTypes?
+    let nibName = "BooleanChart"
     
-    @IBOutlet var view: UIView!
+    @IBOutlet var view: UIView!    
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var chartSpace: UIView!
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        NSBundle.mainBundle().loadNibNamed("BooleanChart", owner: self, options: nil)[0] as! UIView
-        self.addSubview(view)
-        view.frame = self.bounds
+    @IBOutlet weak var dataSpace: BooleanChartData!
+    
+    func xibSetup() {
+        view = loadViewFromNib()
+        
+        // use bounds not frame or it'll be offset
+        view.frame = bounds
+        
+        // Make the view stretch with containing view
+        view.autoresizingMask = UIViewAutoresizing.FlexibleWidth.union(UIViewAutoresizing.FlexibleHeight)
+        
+        // Adding custom subview on top of our view (over any custom drawing > see note below)
+        addSubview(view)
+        
     }
     
-    func setData(data:Data, type:DangerousActionTypes) {
+    func loadViewFromNib() -> UIView {
         
-        switch(type) {
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        
+        return view
+    }
+    
+    override init(frame: CGRect) {
+        // 1. setup any properties here
+        
+        // 2. call super.init(frame:)
+        super.init(frame: frame)
+        
+        // 3. Setup view from .xib file
+        xibSetup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        // 1. setup any properties here
+        
+        // 2. call super.init(coder:)
+        super.init(coder: aDecoder)
+        
+        // 3. Setup view from .xib file
+        xibSetup()
+    }
+    
+    func setData(data:Data, actionType:DangerousActionTypes) {
+        
+        switch(actionType) {
         case DangerousActionTypes.LookPhone:
             title.text = "Motion"
         case DangerousActionTypes.MicTooLoud:
@@ -36,77 +72,18 @@ class BooleanChart: UIView {
             title.text = "Speeding"
         }
         
-        self.data = data
-        self.type = type
+        var totalTime:Double = 0
         
-        setNeedsDisplay()
-    }
-    override func drawRect(rect: CGRect) {
-        
-        if let d = data {
-
-            let totalTime:Double = d.arrivalTime.timeIntervalSinceDate(d.departureTime)
-            
-            print("totalTime \(totalTime)")
-            
+        for item in data.dangerousActionSet {
+            if (item.1 == actionType) {
+                totalTime += item.2.timeIntervalSinceDate(item.0)
+            }
         }
         
+        time.text = "\(round(totalTime)) s"
         
-        
-        
-//        //let path = UIBezierPath(rect: rect)
-//        let count = resultArray.count
-//        
-////        UIColor.grayColor().setFill()
-////        path.fill()
-//        
-//        if count == 0 {
-//            return
-//        }
-//        
-//        // Drawing variables
-//        var x:CGFloat = 0
-//        let y:CGFloat = 0
-//        let w:CGFloat = frame.width / CGFloat(count)
-//        let h = frame.height
-//        
-//        // Loop through the elments in the array
-//        var index = 0
-//        while index < count {
-//            
-//            let currentResult = resultArray[index]
-//            
-//            // Determine the next color
-//            if resultArray[index] {
-//                UIColor.greenColor().setFill()
-//                UIColor.greenColor().setStroke()
-//            }
-//            else {
-//                UIColor.redColor().setFill()
-//                UIColor.redColor().setStroke()
-//            }
-//            
-//            // Determine the size of the next color
-//            var wNext:CGFloat = 0
-//            while (index < resultArray.count && resultArray[index] == currentResult) {
-//                wNext += w
-//                index++
-//            }
-//            let resultPath = UIBezierPath(rect:CGRect(x: x, y: y, width: wNext, height: h))
-//            //            UIGraphicsBeginImageContext(<#T##size: CGSize##CGSize#>)
-//            //            UIGraphicsGetCurrentContext()
-//            //            CGContextMoveToPoint(<#T##c: CGContext?##CGContext?#>, <#T##x: CGFloat##CGFloat#>, <#T##y: CGFloat##CGFloat#>)
-//            //            CGContextAddLines(<#T##c: CGContext?##CGContext?#>, <#T##points: UnsafePointer<CGPoint>##UnsafePointer<CGPoint>#>, <#T##count: Int##Int#>)
-//            //            let new = UIGraphicsGetImageFromCurrentImageContext()
-//            
-//            // Draw rectangle
-//            resultPath.fill()
-//            resultPath.stroke()
-//            
-//            // Increment to next rectangle
-//            x += wNext
-//            
-//        }
-        
+        dataSpace.actionType = actionType
+        dataSpace.data = data
     }
+    
 }
