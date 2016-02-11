@@ -168,7 +168,7 @@ class DemoViewController: UIViewController {
         //we have to update meters before we can get the metering values
         recorder.record()
         recorder.updateMeters()
-        if recorder.averagePowerForChannel(0) > -30 {
+        if (recorder.averagePowerForChannel(0) > -30) && (MicTooLoudButton.enabled == true) {
             MicTooLoudStart()
 
         } else {
