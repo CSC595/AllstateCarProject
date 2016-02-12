@@ -14,8 +14,20 @@ import UIKit
     
     @IBOutlet var view: UIView!    
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     
+    @IBInspectable var Name: String {
+        get {
+            if let x = title.text {
+                return x
+            }
+            return ""
+        }
+        set(name) {
+            title.text = name
+        }
+    }
+        
     @IBOutlet weak var dataSpace: BooleanChartData!
     
     func xibSetup() {
@@ -62,25 +74,19 @@ import UIKit
     }
     
     func setData(data:Data, actionType:DangerousActionTypes) {
-        
-        switch(actionType) {
-        case DangerousActionTypes.LookPhone:
-            title.text = "Phone Motion"
-        case DangerousActionTypes.MicTooLoud:
-            title.text = "Noise Detected"
-        case DangerousActionTypes.OverSpeeded:
-            title.text = "Excessive Speed"
-        }
-        
-        var totalTime:Double = 0
+               
+        var distractionTime:Double = 0
         
         for item in data.dangerousActionSet {
             if (item.1 == actionType) {
-                totalTime += item.2.timeIntervalSinceDate(item.0)
+                distractionTime += item.2.timeIntervalSinceDate(item.0)
             }
         }
         
-        time.text = "\(round(totalTime)) s"
+        let totalTime = data.drivingTimeHour * 3600
+        
+        let score:Double = (totalTime - distractionTime) / totalTime * 100
+        scoreLabel.text = String(format: "%.0f%%", arguments: [score])
         
         dataSpace.actionType = actionType
         dataSpace.data = data
