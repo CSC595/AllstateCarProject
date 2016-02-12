@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+            <connections>
+                <outlet property="actionSwitch" destination="eW7-YJ-P02" id="qyi-ni-i3L"/>
+                <outlet property="debugData" destination="IIP-P3-7NZ" id="Sj8-Xd-r6b"/>
+                <outlet property="title" destination="5wI-Aa-0Fj" id="97U-2X-2k0"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Wio-Ua-vp6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="111"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eW7-YJ-P02">
+                    <rect key="frame" x="333" y="8" width="51" height="31"/>
+                    <connections>
+                        <action selector="switchTapped:" destination="-1" eventType="valueChanged" id="2PV-uO-cBl"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wI-Aa-0Fj">
+                    <rect key="frame" x="8" y="11" width="39" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debug Data" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIP-P3-7NZ">
+                    <rect key="frame" x="8" y="47" width="374" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="IIP-P3-7NZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="ADz-e9-ASG"/>
+                <constraint firstItem="5wI-Aa-0Fj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="VgN-Sv-IWH"/>
+                <constraint firstAttribute="trailingMargin" secondItem="IIP-P3-7NZ" secondAttribute="trailing" id="X5y-bv-dkV"/>
+                <constraint firstAttribute="trailingMargin" secondItem="eW7-YJ-P02" secondAttribute="trailing" id="YRy-hb-X4j"/>
+                <constraint firstItem="5wI-Aa-0Fj" firstAttribute="centerY" secondItem="eW7-YJ-P02" secondAttribute="centerY" id="ben-8P-OXp"/>
+                <constraint firstItem="eW7-YJ-P02" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="fJs-hR-DNv"/>
+                <constraint firstItem="IIP-P3-7NZ" firstAttribute="top" secondItem="eW7-YJ-P02" secondAttribute="bottom" constant="8" id="zgI-Bi-Acf"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33" y="-203.5"/>
+        </view>
+    </objects>
+</document>

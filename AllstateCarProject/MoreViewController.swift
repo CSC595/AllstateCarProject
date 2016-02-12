@@ -8,8 +8,11 @@
 
 import UIKit
 
-class MoreViewController: UIViewController {
+var debugMode_Global:Bool = true
 
+class MoreViewController: UIViewController {
+    
+    @IBOutlet weak var debugModeButton: UIButton!
     
     @IBAction func ClearDataPressed(sender: AnyObject) {
         if DataBaseManager.defaultManager().clearData() {
@@ -26,15 +29,18 @@ class MoreViewController: UIViewController {
     }
     
     @IBAction func DebugModePressed(sender: AnyObject) {
-        notImplemented()
+        
+        debugMode_Global = !debugMode_Global
+        
+        if (debugMode_Global) {
+            debugModeButton.setTitle("Debug Mode On", forState: .Normal)
+        }
+        else {
+            debugModeButton.setTitle("Debug Mode Off", forState: .Normal)
+        }
+        
     }
-    func notImplemented() {
-        // Not Implemented
-        let controller = UIAlertController(title: "Not Implemented", message: nil, preferredStyle: .Alert)
-        let noAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
-        controller.addAction(noAction)
-        presentViewController(controller, animated: true, completion: nil)
-    }
+    
     
     
     

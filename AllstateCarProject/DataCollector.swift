@@ -175,6 +175,7 @@ class DataCollector {
     func releaseDangerousAction(type: DangerousActionTypes) {
         if let startTime = tmpDangerousActions[type] {
             dangerousActionSet.append((startTime, type, NSDate()))
+            tmpDangerousActions[type] = nil
         }
     }
     

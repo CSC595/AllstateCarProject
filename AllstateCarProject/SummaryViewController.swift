@@ -9,22 +9,26 @@
 import UIKit
 
 class SummaryViewController : UIViewController {
+   
     
-    @IBOutlet weak var cameraChart: BooleanChart!
-    @IBOutlet weak var motionChart: BooleanChart!
-    @IBOutlet weak var microphoneChart: BooleanChart!
+    @IBOutlet weak var faceDetection: BooleanChart!
+    
+    @IBOutlet weak var phoneMotion: BooleanChart!
+    
+    @IBOutlet weak var noiseDetection: BooleanChart!
+    
+    @IBOutlet weak var excessiveSpeed: BooleanChart!
     
     var data:Data?
     
     override func viewDidLoad() {
         if let d = data {
-            motionChart.setData(d, actionType: DangerousActionTypes.LookPhone)
-            microphoneChart.setData(d, actionType: DangerousActionTypes.MicTooLoud)
-            cameraChart.setData(d, actionType: DangerousActionTypes.OverSpeeded)
+            // NEED AN ADDTION TO THE DANGEROUSACTIONTYPES ENUM
+            phoneMotion.setData(d, actionType: DangerousActionTypes.LookPhone)
+            noiseDetection.setData(d, actionType: DangerousActionTypes.MicTooLoud)
+            excessiveSpeed.setData(d, actionType: DangerousActionTypes.OverSpeeded)
         }
 
     }
     
-    override func viewDidAppear(animated: Bool) {
-    }
 }

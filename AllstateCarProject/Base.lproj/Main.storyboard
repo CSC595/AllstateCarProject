@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dUR-lG-wlW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dUR-lG-wlW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -8,7 +8,7 @@
         <!--Demo-->
         <scene sceneID="bCt-v1-BeZ">
             <objects>
-                <viewController id="wIE-26-1gB" userLabel="Demo" customClass="DemoViewController" customModule="AllstateCarProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wIE-26-1gB" userLabel="Demo" customClass="DashboardViewController" customModule="AllstateCarProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pmt-hs-mQK"/>
                         <viewControllerLayoutGuide type="bottom" id="mxR-gE-268"/>
@@ -17,101 +17,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saG-Fw-TEM">
-                                <rect key="frame" x="40" y="140" width="34" height="30"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="startButtonPressed:" destination="wIE-26-1gB" eventType="touchUpInside" id="CV3-QX-iHb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOA-dg-2Zk">
-                                <rect key="frame" x="342" y="140" width="32" height="30"/>
-                                <state key="normal" title="Stop"/>
-                                <connections>
-                                    <action selector="stopButtonPressed:" destination="wIE-26-1gB" eventType="touchUpInside" id="EPk-g1-IgP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36q-ZK-XHI">
-                                <rect key="frame" x="23" y="270" width="81" height="30"/>
-                                <state key="normal" title="Look Phone"/>
-                                <connections>
-                                    <action selector="LookPhoneButtonPressed:" destination="wIE-26-1gB" eventType="touchUpInside" id="O6Q-Bt-yHc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1C-GY-ujw">
-                                <rect key="frame" x="302" y="270" width="98" height="30"/>
-                                <state key="normal" title="Over Speeded"/>
-                                <connections>
-                                    <action selector="OverSpeededButtonPressed:" destination="wIE-26-1gB" eventType="touchUpInside" id="ngU-pU-KaA"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2X-PE-OqQ">
-                                <rect key="frame" x="27" y="400" width="72" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jyG-kW-Qve">
-                                <rect key="frame" x="114" y="396" width="200" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bah-Ql-3hJ">
+                                <rect key="frame" x="20" y="20" width="374" height="500"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jti-fW-Dpl">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bZR-0F-Xmb">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="q9h-Am-cbC"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EfY-eV-qKk" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="84"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Trip Detection"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFH-yP-lUV" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="84" width="374" height="83"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Face Detection"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHq-G8-g2O" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="167" width="374" height="84"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Phone Motion"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Khi-ET-76i" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="250" width="374" height="84"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Noise"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uY0-XK-dNj" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="334" width="374" height="83"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Excessive Speed"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4D-l1-BBw" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="417" width="374" height="84"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Beacon Detection"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="jHq-G8-g2O" firstAttribute="height" secondItem="QFH-yP-lUV" secondAttribute="height" id="9WF-RR-aRH"/>
+                                    <constraint firstItem="uY0-XK-dNj" firstAttribute="height" secondItem="Khi-ET-76i" secondAttribute="height" id="CNx-S1-dYm"/>
+                                    <constraint firstItem="EfY-eV-qKk" firstAttribute="height" secondItem="QFH-yP-lUV" secondAttribute="height" id="Uk7-7Z-rFZ"/>
+                                    <constraint firstItem="Khi-ET-76i" firstAttribute="height" secondItem="jHq-G8-g2O" secondAttribute="height" id="Whb-P7-AgP"/>
+                                    <constraint firstAttribute="height" constant="500" id="fZS-Oe-R0y"/>
+                                    <constraint firstItem="e4D-l1-BBw" firstAttribute="height" secondItem="uY0-XK-dNj" secondAttribute="height" id="gGw-h4-4hL"/>
+                                </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0s-Vn-a9o">
-                                <rect key="frame" x="161" y="270" width="92" height="30"/>
-                                <state key="normal" title="Mic Too Loud"/>
-                                <connections>
-                                    <action selector="MicTooLoudButtonPressed:" destination="wIE-26-1gB" eventType="touchUpInside" id="xYo-8V-CtT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mu-Y6-Lb6">
-                                <rect key="frame" x="163" y="140" width="89" height="30"/>
-                                <state key="normal" title="Near Beacon"/>
-                                <connections>
-                                    <action selector="BeaconPressed:" destination="wIE-26-1gB" eventType="touchUpInside" id="eLZ-Ic-nUs"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="saG-Fw-TEM" firstAttribute="leading" secondItem="f1Z-F5-Wts" secondAttribute="leadingMargin" constant="20" id="6gt-HZ-Uap"/>
-                            <constraint firstItem="v1C-GY-ujw" firstAttribute="top" secondItem="cOA-dg-2Zk" secondAttribute="bottom" constant="100" id="Jjf-or-Bgf"/>
-                            <constraint firstItem="36q-ZK-XHI" firstAttribute="top" secondItem="saG-Fw-TEM" secondAttribute="bottom" constant="100" id="S7g-Kk-kqw"/>
-                            <constraint firstItem="bZR-0F-Xmb" firstAttribute="top" secondItem="b0s-Vn-a9o" secondAttribute="bottom" constant="96" id="SHP-NA-Xl4"/>
-                            <constraint firstItem="S2X-PE-OqQ" firstAttribute="leading" secondItem="f1Z-F5-Wts" secondAttribute="leadingMargin" constant="7" id="V9a-QZ-cLU"/>
-                            <constraint firstItem="5Mu-Y6-Lb6" firstAttribute="top" secondItem="pmt-hs-mQK" secondAttribute="bottom" constant="120" id="Zed-6K-7o6"/>
-                            <constraint firstItem="saG-Fw-TEM" firstAttribute="top" secondItem="pmt-hs-mQK" secondAttribute="bottom" constant="120" id="cdp-kU-bBd"/>
-                            <constraint firstItem="b0s-Vn-a9o" firstAttribute="centerX" secondItem="f1Z-F5-Wts" secondAttribute="centerX" id="dQS-NR-aeJ"/>
-                            <constraint firstItem="cOA-dg-2Zk" firstAttribute="top" secondItem="pmt-hs-mQK" secondAttribute="bottom" constant="120" id="l0H-EK-f5z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cOA-dg-2Zk" secondAttribute="trailing" constant="20" id="mZA-vt-dsl"/>
-                            <constraint firstItem="5Mu-Y6-Lb6" firstAttribute="centerX" secondItem="f1Z-F5-Wts" secondAttribute="centerX" id="mvg-XH-fGL"/>
-                            <constraint firstItem="b0s-Vn-a9o" firstAttribute="top" secondItem="pmt-hs-mQK" secondAttribute="bottom" constant="250" id="oiS-nP-kgT"/>
-                            <constraint firstItem="S2X-PE-OqQ" firstAttribute="top" secondItem="36q-ZK-XHI" secondAttribute="bottom" constant="100" id="p3E-XN-bLi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="v1C-GY-ujw" secondAttribute="trailing" constant="-6" id="s6H-yh-nyi"/>
-                            <constraint firstItem="36q-ZK-XHI" firstAttribute="leading" secondItem="f1Z-F5-Wts" secondAttribute="leadingMargin" constant="3" id="wJl-74-FKv"/>
-                            <constraint firstItem="bZR-0F-Xmb" firstAttribute="leading" secondItem="S2X-PE-OqQ" secondAttribute="trailing" constant="15" id="yth-qz-vNR"/>
+                            <constraint firstItem="bah-Ql-3hJ" firstAttribute="top" secondItem="pmt-hs-mQK" secondAttribute="bottom" id="XHM-f5-5sZ"/>
+                            <constraint firstItem="bah-Ql-3hJ" firstAttribute="leading" secondItem="f1Z-F5-Wts" secondAttribute="leadingMargin" id="q1W-qc-5Vw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bah-Ql-3hJ" secondAttribute="trailing" id="rCx-tN-WTn"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="CarIcon" id="YEY-AW-5E9" userLabel="Demo"/>
                     <connections>
-                        <outlet property="LookPhoneButton" destination="36q-ZK-XHI" id="RQ2-yo-U8k"/>
-                        <outlet property="MicTooLoudButton" destination="b0s-Vn-a9o" id="g81-fr-xPW"/>
-                        <outlet property="OverSpeededButton" destination="v1C-GY-ujw" id="5k5-zP-2da"/>
-                        <outlet property="distanceTextField" destination="bZR-0F-Xmb" id="wRr-Ju-BbX"/>
-                        <outlet property="startButton" destination="saG-Fw-TEM" id="TFU-WX-EHG"/>
-                        <outlet property="stopButton" destination="cOA-dg-2Zk" id="iBL-GK-1bp"/>
+                        <outlet property="beaconDetection" destination="e4D-l1-BBw" id="gc1-RE-clX"/>
+                        <outlet property="excessiveSpeed" destination="uY0-XK-dNj" id="tpX-0G-ecs"/>
+                        <outlet property="faceDetection" destination="QFH-yP-lUV" id="sCo-PG-MZx"/>
+                        <outlet property="microphoneNoise" destination="Khi-ET-76i" id="Cg2-lm-HxP"/>
+                        <outlet property="phoneMotion" destination="jHq-G8-g2O" id="yZK-v7-UNy"/>
+                        <outlet property="tripDetection" destination="EfY-eV-qKk" id="vQe-m7-Wck"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RE1-0u-IOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,7 +107,7 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i3u-Zo-Rlg" id="gcY-0T-apt">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -163,12 +139,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIr-KJ-ZmY" customClass="BooleanChart" customModule="AllstateCarProject" customModuleProvider="target">
-                                <rect key="frame" x="20" y="72" width="374" height="150"/>
+                                <rect key="frame" x="20" y="72" width="374" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Face Detection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1n-RU-8nl">
-                                        <rect key="frame" x="130" y="66" width="115" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face Detection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1n-RU-8nl">
+                                        <rect key="frame" x="130" y="40" width="115" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -176,51 +152,71 @@
                                 <constraints>
                                     <constraint firstItem="n1n-RU-8nl" firstAttribute="centerX" secondItem="JIr-KJ-ZmY" secondAttribute="centerX" id="AEX-Pe-3kh"/>
                                     <constraint firstItem="n1n-RU-8nl" firstAttribute="centerY" secondItem="JIr-KJ-ZmY" secondAttribute="centerY" id="OOE-V4-YID"/>
-                                    <constraint firstAttribute="height" constant="150" id="UFZ-QH-U1D"/>
+                                    <constraint firstAttribute="height" constant="100" id="UFZ-QH-U1D"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhx-5d-lsZ" customClass="BooleanChart" customModule="AllstateCarProject" customModuleProvider="target">
-                                <rect key="frame" x="20" y="230" width="374" height="150"/>
+                                <rect key="frame" x="20" y="180" width="374" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Look Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIU-EW-lkJ">
-                                        <rect key="frame" x="142" y="65" width="91" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Motion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIU-EW-lkJ">
+                                        <rect key="frame" x="134" y="40.5" width="106" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="HIU-EW-lkJ" firstAttribute="centerY" secondItem="Hhx-5d-lsZ" secondAttribute="centerY" id="dYR-jU-lgo"/>
-                                    <constraint firstAttribute="height" constant="150" id="eSd-X1-OT1"/>
+                                    <constraint firstAttribute="height" constant="100" id="eSd-X1-OT1"/>
                                     <constraint firstItem="HIU-EW-lkJ" firstAttribute="centerX" secondItem="Hhx-5d-lsZ" secondAttribute="centerX" id="x1q-KS-aAy"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cR6-h9-3D8" customClass="BooleanChart" customModule="AllstateCarProject" customModuleProvider="target">
-                                <rect key="frame" x="20" y="388" width="374" height="150"/>
+                                <rect key="frame" x="20" y="288" width="374" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Microphone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpS-HM-a6A">
-                                        <rect key="frame" x="141" y="65" width="92" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noise Detection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpS-HM-a6A">
+                                        <rect key="frame" x="126" y="40.5" width="122.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="CJz-uN-dbs"/>
+                                    <constraint firstAttribute="height" constant="100" id="CJz-uN-dbs"/>
                                     <constraint firstItem="GpS-HM-a6A" firstAttribute="centerY" secondItem="cR6-h9-3D8" secondAttribute="centerY" id="EhS-Ma-S26"/>
                                     <constraint firstItem="GpS-HM-a6A" firstAttribute="centerX" secondItem="cR6-h9-3D8" secondAttribute="centerX" id="jE4-LC-bdZ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABZ-l1-pS8" customClass="BooleanChart" customModule="AllstateCarProject" customModuleProvider="target">
+                                <rect key="frame" x="20" y="396" width="374" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Excessive Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWA-em-8Du">
+                                        <rect key="frame" x="123" y="40.5" width="128.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="hWA-em-8Du" firstAttribute="centerX" secondItem="ABZ-l1-pS8" secondAttribute="centerX" id="JCf-B7-tai"/>
+                                    <constraint firstItem="hWA-em-8Du" firstAttribute="centerY" secondItem="ABZ-l1-pS8" secondAttribute="centerY" id="JZI-9D-2wr"/>
+                                    <constraint firstAttribute="height" constant="100" id="Kzd-bc-7I1"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Hhx-5d-lsZ" firstAttribute="top" secondItem="JIr-KJ-ZmY" secondAttribute="bottom" constant="8" id="7Jc-2b-KiZ"/>
+                            <constraint firstItem="ABZ-l1-pS8" firstAttribute="leading" secondItem="6VN-ab-lZ2" secondAttribute="leadingMargin" id="9Ve-W4-fbp"/>
                             <constraint firstItem="JIr-KJ-ZmY" firstAttribute="top" secondItem="ZtV-SG-n9o" secondAttribute="bottom" constant="8" id="BUO-xQ-02Z"/>
                             <constraint firstItem="JIr-KJ-ZmY" firstAttribute="leading" secondItem="6VN-ab-lZ2" secondAttribute="leadingMargin" id="JtY-Gf-GSt"/>
                             <constraint firstItem="Hhx-5d-lsZ" firstAttribute="leading" secondItem="6VN-ab-lZ2" secondAttribute="leadingMargin" id="RU4-5a-DJe"/>
                             <constraint firstItem="cR6-h9-3D8" firstAttribute="top" secondItem="Hhx-5d-lsZ" secondAttribute="bottom" constant="8" id="Yl0-re-YA0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ABZ-l1-pS8" secondAttribute="trailing" id="ZIa-tk-LiZ"/>
+                            <constraint firstItem="ABZ-l1-pS8" firstAttribute="top" secondItem="cR6-h9-3D8" secondAttribute="bottom" constant="8" id="eZ9-Z4-ocl"/>
                             <constraint firstItem="JIr-KJ-ZmY" firstAttribute="trailing" secondItem="6VN-ab-lZ2" secondAttribute="trailingMargin" id="hp5-5f-IPs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hhx-5d-lsZ" secondAttribute="trailing" id="t26-9N-I84"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cR6-h9-3D8" secondAttribute="trailing" id="ypv-Ut-Il6"/>
@@ -229,9 +225,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Summary" id="DCO-Lv-rWr"/>
                     <connections>
-                        <outlet property="cameraChart" destination="JIr-KJ-ZmY" id="S9u-2d-yk0"/>
-                        <outlet property="microphoneChart" destination="cR6-h9-3D8" id="IQh-2T-p8F"/>
-                        <outlet property="motionChart" destination="Hhx-5d-lsZ" id="Ibv-yJ-5tt"/>
+                        <outlet property="excessiveSpeed" destination="ABZ-l1-pS8" id="U08-o8-sTJ"/>
+                        <outlet property="faceDetection" destination="JIr-KJ-ZmY" id="dxS-yD-h0Y"/>
+                        <outlet property="noiseDetection" destination="cR6-h9-3D8" id="tKM-li-NSj"/>
+                        <outlet property="phoneMotion" destination="Hhx-5d-lsZ" id="5Ix-Gj-cEY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10s-X3-v3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -479,6 +476,9 @@ Distractions
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="more" id="9iQ-pP-Itl"/>
+                    <connections>
+                        <outlet property="debugModeButton" destination="0pZ-oz-jg7" id="stU-pX-YgH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1Y-nj-vpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
