@@ -17,6 +17,8 @@ class SummaryViewController : UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var driveTimeLabel: UILabel!
     @IBOutlet weak var averageSpeedLabel: UILabel!
+    
+    @IBOutlet weak var trafficScoreLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     
     @IBOutlet weak var faceDetection: BooleanChart!
@@ -26,20 +28,12 @@ class SummaryViewController : UIViewController {
     
     override func viewDidLoad() {
         
-        scrollView.contentSize.height = 700
+        scrollView.contentSize.height = 856
         
         if let d = data {
             
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "EEE MMM d, yyyy 'at' h:mm a"
-            dateLabel.text = dateFormatter.stringFromDate(d.departureTime)
-            
-            let hours:Double = d.drivingTimeHour
-            let minutes:Double = (hours - floor(hours)) * 60
-            let seconds:Double = (minutes - floor(minutes)) * 60
-            driveTimeLabel.text = String(format: "Duration %02.0f:%02.0f:%02.0f", arguments: [floor(hours), floor(minutes), floor(seconds)])
-            
-            averageSpeedLabel.text = String(format: "Average Speed %.1f mph", arguments: [d.avgSpeed])
+            averageSpeedLabel.text = getDurationString(d)
+            trafficScoreLabel.text = getTrafficScoreString(d)
 
             pointsLabel.text = "100"
             
@@ -50,6 +44,33 @@ class SummaryViewController : UIViewController {
             
         }
 
+    }
+    
+    func getDurationString(d:Data) -> String {
+
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEE MMM d, yyyy 'at' h:mm a"
+        dateLabel.text = dateFormatter.stringFromDate(d.departureTime)
+        
+        let hours:Double = d.drivingTimeHour
+        let minutes:Double = (hours - floor(hours)) * 60
+        let seconds:Double = (minutes - floor(minutes)) * 60
+        
+        return String(format: "Duration %02.0f:%02.0f:%02.0f", arguments: [floor(hours), floor(minutes), floor(seconds)])
+    }
+    
+    func getTrafficScoreString(d:Data) -> String {
+        
+        var slowSpeeds:Double = 0
+        for s in d.speedArr {
+            if (s.1 < 5.0) {
+                slowSpeeds++
+            }
+        }
+        let count = Double(d.speedArr.count)
+        let score = (count - slowSpeeds) / count * 100
+        
+        return String(format: "Traffic Score %.0f%%", arguments: [score])
     }
     
 }
