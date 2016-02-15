@@ -187,9 +187,9 @@ class DashboardViewController: UIViewController {
     }
         
     func getSpeed() {
-        let nextSpeed = (NSDate(), Double(lround((Double(arc4random()) / 0xFFFFFFFF * (20 - 0) + 0) * 1000)) / 1000)
+        let nextSpeed = (NSDate(), Double(lround((Double(arc4random()) / 0xFFFFFFFF * (90 - 0) + 0) * 1000)) / 1000)
         tripDetection.debugData.text = "Speed: \(nextSpeed.1) mph"
-        tmpSpeedsArr.append((NSDate(),Double(lround((Double(arc4random()) / 0xFFFFFFFF  * (20 - 0) + 0) * 1000)) / 1000))
+        tmpSpeedsArr.append((NSDate(),Double(lround((Double(arc4random()) / 0xFFFFFFFF  * (90 - 0) + 0) * 1000)) / 1000))
     }
 
 }

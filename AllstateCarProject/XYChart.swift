@@ -14,6 +14,7 @@ import UIKit
     
     @IBOutlet var view: UIView!
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var chartSpace: XYChartData!
     
     @IBInspectable var Name: String {
         get {
@@ -71,9 +72,9 @@ import UIKit
         xibSetup()
     }
     
-    func setData(data:Data, actionType:DangerousActionTypes) {
+    func setData(data:Data) {
         
-        // TODO
+        chartSpace.data = data
     }
     
 }

@@ -25,6 +25,7 @@ class SummaryViewController : UIViewController {
     @IBOutlet weak var phoneMotion: BooleanChart!
     @IBOutlet weak var noiseDetection: BooleanChart!
     @IBOutlet weak var excessiveSpeed: BooleanChart!
+    @IBOutlet weak var speedChart: XYChart!
     
     override func viewDidLoad() {
         
@@ -41,6 +42,8 @@ class SummaryViewController : UIViewController {
             phoneMotion.setData(d, actionType: DangerousActionTypes.LookPhone)
             noiseDetection.setData(d, actionType: DangerousActionTypes.MicTooLoud)
             excessiveSpeed.setData(d, actionType: DangerousActionTypes.OverSpeeded)
+            speedChart.setData(d)
+            
             
         }
 

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XYChart" customModule="AllstateCarProject" customModuleProvider="target">
             <connections>
+                <outlet property="chartSpace" destination="TMM-lf-g1p" id="Aon-Qb-HDb"/>
                 <outlet property="title" destination="1bm-Tx-VSE" id="Zhd-0J-Mxz"/>
                 <outlet property="view" destination="iN0-l3-epB" id="QdE-ic-0sb"/>
             </connections>
@@ -33,10 +34,6 @@
                         <constraint firstItem="1bm-Tx-VSE" firstAttribute="top" secondItem="osm-qY-c3d" secondAttribute="top" constant="4" id="D4S-ie-gKd"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMM-lf-g1p" userLabel="Chart">
-                    <rect key="frame" x="8" y="29" width="480" height="369"/>
-                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKo-a5-WLX" userLabel="Bottom View">
                     <rect key="frame" x="0.0" y="373" width="496" height="25"/>
                     <subviews>
@@ -54,10 +51,14 @@
                         <constraint firstAttribute="bottomMargin" secondItem="Qwe-Z2-pqP" secondAttribute="bottom" id="Ttd-9D-wl5"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMM-lf-g1p" userLabel="Chart" customClass="XYChartData" customModule="AllstateCarProject" customModuleProvider="target">
+                    <rect key="frame" x="8" y="29.5" width="480" height="343.5"/>
+                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="TMM-lf-g1p" firstAttribute="bottom" secondItem="IKo-a5-WLX" secondAttribute="bottom" id="GCh-wK-ybs"/>
+                <constraint firstItem="TMM-lf-g1p" firstAttribute="bottom" secondItem="IKo-a5-WLX" secondAttribute="top" id="GCh-wK-ybs"/>
                 <constraint firstAttribute="bottom" secondItem="IKo-a5-WLX" secondAttribute="bottom" id="WHj-m5-j0k"/>
                 <constraint firstItem="IKo-a5-WLX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aEB-KE-q7Q"/>
                 <constraint firstItem="TMM-lf-g1p" firstAttribute="top" secondItem="osm-qY-c3d" secondAttribute="bottom" id="bwj-MW-OJF"/>

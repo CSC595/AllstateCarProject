@@ -29,18 +29,12 @@ class BooleanChartData: UIView {
             let totalTime:Double = d.arrivalTime.timeIntervalSinceDate(d.departureTime)
             let scaleFactor:Double = Double(rect.width) / totalTime
             
-//            print("\ntotalTime \(totalTime)")
-//            print("scaleFactor \(scaleFactor)")
-            
             for item in d.dangerousActionSet {
                 
                 if (item.1 == actionType) {
                     
-//                    print("Action: \(item.1) Start: \(item.0) Stop: \(item.2)")
-                    
                     let xStart:Double = item.0.timeIntervalSinceDate(d.departureTime) * scaleFactor
                     let xWidth:Double = item.2.timeIntervalSinceDate(item.0) * scaleFactor
-//                    print("xStart: \(xStart) yStart: \(yStart) xWidth: \(xWidth) yHeight: \(yHeight)")
                     let path = UIBezierPath(rect: CGRect(x: xStart, y: yStart, width: xWidth, height: yHeight))
                     path.fill()
                     path.stroke()                                        

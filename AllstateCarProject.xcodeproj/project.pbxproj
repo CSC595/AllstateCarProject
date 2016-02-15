@@ -18,6 +18,7 @@
 		209ADB321C6C160900C9E3F8 /* DashboardItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 209ADB311C6C160900C9E3F8 /* DashboardItem.xib */; };
 		209ADB341C6C189100C9E3F8 /* DashboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209ADB331C6C189100C9E3F8 /* DashboardItem.swift */; };
 		209ADB361C6C218700C9E3F8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209ADB351C6C218700C9E3F8 /* DashboardViewController.swift */; };
+		20BAADB91C7130EA006BDB39 /* XYChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BAADB81C7130EA006BDB39 /* XYChartData.swift */; };
 		320D616E1C598D1200814A47 /* ShowDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */; };
 		32D5671F1C556ACE008EB5EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5671E1C556ACE008EB5EF /* AppDelegate.swift */; };
 		32D567211C556ACE008EB5EF /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D567201C556ACE008EB5EF /* DemoViewController.swift */; };
@@ -64,6 +65,7 @@
 		209ADB311C6C160900C9E3F8 /* DashboardItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardItem.xib; sourceTree = "<group>"; };
 		209ADB331C6C189100C9E3F8 /* DashboardItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardItem.swift; sourceTree = "<group>"; };
 		209ADB351C6C218700C9E3F8 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		20BAADB81C7130EA006BDB39 /* XYChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYChartData.swift; sourceTree = "<group>"; };
 		242B5B4B15FC66E8AE8D4D0D /* Pods-AllstateCarProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllstateCarProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllstateCarProject/Pods-AllstateCarProject.debug.xcconfig"; sourceTree = "<group>"; };
 		320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDataTableViewController.swift; sourceTree = "<group>"; };
 		32D5671B1C556ACE008EB5EF /* AllstateCarProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllstateCarProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 				7C7DF2061C6BB24400B9499F /* BooleanChartData.swift */,
 				2005A6E41C6FE00300B1452C /* XYChart.xib */,
 				20062A791C6FE59700EF9A68 /* XYChart.swift */,
+				20BAADB81C7130EA006BDB39 /* XYChartData.swift */,
 				320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */,
 				32D567201C556ACE008EB5EF /* DemoViewController.swift */,
 				209ADB351C6C218700C9E3F8 /* DashboardViewController.swift */,
@@ -391,6 +394,7 @@
 				205409F91C69061300E13463 /* MoreViewController.swift in Sources */,
 				7C7DF2071C6BB24400B9499F /* BooleanChartData.swift in Sources */,
 				320D616E1C598D1200814A47 /* ShowDataTableViewController.swift in Sources */,
+				20BAADB91C7130EA006BDB39 /* XYChartData.swift in Sources */,
 				32D567531C55C5B9008EB5EF /* Extension.swift in Sources */,
 				32D567211C556ACE008EB5EF /* DemoViewController.swift in Sources */,
 				209ADB341C6C189100C9E3F8 /* DashboardItem.swift in Sources */,
