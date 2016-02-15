@@ -24,11 +24,11 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time &gt;&gt;&gt;&gt;&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh9-md-G3f">
                             <rect key="frame" x="0.0" y="0.0" width="80.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Fh9-md-G3f" secondAttribute="bottom" id="QoB-Ur-eLe"/>
                         <constraint firstItem="Fh9-md-G3f" firstAttribute="leading" secondItem="TPO-zC-MFK" secondAttribute="leading" id="aHa-6D-dmI"/>
@@ -41,7 +41,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh2-PN-VNx">
                             <rect key="frame" x="562" y="5" width="42.5" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFj-z3-OfK">
@@ -51,7 +51,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="nFj-z3-OfK" secondAttribute="bottom" constant="4" id="8SM-3S-McV"/>
                         <constraint firstAttribute="bottom" secondItem="nFj-z3-OfK" secondAttribute="bottom" constant="6" id="AaG-9G-9zK"/>
@@ -74,7 +74,7 @@
                     <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="lnv-Jy-8yN" firstAttribute="top" secondItem="4MS-uU-A2K" secondAttribute="bottom" id="3qE-rh-StB"/>
                 <constraint firstItem="lnv-Jy-8yN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="6Q4-IS-eSZ"/>

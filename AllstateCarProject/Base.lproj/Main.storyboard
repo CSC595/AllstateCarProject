@@ -13,86 +13,161 @@
                         <viewControllerLayoutGuide type="top" id="pmt-hs-mQK"/>
                         <viewControllerLayoutGuide type="bottom" id="mxR-gE-268"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="f1Z-F5-Wts">
+                    <view key="view" contentMode="scaleToFill" id="le8-Go-ypQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bah-Ql-3hJ">
-                                <rect key="frame" x="20" y="20" width="374" height="500"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nge-jM-W3K">
+                                <rect key="frame" x="8" y="28" width="398" height="659"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EfY-eV-qKk" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="84"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Trip Detection"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFH-yP-lUV" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="84" width="374" height="83"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Face Detection"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHq-G8-g2O" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="167" width="374" height="84"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Phone Motion"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Khi-ET-76i" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="250" width="374" height="84"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Noise"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uY0-XK-dNj" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="334" width="374" height="83"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Excessive Speed"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4D-l1-BBw" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="417" width="374" height="84"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Beacon Detection"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7y-R1-vlZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="659"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPv-PL-AdK">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="616"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Distracted Driving Sensors" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1H-wh-yvp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="80"/>
+                                                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="O3y-6n-SbH"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRN-BW-7xD" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="88" width="398" height="80"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="J6f-i5-Cqr"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Trip Detection"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsJ-Sh-lwD" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="176" width="398" height="80"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="MSs-ln-hKD"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Face Detection"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icQ-fk-sVE" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="264" width="398" height="80"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="UbN-eP-DZa"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Phone Motion"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bnh-sk-Vca" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="352" width="398" height="80"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="dBJ-vB-aAd"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Noise"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdG-fz-aZv" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="528" width="398" height="80"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="cWA-pa-UP5"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Beacon Detection"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5c-zZ-a7O" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="440" width="398" height="80"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="Rmc-m7-y6W"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Excessive Speed"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="rsJ-Sh-lwD" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="227-FE-KLM"/>
+                                                    <constraint firstItem="sdG-fz-aZv" firstAttribute="top" secondItem="c5c-zZ-a7O" secondAttribute="bottom" constant="8" id="25c-Mt-E22"/>
+                                                    <constraint firstAttribute="trailing" secondItem="icQ-fk-sVE" secondAttribute="trailing" id="4DW-qA-dNG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="c5c-zZ-a7O" secondAttribute="trailing" id="85t-rA-ghy"/>
+                                                    <constraint firstItem="B1H-wh-yvp" firstAttribute="top" secondItem="GPv-PL-AdK" secondAttribute="top" id="FgV-hr-Gq5"/>
+                                                    <constraint firstItem="c5c-zZ-a7O" firstAttribute="top" secondItem="Bnh-sk-Vca" secondAttribute="bottom" constant="8" id="Fnu-qc-HCo"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Bnh-sk-Vca" secondAttribute="trailing" id="IeX-Lm-BCD"/>
+                                                    <constraint firstItem="rsJ-Sh-lwD" firstAttribute="top" secondItem="hRN-BW-7xD" secondAttribute="bottom" constant="8" id="JzQ-sU-1Zf"/>
+                                                    <constraint firstItem="sdG-fz-aZv" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="LDa-Lz-JTh"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rsJ-Sh-lwD" secondAttribute="trailing" id="M9b-4a-PmW"/>
+                                                    <constraint firstItem="Bnh-sk-Vca" firstAttribute="top" secondItem="icQ-fk-sVE" secondAttribute="bottom" constant="8" id="Ooc-Gy-35j"/>
+                                                    <constraint firstItem="icQ-fk-sVE" firstAttribute="top" secondItem="rsJ-Sh-lwD" secondAttribute="bottom" constant="8" id="TvD-CR-B76"/>
+                                                    <constraint firstItem="hRN-BW-7xD" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="VXS-An-rtN"/>
+                                                    <constraint firstItem="hRN-BW-7xD" firstAttribute="top" secondItem="B1H-wh-yvp" secondAttribute="bottom" constant="8" id="Wvz-ns-djt"/>
+                                                    <constraint firstAttribute="trailing" secondItem="sdG-fz-aZv" secondAttribute="trailing" id="Xnj-FO-nxj"/>
+                                                    <constraint firstAttribute="height" constant="616" id="ZBP-r4-3vv"/>
+                                                    <constraint firstAttribute="trailing" secondItem="B1H-wh-yvp" secondAttribute="trailing" id="bLg-5D-8Go"/>
+                                                    <constraint firstItem="B1H-wh-yvp" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="eaG-Q9-huK"/>
+                                                    <constraint firstItem="c5c-zZ-a7O" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="faw-g1-FOV"/>
+                                                    <constraint firstItem="Bnh-sk-Vca" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="j0j-21-wJO"/>
+                                                    <constraint firstItem="icQ-fk-sVE" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="lgW-nQ-wx7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hRN-BW-7xD" secondAttribute="trailing" id="pg9-wi-mij"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="GPv-PL-AdK" secondAttribute="bottom" id="KHd-qL-FYd"/>
+                                            <constraint firstItem="GPv-PL-AdK" firstAttribute="leading" secondItem="I7y-R1-vlZ" secondAttribute="leading" id="Xcv-ye-s0Y"/>
+                                            <constraint firstItem="GPv-PL-AdK" firstAttribute="width" secondItem="I7y-R1-vlZ" secondAttribute="width" id="ckJ-dy-zim"/>
+                                            <constraint firstItem="GPv-PL-AdK" firstAttribute="top" secondItem="I7y-R1-vlZ" secondAttribute="top" id="nB0-o6-Y9u"/>
+                                            <constraint firstItem="GPv-PL-AdK" firstAttribute="centerX" secondItem="I7y-R1-vlZ" secondAttribute="centerX" id="rKe-4k-AQg"/>
+                                            <constraint firstAttribute="trailing" secondItem="GPv-PL-AdK" secondAttribute="trailing" id="utk-bI-yRZ"/>
+                                        </constraints>
+                                    </scrollView>
                                 </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="jHq-G8-g2O" firstAttribute="height" secondItem="QFH-yP-lUV" secondAttribute="height" id="9WF-RR-aRH"/>
-                                    <constraint firstItem="uY0-XK-dNj" firstAttribute="height" secondItem="Khi-ET-76i" secondAttribute="height" id="CNx-S1-dYm"/>
-                                    <constraint firstItem="EfY-eV-qKk" firstAttribute="height" secondItem="QFH-yP-lUV" secondAttribute="height" id="Uk7-7Z-rFZ"/>
-                                    <constraint firstItem="Khi-ET-76i" firstAttribute="height" secondItem="jHq-G8-g2O" secondAttribute="height" id="Whb-P7-AgP"/>
-                                    <constraint firstAttribute="height" constant="500" id="fZS-Oe-R0y"/>
-                                    <constraint firstItem="e4D-l1-BBw" firstAttribute="height" secondItem="uY0-XK-dNj" secondAttribute="height" id="gGw-h4-4hL"/>
+                                    <constraint firstItem="I7y-R1-vlZ" firstAttribute="top" secondItem="Nge-jM-W3K" secondAttribute="top" id="65y-dt-Jru"/>
+                                    <constraint firstItem="I7y-R1-vlZ" firstAttribute="leading" secondItem="Nge-jM-W3K" secondAttribute="leading" id="6QP-88-4Jd"/>
+                                    <constraint firstAttribute="bottom" secondItem="I7y-R1-vlZ" secondAttribute="bottom" id="IUc-i1-IP6"/>
+                                    <constraint firstAttribute="trailing" secondItem="I7y-R1-vlZ" secondAttribute="trailing" id="VRl-qh-x2f"/>
                                 </constraints>
-                            </stackView>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="bah-Ql-3hJ" firstAttribute="top" secondItem="pmt-hs-mQK" secondAttribute="bottom" id="XHM-f5-5sZ"/>
-                            <constraint firstItem="bah-Ql-3hJ" firstAttribute="leading" secondItem="f1Z-F5-Wts" secondAttribute="leadingMargin" id="q1W-qc-5Vw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bah-Ql-3hJ" secondAttribute="trailing" id="rCx-tN-WTn"/>
+                            <constraint firstItem="mxR-gE-268" firstAttribute="top" secondItem="Nge-jM-W3K" secondAttribute="bottom" id="C9d-hc-Wgv"/>
+                            <constraint firstItem="Nge-jM-W3K" firstAttribute="leading" secondItem="le8-Go-ypQ" secondAttribute="leading" constant="8" id="M8Z-Tz-Lmz"/>
+                            <constraint firstItem="Nge-jM-W3K" firstAttribute="top" secondItem="pmt-hs-mQK" secondAttribute="bottom" constant="8" id="btb-jb-8hy"/>
+                            <constraint firstAttribute="trailing" secondItem="Nge-jM-W3K" secondAttribute="trailing" constant="8" id="huR-VV-mP3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="CarIcon" id="YEY-AW-5E9" userLabel="Demo"/>
                     <connections>
-                        <outlet property="beaconDetection" destination="e4D-l1-BBw" id="gc1-RE-clX"/>
-                        <outlet property="excessiveSpeed" destination="uY0-XK-dNj" id="tpX-0G-ecs"/>
-                        <outlet property="faceDetection" destination="QFH-yP-lUV" id="sCo-PG-MZx"/>
-                        <outlet property="microphoneNoise" destination="Khi-ET-76i" id="Cg2-lm-HxP"/>
-                        <outlet property="phoneMotion" destination="jHq-G8-g2O" id="yZK-v7-UNy"/>
-                        <outlet property="tripDetection" destination="EfY-eV-qKk" id="vQe-m7-Wck"/>
+                        <outlet property="beaconDetection" destination="sdG-fz-aZv" id="pN5-NU-hMc"/>
+                        <outlet property="excessiveSpeed" destination="c5c-zZ-a7O" id="Orm-QL-36T"/>
+                        <outlet property="faceDetection" destination="rsJ-Sh-lwD" id="RhD-on-wVb"/>
+                        <outlet property="microphoneNoise" destination="Bnh-sk-Vca" id="efI-s4-6eG"/>
+                        <outlet property="phoneMotion" destination="icQ-fk-sVE" id="sDl-Iy-7c4"/>
+                        <outlet property="scrollView" destination="I7y-R1-vlZ" id="gjX-cO-xzR"/>
+                        <outlet property="tripDetection" destination="hRN-BW-7xD" id="4EL-Of-DfU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RE1-0u-IOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-511" y="-639"/>
+            <point key="canvasLocation" x="-511" y="-687"/>
         </scene>
         <!--Trip History-->
         <scene sceneID="MVD-KB-wHP">
@@ -138,8 +213,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="840"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jU4-cn-Ecg">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jU4-cn-Ecg" userLabel="MainView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="840"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQm-Co-Poz" customClass="BooleanChart" customModule="AllstateCarProject" customModuleProvider="target">
                                         <rect key="frame" x="8" y="116" width="398" height="100"/>
@@ -200,7 +275,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="G6E-1v-dzz" firstAttribute="centerX" secondItem="EfL-Ur-pu0" secondAttribute="centerX" id="AIi-tD-TO8"/>
                                                     <constraint firstAttribute="width" constant="100" id="BtI-KO-a7k"/>
@@ -238,7 +313,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="EfL-Ur-pu0" secondAttribute="trailing" id="5j2-2S-DFE"/>
                                             <constraint firstItem="EfL-Ur-pu0" firstAttribute="top" secondItem="H0c-b4-zWi" secondAttribute="top" id="Etw-FF-81D"/>
@@ -288,8 +363,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jU4-cn-Ecg" firstAttribute="centerX" secondItem="SGx-Xw-TkY" secondAttribute="centerX" id="NzD-Zz-nD5"/>
-                            <constraint firstItem="jU4-cn-Ecg" firstAttribute="centerY" secondItem="SGx-Xw-TkY" secondAttribute="centerY" constant="-52" id="R2R-C2-oUM"/>
-                            <constraint firstItem="jU4-cn-Ecg" firstAttribute="height" secondItem="SGx-Xw-TkY" secondAttribute="height" constant="-104" id="bds-bM-zKf"/>
+                            <constraint firstItem="jU4-cn-Ecg" firstAttribute="centerY" secondItem="SGx-Xw-TkY" secondAttribute="centerY" id="R2R-C2-oUM"/>
+                            <constraint firstItem="jU4-cn-Ecg" firstAttribute="height" secondItem="SGx-Xw-TkY" secondAttribute="height" id="bds-bM-zKf"/>
                             <constraint firstItem="jU4-cn-Ecg" firstAttribute="width" secondItem="SGx-Xw-TkY" secondAttribute="width" id="ps0-JE-Sf8"/>
                         </constraints>
                     </scrollView>
@@ -331,7 +406,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0YZ-yq-wVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-511" y="203"/>
+            <point key="canvasLocation" x="-517" y="243"/>
         </scene>
         <!--Rewards-->
         <scene sceneID="d7a-wt-Iuf">

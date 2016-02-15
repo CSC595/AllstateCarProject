@@ -27,7 +27,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="1bm-Tx-VSE" firstAttribute="leading" secondItem="osm-qY-c3d" secondAttribute="leading" id="53n-1D-l1V"/>
                         <constraint firstAttribute="bottom" secondItem="1bm-Tx-VSE" secondAttribute="bottom" constant="4" id="54S-H3-WId"/>
@@ -40,11 +40,11 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time &gt;&gt;&gt;&gt;&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwe-Z2-pqP">
                             <rect key="frame" x="8" y="0.0" width="80.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="Qwe-Z2-pqP" firstAttribute="leading" secondItem="IKo-a5-WLX" secondAttribute="leadingMargin" id="8cv-dx-DS6"/>
                         <constraint firstItem="Qwe-Z2-pqP" firstAttribute="top" secondItem="IKo-a5-WLX" secondAttribute="top" id="CgV-Wk-ykl"/>
@@ -52,16 +52,16 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMM-lf-g1p" userLabel="Chart" customClass="XYChartData" customModule="AllstateCarProject" customModuleProvider="target">
-                    <rect key="frame" x="8" y="29.5" width="480" height="343.5"/>
-                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="8" y="33.5" width="480" height="335.5"/>
+                    <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="TMM-lf-g1p" firstAttribute="bottom" secondItem="IKo-a5-WLX" secondAttribute="top" id="GCh-wK-ybs"/>
+                <constraint firstItem="IKo-a5-WLX" firstAttribute="top" secondItem="TMM-lf-g1p" secondAttribute="bottom" constant="4" id="GCh-wK-ybs"/>
                 <constraint firstAttribute="bottom" secondItem="IKo-a5-WLX" secondAttribute="bottom" id="WHj-m5-j0k"/>
                 <constraint firstItem="IKo-a5-WLX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aEB-KE-q7Q"/>
-                <constraint firstItem="TMM-lf-g1p" firstAttribute="top" secondItem="osm-qY-c3d" secondAttribute="bottom" id="bwj-MW-OJF"/>
+                <constraint firstItem="TMM-lf-g1p" firstAttribute="top" secondItem="osm-qY-c3d" secondAttribute="bottom" constant="4" id="bwj-MW-OJF"/>
                 <constraint firstAttribute="trailingMargin" secondItem="TMM-lf-g1p" secondAttribute="trailing" id="gN3-nU-NQc"/>
                 <constraint firstItem="osm-qY-c3d" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="hsA-MK-M9h"/>
                 <constraint firstAttribute="trailing" secondItem="IKo-a5-WLX" secondAttribute="trailing" id="jEW-6N-SWT"/>

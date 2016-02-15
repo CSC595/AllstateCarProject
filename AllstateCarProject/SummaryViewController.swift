@@ -29,7 +29,7 @@ class SummaryViewController : UIViewController {
     
     override func viewDidLoad() {
         
-        scrollView.contentSize.height = 856
+        scrollView.contentSize.height = 864
         
         if let d = data {
             

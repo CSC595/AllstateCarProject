@@ -17,6 +17,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var excessiveSpeed: DashboardItem!
     @IBOutlet weak var beaconDetection: DashboardItem!
     
+    @IBOutlet var scrollView: UIScrollView!
     var timer1: NSTimer?
     var timer2: NSTimer?
     var timer3: NSTimer?
@@ -53,7 +54,7 @@ class DashboardViewController: UIViewController {
         excessiveSpeed.switchCode = {
             self.excessiveSpeed.actionSwitch.on ? self.startExcessiveSpeed() : self.stopExcessiveSpeed()
         }
-        
+                
     }
 
     override func didReceiveMemoryWarning() {
