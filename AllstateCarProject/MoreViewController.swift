@@ -8,7 +8,7 @@
 
 import UIKit
 
-var debugMode_Global:Bool = true
+var debugMode_Global:Bool = false
 
 class MoreViewController: UIViewController {
     

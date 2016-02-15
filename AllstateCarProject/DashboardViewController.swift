@@ -18,18 +18,15 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var beaconDetection: DashboardItem!
     
     @IBOutlet var scrollView: UIScrollView!
-    var timer1: NSTimer?
-    var timer2: NSTimer?
-    var timer3: NSTimer?
-    var timer4: NSTimer?
-    
-    var tmpSpeedsArr = [(NSDate, Double)]()
+    var refreshTimer: NSTimer?
     
     // Sample Rate in Seconds
-    let sampleRate:Double = 0.5
+    let sampleRate:Double = 2.0
     
     // Sensor Objects
     var motionSensor:PhoneMotion?
+    var microphoneSensor:MicrophoneNoise?
+    var speedSensor:SpeedSensor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,21 +71,22 @@ class DashboardViewController: UIViewController {
     */
     
     func startTrip() {
+        tripDetection.debugData.text = "Trip in progress"
         
         faceDetection.actionSwitch.enabled = true
-        phoneMotion.actionSwitch.enabled = true
-        microphoneNoise.actionSwitch.enabled = true
-        excessiveSpeed.actionSwitch.enabled = true
+        phoneMotion.actionSwitch.enabled = debugMode_Global
+        microphoneNoise.actionSwitch.enabled = debugMode_Global
+        excessiveSpeed.actionSwitch.enabled = debugMode_Global
         
         // Create Sensor Objects
         motionSensor = PhoneMotion(sampleRateInSeconds: sampleRate)
+        microphoneSensor = MicrophoneNoise()
+        speedSensor = SpeedSensor()
         
         DataCollector.defaultCollector().start()
-        getSpeed()
-        timer4 = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "getSpeed", userInfo: nil, repeats: true)
 
-        checkMotion()
-        timer3 = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "checkMotion", userInfo: nil, repeats: true)
+        checkSensors()
+        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(sampleRate, target: self, selector: "checkSensors", userInfo: nil, repeats: true)
     }
     
     func stopTrip() {
@@ -98,6 +96,12 @@ class DashboardViewController: UIViewController {
         phoneMotion.actionSwitch.enabled = false
         microphoneNoise.actionSwitch.enabled = false
         excessiveSpeed.actionSwitch.enabled = false
+        
+        tripDetection.debugData.text = "Trip Ended"
+        faceDetection.debugData.text = "Waiting for data"
+        phoneMotion.debugData.text = "Waiting for data"
+        microphoneNoise.debugData.text = "Waiting for data"
+        excessiveSpeed.debugData.text = "Waiting for data"
         
         // Stop actions and turn swithces off
         if (faceDetection.actionSwitch.on) {
@@ -117,12 +121,23 @@ class DashboardViewController: UIViewController {
             stopExcessiveSpeed()
         }
         
-        timer3?.invalidate()
-        timer4?.invalidate()
-        DataCollector.defaultCollector().collectingSpeeds(tmpSpeedsArr)
-        tmpSpeedsArr = []
-        DataCollector.defaultCollector().end(Double(lround((Double(arc4random()) / 0xFFFFFFFF  * (60 - 10) + 10) * 1000)) / 1000)
-        tripDetection.debugData.text = "Trip Ended"
+        if let t = refreshTimer {
+            t.invalidate()
+        }
+
+        // Record speed array
+        if let s = speedSensor {
+            DataCollector.defaultCollector().collectingSpeeds(s.tmpSpeedsArr)
+            s.stop()
+        }
+        
+        // Stop sensor objects if needed
+        
+        // Get distance
+        let distance = Double(lround((Double(arc4random()) / 0xFFFFFFFF  * (60 - 10) + 10) * 1000)) / 1000
+        DataCollector.defaultCollector().end(distance)
+        
+        
     }
     
     func startCameraDistraction() {
@@ -130,67 +145,63 @@ class DashboardViewController: UIViewController {
     }
     
     func stopCameraDistraction() {
-        faceDetection.debugData.text = "Debug Data"
+        faceDetection.debugData.text = "Waiting for data"
     }
     
     func startPhoneMotionDistraction() {
-        //phoneMotion.debugData.text = "Phone Motion Detected"
+        phoneMotion.actionSwitch.on = true
         DataCollector.defaultCollector().catchDangerousAciton(DangerousActionTypes.LookPhone)
     }
     
     func stopPhoneMotionDistraction() {
-        //phoneMotion.debugData.text = "Debug Data"
+        phoneMotion.actionSwitch.on = false
         DataCollector.defaultCollector().releaseDangerousAction(DangerousActionTypes.LookPhone)
     }
     
     func startMicrophoneDistraction() {
-        microphoneNoise.debugData.text = "Noise Detected"
+        microphoneNoise.actionSwitch.on = true
         DataCollector.defaultCollector().catchDangerousAciton(DangerousActionTypes.MicTooLoud)
     }
     
     func stopMicrophoneDistraction() {
-        microphoneNoise.debugData.text = "Debug Data"
+        microphoneNoise.actionSwitch.on = false
         DataCollector.defaultCollector().releaseDangerousAction(DangerousActionTypes.MicTooLoud)
     }
     
     func startExcessiveSpeed() {
-        excessiveSpeed.debugData.text = "Excessive Speed Detected"
+        excessiveSpeed.actionSwitch.on = true
         DataCollector.defaultCollector().catchDangerousAciton(DangerousActionTypes.OverSpeeded)
     }
     
     func stopExcessiveSpeed() {
-        excessiveSpeed.debugData.text = "Debug Data"
+        excessiveSpeed.actionSwitch.on = false
         DataCollector.defaultCollector().releaseDangerousAction(DangerousActionTypes.OverSpeeded)
     }
     
-    func checkMotion() {
+    func checkSensors() {
         if let m = motionSensor {
             phoneMotion.debugData.text = m.debugText
-            if (m.isDistracted) {
-                if (phoneMotion.actionSwitch.on) {
-                    // We are already recording the distracted action
-                }
-                else {
-                    startPhoneMotionDistraction()
-                    phoneMotion.actionSwitch.on = true
-                }
-            }
-            else {
-                if (phoneMotion.actionSwitch.on == false) {
-                    // We are not capturing a distraction
-                }
-                else {
-                    phoneMotion.actionSwitch.on = false
-                    stopPhoneMotionDistraction()
-                }
+            if (!debugMode_Global) {
+                m.isDistracted ? startPhoneMotionDistraction() : stopPhoneMotionDistraction()
             }
         }
+        
+        if let m = microphoneSensor {
+            m.updateSoundMeter()
+            microphoneNoise.debugData.text = m.debugText
+            if (!debugMode_Global) {
+                m.isDistracted ? startMicrophoneDistraction() : stopMicrophoneDistraction()
+            }
+        }
+        
+        if let s = speedSensor {
+            s.updateSpeed()
+            excessiveSpeed.debugData.text = s.debugText
+            if (!debugMode_Global) {
+                s.isDistracted ? startExcessiveSpeed() : stopExcessiveSpeed()
+            }
+        }
+
     }
         
-    func getSpeed() {
-        let nextSpeed = (NSDate(), Double(lround((Double(arc4random()) / 0xFFFFFFFF * (90 - 0) + 0) * 1000)) / 1000)
-        tripDetection.debugData.text = "Speed: \(nextSpeed.1) mph"
-        tmpSpeedsArr.append((NSDate(),Double(lround((Double(arc4random()) / 0xFFFFFFFF  * (90 - 0) + 0) * 1000)) / 1000))
-    }
-
 }

@@ -19,7 +19,9 @@
 		209ADB341C6C189100C9E3F8 /* DashboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209ADB331C6C189100C9E3F8 /* DashboardItem.swift */; };
 		209ADB361C6C218700C9E3F8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209ADB351C6C218700C9E3F8 /* DashboardViewController.swift */; };
 		20BAADB91C7130EA006BDB39 /* XYChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BAADB81C7130EA006BDB39 /* XYChartData.swift */; };
-		320D616E1C598D1200814A47 /* ShowDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */; };
+		20CEB8F81C722767006400DC /* SpeedSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CEB8F71C722767006400DC /* SpeedSensor.swift */; };
+		20CEB8FA1C7237EF006400DC /* BeaconSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CEB8F91C7237EF006400DC /* BeaconSensor.swift */; };
+		320D616E1C598D1200814A47 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320D616D1C598D1200814A47 /* HistoryViewController.swift */; };
 		32D5671F1C556ACE008EB5EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5671E1C556ACE008EB5EF /* AppDelegate.swift */; };
 		32D567211C556ACE008EB5EF /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D567201C556ACE008EB5EF /* DemoViewController.swift */; };
 		32D567241C556ACE008EB5EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D567221C556ACE008EB5EF /* Main.storyboard */; };
@@ -66,8 +68,10 @@
 		209ADB331C6C189100C9E3F8 /* DashboardItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardItem.swift; sourceTree = "<group>"; };
 		209ADB351C6C218700C9E3F8 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		20BAADB81C7130EA006BDB39 /* XYChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYChartData.swift; sourceTree = "<group>"; };
+		20CEB8F71C722767006400DC /* SpeedSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedSensor.swift; sourceTree = "<group>"; };
+		20CEB8F91C7237EF006400DC /* BeaconSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconSensor.swift; sourceTree = "<group>"; };
 		242B5B4B15FC66E8AE8D4D0D /* Pods-AllstateCarProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllstateCarProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllstateCarProject/Pods-AllstateCarProject.debug.xcconfig"; sourceTree = "<group>"; };
-		320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDataTableViewController.swift; sourceTree = "<group>"; };
+		320D616D1C598D1200814A47 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		32D5671B1C556ACE008EB5EF /* AllstateCarProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllstateCarProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D5671E1C556ACE008EB5EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32D567201C556ACE008EB5EF /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +119,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20CEB8FB1C723802006400DC /* Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				204B8BA61C6D47C90013D440 /* PhoneMotion.swift */,
+				20CEB8F71C722767006400DC /* SpeedSensor.swift */,
+				204B8BA81C6D60DF0013D440 /* MicrophoneNoise.swift */,
+				20CEB8F91C7237EF006400DC /* BeaconSensor.swift */,
+			);
+			name = Sensors;
+			sourceTree = "<group>";
+		};
+		20CEB8FC1C72383B006400DC /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				209ADB311C6C160900C9E3F8 /* DashboardItem.xib */,
+				209ADB331C6C189100C9E3F8 /* DashboardItem.swift */,
+				209ADB351C6C218700C9E3F8 /* DashboardViewController.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		20CEB8FD1C72385E006400DC /* History */ = {
+			isa = PBXGroup;
+			children = (
+				320D616D1C598D1200814A47 /* HistoryViewController.swift */,
+				203255011C6ABBFC00A4C353 /* SummaryViewController.swift */,
+				203254FD1C6A69F100A4C353 /* BooleanChart.xib */,
+				203254FF1C6A70E500A4C353 /* BooleanChart.swift */,
+				7C7DF2061C6BB24400B9499F /* BooleanChartData.swift */,
+				2005A6E41C6FE00300B1452C /* XYChart.xib */,
+				20062A791C6FE59700EF9A68 /* XYChart.swift */,
+				20BAADB81C7130EA006BDB39 /* XYChartData.swift */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
 		32D567121C556ACE008EB5EF = {
 			isa = PBXGroup;
 			children = (
@@ -143,25 +183,15 @@
 				32D567521C55C5B9008EB5EF /* Extension.swift */,
 				32D5671E1C556ACE008EB5EF /* AppDelegate.swift */,
 				32D567221C556ACE008EB5EF /* Main.storyboard */,
-				209ADB311C6C160900C9E3F8 /* DashboardItem.xib */,
-				209ADB331C6C189100C9E3F8 /* DashboardItem.swift */,
-				204B8BA61C6D47C90013D440 /* PhoneMotion.swift */,
-				204B8BA81C6D60DF0013D440 /* MicrophoneNoise.swift */,
-				203255011C6ABBFC00A4C353 /* SummaryViewController.swift */,
+				20CEB8FC1C72383B006400DC /* Dashboard */,
+				20CEB8FB1C723802006400DC /* Sensors */,
+				20CEB8FD1C72385E006400DC /* History */,
 				32D567251C556ACE008EB5EF /* Assets.xcassets */,
 				32D567271C556ACE008EB5EF /* LaunchScreen.storyboard */,
 				32D5672A1C556ACE008EB5EF /* Info.plist */,
 				32D5674C1C556BAF008EB5EF /* DataBaseManager.swift */,
 				32D5674E1C55871F008EB5EF /* DataCollector.swift */,
-				203254FD1C6A69F100A4C353 /* BooleanChart.xib */,
-				203254FF1C6A70E500A4C353 /* BooleanChart.swift */,
-				7C7DF2061C6BB24400B9499F /* BooleanChartData.swift */,
-				2005A6E41C6FE00300B1452C /* XYChart.xib */,
-				20062A791C6FE59700EF9A68 /* XYChart.swift */,
-				20BAADB81C7130EA006BDB39 /* XYChartData.swift */,
-				320D616D1C598D1200814A47 /* ShowDataTableViewController.swift */,
 				32D567201C556ACE008EB5EF /* DemoViewController.swift */,
-				209ADB351C6C218700C9E3F8 /* DashboardViewController.swift */,
 				205409F81C69061300E13463 /* MoreViewController.swift */,
 				7C7DF2081C6BB53B00B9499F /* RewardsViewController.swift */,
 			);
@@ -393,7 +423,7 @@
 				204B8BA71C6D47C90013D440 /* PhoneMotion.swift in Sources */,
 				205409F91C69061300E13463 /* MoreViewController.swift in Sources */,
 				7C7DF2071C6BB24400B9499F /* BooleanChartData.swift in Sources */,
-				320D616E1C598D1200814A47 /* ShowDataTableViewController.swift in Sources */,
+				320D616E1C598D1200814A47 /* HistoryViewController.swift in Sources */,
 				20BAADB91C7130EA006BDB39 /* XYChartData.swift in Sources */,
 				32D567531C55C5B9008EB5EF /* Extension.swift in Sources */,
 				32D567211C556ACE008EB5EF /* DemoViewController.swift in Sources */,
@@ -401,10 +431,12 @@
 				32D5674D1C556BAF008EB5EF /* DataBaseManager.swift in Sources */,
 				209ADB361C6C218700C9E3F8 /* DashboardViewController.swift in Sources */,
 				32D5671F1C556ACE008EB5EF /* AppDelegate.swift in Sources */,
+				20CEB8F81C722767006400DC /* SpeedSensor.swift in Sources */,
 				32D5674F1C55871F008EB5EF /* DataCollector.swift in Sources */,
 				20062A7A1C6FE59700EF9A68 /* XYChart.swift in Sources */,
 				203255001C6A70E500A4C353 /* BooleanChart.swift in Sources */,
 				204B8BA91C6D60DF0013D440 /* MicrophoneNoise.swift in Sources */,
+				20CEB8FA1C7237EF006400DC /* BeaconSensor.swift in Sources */,
 				7C7DF2091C6BB53B00B9499F /* RewardsViewController.swift in Sources */,
 				203255021C6ABBFC00A4C353 /* SummaryViewController.swift in Sources */,
 			);

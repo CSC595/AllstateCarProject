@@ -11,7 +11,7 @@ import CoreMotion
 class PhoneMotion {
     
     var isDistracted:Bool
-    var debugText:String
+    var debugText:String    
     
     // To get data from sensors
     private let motionManager = CMMotionManager()
@@ -22,7 +22,7 @@ class PhoneMotion {
     
     init (sampleRateInSeconds:Double) {
         self.isDistracted = false
-        self.debugText = "Phone Motion"
+        self.debugText = "Waiting for data"
     
         if motionManager.deviceMotionAvailable {
             motionManager.deviceMotionUpdateInterval = sampleRateInSeconds

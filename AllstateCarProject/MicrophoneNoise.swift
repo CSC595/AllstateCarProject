@@ -10,12 +10,31 @@ import AVFoundation
 import CoreAudio
 
 class MicrophoneNoise {
-    var recorder: AVAudioRecorder!
-    var levelTimer = NSTimer()
-    var lowPassResults: Double = 0.0
-
-    func MicrophoneNoise() {
     
+    var isDistracted:Bool {
+        get {
+            if (soundLevel > -30) {
+                return true
+            }
+            else {
+                return false
+            }
+        }
+    }
+    
+    var debugText:String {
+        get {
+            return String(format: "Sound Level: %.1f db", arguments: [soundLevel])
+        }
+    }
+    
+    var soundLevel:Float    
+    var recorder: AVAudioRecorder!
+
+    init () {
+        
+        self.soundLevel = -160
+        
         //make an AudioSession, set it to PlayAndRecord and make it active
         let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
         do {
@@ -42,20 +61,24 @@ class MicrophoneNoise {
             
         ]
         
-        
-        
-        
         try! recorder = AVAudioRecorder(URL:url, settings: recordSettings)
         
         //If there's an error, print it - otherwise, run prepareToRecord and meteringEnabled to turn on metering (must be run in that order)
         
         recorder.prepareToRecord()
         recorder.meteringEnabled = true
-        
-        //start recording
-        
-        
-        //instantiate a timer to be called with whatever frequency we want to grab metering values
-        self.levelTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("levelTimerCallback"), userInfo: nil, repeats: true)
+    }
+    
+    /*
+     * averagePowerForChannel() returns the current average power, in decibels, for the sound being recorded.
+     * A return value of 0 dB indicates full scale or maximum power; a return value of -160 dB
+     * indicates minimum power (that is, near silence).
+    */
+    func updateSoundMeter() {
+        //we have to update meters before we can get the metering values
+        recorder.record()
+        recorder.updateMeters()
+        soundLevel = recorder.averagePowerForChannel(0)
+        recorder.stop()
     }
 }

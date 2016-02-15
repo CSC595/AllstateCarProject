@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Demo-->
+        <!--Dashboard-->
         <scene sceneID="bCt-v1-BeZ">
             <objects>
-                <viewController id="wIE-26-1gB" userLabel="Demo" customClass="DashboardViewController" customModule="AllstateCarProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wIE-26-1gB" customClass="DashboardViewController" customModule="AllstateCarProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pmt-hs-mQK"/>
                         <viewControllerLayoutGuide type="bottom" id="mxR-gE-268"/>
@@ -169,10 +169,10 @@
             </objects>
             <point key="canvasLocation" x="-511" y="-687"/>
         </scene>
-        <!--Trip History-->
+        <!--List of Trips-->
         <scene sceneID="MVD-KB-wHP">
             <objects>
-                <tableViewController id="Otv-nD-kmx" customClass="ShowDataTableViewController" customModule="AllstateCarProject" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Otv-nD-kmx" userLabel="List of Trips" customClass="ShowDataTableViewController" customModule="AllstateCarProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="NNU-D6-ZwG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -391,10 +391,10 @@
             </objects>
             <point key="canvasLocation" x="499" y="202"/>
         </scene>
-        <!--showData-->
+        <!--History-->
         <scene sceneID="asH-RX-XjS">
             <objects>
-                <navigationController id="4yw-V9-RyX" userLabel="showData" sceneMemberID="viewController">
+                <navigationController id="4yw-V9-RyX" userLabel="History" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="history" id="dJf-q4-qz4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vh4-sh-Vfs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -588,10 +588,10 @@ Distractions
             </objects>
             <point key="canvasLocation" x="-511" y="1019"/>
         </scene>
-        <!--More View Controller-->
+        <!--More-->
         <scene sceneID="pHh-0f-YQ9">
             <objects>
-                <viewController id="bI0-gt-il4" customClass="MoreViewController" customModule="AllstateCarProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bI0-gt-il4" userLabel="More" customClass="MoreViewController" customModule="AllstateCarProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q1T-SU-doB"/>
                         <viewControllerLayoutGuide type="bottom" id="6vM-J5-zsv"/>
@@ -601,7 +601,7 @@ Distractions
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wK-IG-uEp">
-                                <rect key="frame" x="164" y="208" width="88" height="21"/>
+                                <rect key="frame" x="163" y="208" width="87.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -614,8 +614,8 @@ Distractions
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pZ-oz-jg7">
-                                <rect key="frame" x="151" y="391" width="113" height="30"/>
-                                <state key="normal" title="Debug Mode On"/>
+                                <rect key="frame" x="150" y="391" width="114" height="30"/>
+                                <state key="normal" title="Debug Mode Off"/>
                                 <connections>
                                     <action selector="DebugModePressed:" destination="bI0-gt-il4" eventType="touchUpInside" id="3t2-S8-9q5"/>
                                 </connections>

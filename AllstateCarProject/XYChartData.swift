@@ -28,8 +28,6 @@ class XYChartData: UIView {
     
     override func drawRect(rect: CGRect) {
         
-        print("Calling XYChartData drawRect() rect.height: \(rect.height) rect.width: \(rect.width)")
-        
         // Get Scale
         let scale = getScale()
         
@@ -51,10 +49,21 @@ class XYChartData: UIView {
                 max = max > speed ? max : speed
             }
             
-            let maxLabel = ceil(max / 20) * 20
-            let scale = CGFloat(maxLabel) / 5
-            print("scale: \(scale)")
-            return scale
+            if (max < 25) {
+                return 5
+            }
+            else if (max < 50) {
+                return 10
+            }
+            else if (max < 100) {
+                return 20
+            }
+            else {
+                return 30
+            }
+            
+//            let maxLabel = floor(max / 20) * 20
+//            let scale = CGFloat(maxLabel) / 4
         }
         
         return defaultScale
@@ -97,7 +106,6 @@ class XYChartData: UIView {
         if let d = data {
             
             let count = CGFloat(d.speedArr.count)
-            print("drawData() count \(count)")
             
             if count < 2   {
                 print("drawData() count too small")
@@ -122,7 +130,7 @@ class XYChartData: UIView {
             for (_, speed) in d.speedArr[1..<d.speedArr.count] {
                 x += xWidth
                 dataLine.addLineToPoint(CGPoint(x: x, y: yZero - CGFloat(speed) * yScale))
-                print("addingLine speed: \(speed) x: \(x) y: \(yZero - CGFloat(speed) * yScale)")
+//                print("addingLine speed: \(speed) x: \(x) y: \(yZero - CGFloat(speed) * yScale)")
             }
             
             // Stroke data path
