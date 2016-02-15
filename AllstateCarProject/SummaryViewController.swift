@@ -33,7 +33,9 @@ class SummaryViewController : UIViewController {
         
         if let d = data {
             
-            averageSpeedLabel.text = getDurationString(d)
+            
+            driveTimeLabel.text = getDurationString(d)
+            averageSpeedLabel.text = getAverageSpeedString(d)
             trafficScoreLabel.text = getTrafficScoreString(d)
 
             pointsLabel.text = "100"
@@ -60,6 +62,10 @@ class SummaryViewController : UIViewController {
         let seconds:Double = (minutes - floor(minutes)) * 60
         
         return String(format: "Duration %02.0f:%02.0f:%02.0f", arguments: [floor(hours), floor(minutes), floor(seconds)])
+    }
+    
+    func getAverageSpeedString(d:Data) -> String {
+        return String(format: "Average Speed: %.1f mph", arguments: [d.avgSpeed])
     }
     
     func getTrafficScoreString(d:Data) -> String {
