@@ -12,6 +12,7 @@ enum DangerousActionTypes:String {
     case LookPhone = "Look Phone"
     case MicTooLoud = "Mic Too Loud"
     case OverSpeeded = "Over Speeded"
+    case LookingAway = "Looking Away"
     
 }
 
