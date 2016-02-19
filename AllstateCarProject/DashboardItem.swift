@@ -19,7 +19,7 @@ import UIKit
     
     var type:DangerousActionTypes?
     
-    var switchCode: (()->())?
+//    var switchCode: (()->())?
     var distraction:Bool = false
     var enabled:Bool?
     

@@ -16,6 +16,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var microphoneNoise: DashboardItem!
     @IBOutlet weak var excessiveSpeed: DashboardItem!
         
+    @IBOutlet weak var beacon: DashboardItem!
     @IBOutlet var scrollView: UIScrollView!
     var refreshTimer: NSTimer?
     
@@ -23,10 +24,11 @@ class DashboardViewController: UIViewController {
     var motionSensor:PhoneMotion?
     var microphoneSensor:MicrophoneNoise?
     var speedSensor:SpeedSensor?
+    let beaconSensor:BeaconSensor = BeaconSensor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         tripDetection.enabled = true
@@ -51,6 +53,9 @@ class DashboardViewController: UIViewController {
         excessiveSpeed.title.text = "Speed"
         excessiveSpeed.icon.image = UIImage(named: "SpeedIcon")
         excessiveSpeed.type = DangerousActionTypes.OverSpeeded
+        
+        beacon.title.text = "Beacon"
+        beacon.icon.image = UIImage(named: "BeaconIcon")
         
     }
 
@@ -78,6 +83,7 @@ class DashboardViewController: UIViewController {
         phoneMotion.startTrip()
         microphoneNoise.startTrip()
         excessiveSpeed.startTrip()
+        beacon.startTrip()
         
         // Create Sensor Objects
         motionSensor = PhoneMotion()
@@ -98,6 +104,7 @@ class DashboardViewController: UIViewController {
         phoneMotion.stopTrip()
         microphoneNoise.stopTrip()
         excessiveSpeed.stopTrip()
+        beacon.stopTrip()
         
         if let t = refreshTimer {
             t.invalidate()
@@ -141,7 +148,17 @@ class DashboardViewController: UIViewController {
                 s.isDistracted ? excessiveSpeed.startDistraction() : excessiveSpeed.stopDistraction()
             }
         }
-
+        
+        // Update beacon status
+        if (beaconSensor.isVisiting) {
+            beacon.setState(DashboardItem.State.good)
+        }
+        else {
+            beacon.setState(DashboardItem.State.off)
+        }
+        beacon.debug.text = beaconSensor.debugText
+            
+        
     }
         
 }

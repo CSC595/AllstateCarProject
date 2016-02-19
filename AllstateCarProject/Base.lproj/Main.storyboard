@@ -26,6 +26,13 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPv-PL-AdK">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="616"/>
                                                 <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Da5-Ib-bBY" userLabel="Title View" customClass="DashboardTitle" customModule="AllstateCarProject" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="80"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="KWV-ON-RBL"/>
+                                                        </constraints>
+                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsJ-Sh-lwD" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="88" width="398" height="80"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -54,11 +61,11 @@
                                                             <constraint firstAttribute="height" constant="80" id="Rmc-m7-y6W"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Da5-Ib-bBY" userLabel="Title View" customClass="DashboardTitle" customModule="AllstateCarProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="80"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0a-wi-lRk" userLabel="Beacon" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="440" width="398" height="80"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="KWV-ON-RBL"/>
+                                                            <constraint firstAttribute="height" constant="80" id="Urf-Lc-cau"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -66,7 +73,9 @@
                                                 <constraints>
                                                     <constraint firstItem="rsJ-Sh-lwD" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="227-FE-KLM"/>
                                                     <constraint firstAttribute="trailing" secondItem="icQ-fk-sVE" secondAttribute="trailing" id="4DW-qA-dNG"/>
+                                                    <constraint firstItem="L0a-wi-lRk" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="6R3-1v-I7b"/>
                                                     <constraint firstAttribute="trailing" secondItem="c5c-zZ-a7O" secondAttribute="trailing" id="85t-rA-ghy"/>
+                                                    <constraint firstItem="L0a-wi-lRk" firstAttribute="top" secondItem="c5c-zZ-a7O" secondAttribute="bottom" constant="8" id="8xV-dS-vNN"/>
                                                     <constraint firstItem="Da5-Ib-bBY" firstAttribute="top" secondItem="GPv-PL-AdK" secondAttribute="top" id="BTf-EZ-DLN"/>
                                                     <constraint firstItem="c5c-zZ-a7O" firstAttribute="top" secondItem="Bnh-sk-Vca" secondAttribute="bottom" constant="8" id="Fnu-qc-HCo"/>
                                                     <constraint firstItem="Da5-Ib-bBY" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="GWd-XO-svI"/>
@@ -77,6 +86,7 @@
                                                     <constraint firstAttribute="height" constant="616" id="ZBP-r4-3vv"/>
                                                     <constraint firstItem="c5c-zZ-a7O" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="faw-g1-FOV"/>
                                                     <constraint firstAttribute="trailing" secondItem="Da5-Ib-bBY" secondAttribute="trailing" id="g0o-Vk-ZZV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="L0a-wi-lRk" secondAttribute="trailing" id="gyJ-BJ-RTl"/>
                                                     <constraint firstItem="Bnh-sk-Vca" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="j0j-21-wJO"/>
                                                     <constraint firstItem="icQ-fk-sVE" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="lgW-nQ-wx7"/>
                                                     <constraint firstItem="rsJ-Sh-lwD" firstAttribute="top" secondItem="Da5-Ib-bBY" secondAttribute="bottom" constant="8" id="rEc-g7-0cl"/>
@@ -113,6 +123,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="CarIcon" id="YEY-AW-5E9" userLabel="Demo"/>
                     <connections>
+                        <outlet property="beacon" destination="L0a-wi-lRk" id="B1U-k8-hAw"/>
                         <outlet property="excessiveSpeed" destination="c5c-zZ-a7O" id="Orm-QL-36T"/>
                         <outlet property="faceDetection" destination="rsJ-Sh-lwD" id="RhD-on-wVb"/>
                         <outlet property="microphoneNoise" destination="Bnh-sk-Vca" id="efI-s4-6eG"/>
@@ -573,7 +584,7 @@ Distractions
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample rate 2.0 sec" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eE7-dB-Tc9">
                                 <rect key="frame" x="211" y="99.5" width="183" height="16"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.10000000000000001" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="aK2-0M-Yg2">
@@ -591,7 +602,7 @@ Distractions
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y Tolerance +/- 0.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toF-Ja-Dme">
                                 <rect key="frame" x="211" y="175" width="183" height="16"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.20000000000000001" minValue="0.050000000000000003" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Vi8-Pj-wjd">
@@ -603,7 +614,7 @@ Distractions
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="z Tolerance +/- 0.4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHA-dy-eSh">
                                 <rect key="frame" x="211" y="213" width="183" height="16"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.40000000000000002" minValue="0.050000000000000003" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0a2-RG-UUr">
@@ -615,7 +626,7 @@ Distractions
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noise Level -30 db" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bku-ZH-rwC">
                                 <rect key="frame" x="211" y="251" width="183" height="16"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-30" minValue="-100" maxValue="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="uzj-3D-oxQ">
@@ -627,7 +638,7 @@ Distractions
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed Limit 80 mph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agi-2K-f4N">
                                 <rect key="frame" x="211" y="289" width="183" height="16"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="80" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="kMs-Tp-di4">
@@ -639,7 +650,7 @@ Distractions
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configuration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWg-z6-n3m">
                                 <rect key="frame" x="20" y="52" width="374" height="24.5"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsJ-zP-2cS">
@@ -652,7 +663,7 @@ Distractions
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x Tolerance +/- 0.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3d-Tf-sMh">
                                 <rect key="frame" x="211" y="138" width="183" height="16"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

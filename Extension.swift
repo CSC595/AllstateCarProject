@@ -31,7 +31,12 @@ extension NSDate {
         let h = seconds / 3600
         let m = (seconds - 3600 * h) / 60
         let s = seconds - 3600 * h - m * 60
-        return Double(h) + Double(m)/60 + Double(s)/3600
+        var x:Double = 0
+        x += Double(h)
+        x += Double(m)/60
+        x += Double(s)/3600
+        //return Double(h) + Double(m)/60 + Double(s)/3600
+        return x
     }
     
 }

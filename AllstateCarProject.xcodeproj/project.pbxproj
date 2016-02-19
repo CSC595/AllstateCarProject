@@ -15,9 +15,12 @@
 		204B8BA71C6D47C90013D440 /* PhoneMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B8BA61C6D47C90013D440 /* PhoneMotion.swift */; };
 		204B8BA91C6D60DF0013D440 /* MicrophoneNoise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B8BA81C6D60DF0013D440 /* MicrophoneNoise.swift */; };
 		205409F91C69061300E13463 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205409F81C69061300E13463 /* MoreViewController.swift */; };
+		206AB54D1C77430C0079FDC6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 206AB54C1C77430C0079FDC6 /* libz.tbd */; };
+		206AB5511C7743BB0079FDC6 /* Gimbal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206AB5501C7743BB0079FDC6 /* Gimbal.framework */; };
 		2080BA281C76211B00251366 /* DashboardTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080BA271C76211B00251366 /* DashboardTitle.swift */; };
 		2080BA2A1C76213B00251366 /* DashboardTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2080BA291C76213B00251366 /* DashboardTitle.xib */; };
 		2080BA2D1C7694D500251366 /* gimbal.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 2080BA2C1C7694D500251366 /* gimbal.apikey */; };
+		2080BA2F1C76D6F700251366 /* GetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080BA2E1C76D6F700251366 /* GetKey.swift */; };
 		209ADB321C6C160900C9E3F8 /* DashboardItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 209ADB311C6C160900C9E3F8 /* DashboardItem.xib */; };
 		209ADB341C6C189100C9E3F8 /* DashboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209ADB331C6C189100C9E3F8 /* DashboardItem.swift */; };
 		209ADB361C6C218700C9E3F8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209ADB351C6C218700C9E3F8 /* DashboardViewController.swift */; };
@@ -67,9 +70,13 @@
 		204B8BA61C6D47C90013D440 /* PhoneMotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneMotion.swift; sourceTree = "<group>"; };
 		204B8BA81C6D60DF0013D440 /* MicrophoneNoise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneNoise.swift; sourceTree = "<group>"; };
 		205409F81C69061300E13463 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		206AB54C1C77430C0079FDC6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		206AB5501C7743BB0079FDC6 /* Gimbal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gimbal.framework; path = Frameworks/Gimbal.framework; sourceTree = "<group>"; };
+		206AB5521C7744A70079FDC6 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
 		2080BA271C76211B00251366 /* DashboardTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTitle.swift; sourceTree = "<group>"; };
 		2080BA291C76213B00251366 /* DashboardTitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardTitle.xib; sourceTree = "<group>"; };
 		2080BA2C1C7694D500251366 /* gimbal.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gimbal.apikey; sourceTree = "<group>"; };
+		2080BA2E1C76D6F700251366 /* GetKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKey.swift; sourceTree = "<group>"; };
 		209ADB311C6C160900C9E3F8 /* DashboardItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardItem.xib; sourceTree = "<group>"; };
 		209ADB331C6C189100C9E3F8 /* DashboardItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardItem.swift; sourceTree = "<group>"; };
 		209ADB351C6C218700C9E3F8 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +111,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				206AB54D1C77430C0079FDC6 /* libz.tbd in Frameworks */,
 				91019BB30FE2420D5A256D5F /* Pods_AllstateCarProject.framework in Frameworks */,
+				206AB5511C7743BB0079FDC6 /* Gimbal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				2080BA2C1C7694D500251366 /* gimbal.apikey */,
+				2080BA2E1C76D6F700251366 /* GetKey.swift */,
 			);
 			name = Keys;
 			sourceTree = "<group>";
@@ -196,6 +206,7 @@
 		32D5671D1C556ACE008EB5EF /* AllstateCarProject */ = {
 			isa = PBXGroup;
 			children = (
+				206AB5521C7744A70079FDC6 /* BridgeHeader.h */,
 				2080BA2B1C76949800251366 /* Keys */,
 				32D567521C55C5B9008EB5EF /* Extension.swift */,
 				32D5671E1C556ACE008EB5EF /* AppDelegate.swift */,
@@ -245,6 +256,8 @@
 		FC7A62E40978A7ABC0CE95EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				206AB5501C7743BB0079FDC6 /* Gimbal.framework */,
+				206AB54C1C77430C0079FDC6 /* libz.tbd */,
 				13C1481B48EEC01BE1EEC5CD /* Pods_AllstateCarProject.framework */,
 			);
 			name = Frameworks;
@@ -451,6 +464,7 @@
 				32D5674D1C556BAF008EB5EF /* DataBaseManager.swift in Sources */,
 				209ADB361C6C218700C9E3F8 /* DashboardViewController.swift in Sources */,
 				32D5671F1C556ACE008EB5EF /* AppDelegate.swift in Sources */,
+				2080BA2F1C76D6F700251366 /* GetKey.swift in Sources */,
 				20CEB8F81C722767006400DC /* SpeedSensor.swift in Sources */,
 				32D5674F1C55871F008EB5EF /* DataCollector.swift in Sources */,
 				20062A7A1C6FE59700EF9A68 /* XYChart.swift in Sources */,
@@ -601,11 +615,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = AllstateCarProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.depaul.csc471.AllstateCarProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = AllstateCarProject/BridgeHeader.h;
 			};
 			name = Debug;
 		};
@@ -616,11 +637,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = AllstateCarProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.depaul.csc471.AllstateCarProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = AllstateCarProject/BridgeHeader.h;
 			};
 			name = Release;
 		};
