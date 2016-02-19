@@ -2,55 +2,66 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
             <connections>
-                <outlet property="actionSwitch" destination="eW7-YJ-P02" id="qyi-ni-i3L"/>
-                <outlet property="debugData" destination="IIP-P3-7NZ" id="Sj8-Xd-r6b"/>
-                <outlet property="title" destination="5wI-Aa-0Fj" id="97U-2X-2k0"/>
+                <outlet property="debug" destination="r4k-o8-v23" id="PMj-yB-jHI"/>
+                <outlet property="icon" destination="H72-jR-Pjc" id="HLe-Eh-ycG"/>
+                <outlet property="title" destination="meM-l5-Pq8" id="vK5-fn-mf1"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Wio-Ua-vp6"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="71"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wI-Aa-0Fj">
-                    <rect key="frame" x="8" y="8" width="36.5" height="21.5"/>
-                    <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H72-jR-Pjc">
+                    <rect key="frame" x="8" y="8" width="112" height="112"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="H72-jR-Pjc" secondAttribute="height" multiplier="1:1" id="5rH-eL-Z1Q"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meM-l5-Pq8">
+                    <rect key="frame" x="184" y="58" width="22" height="12.5"/>
+                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="10"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for data" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIP-P3-7NZ">
-                    <rect key="frame" x="8" y="37.5" width="102.5" height="17"/>
-                    <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4k-o8-v23">
+                    <rect key="frame" x="128" y="8" width="254" height="112"/>
+                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="10"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eW7-YJ-P02">
-                    <rect key="frame" x="333" y="8" width="51" height="31"/>
-                    <connections>
-                        <action selector="switchTapped:" destination="-1" eventType="valueChanged" id="2PV-uO-cBl"/>
-                    </connections>
-                </switch>
             </subviews>
             <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+            <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="5wI-Aa-0Fj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="RKy-iS-LNr"/>
-                <constraint firstItem="5wI-Aa-0Fj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="VgN-Sv-IWH"/>
-                <constraint firstItem="IIP-P3-7NZ" firstAttribute="top" secondItem="5wI-Aa-0Fj" secondAttribute="bottom" constant="8" id="Xnv-w9-izB"/>
-                <constraint firstAttribute="trailingMargin" secondItem="eW7-YJ-P02" secondAttribute="trailing" id="YRy-hb-X4j"/>
-                <constraint firstItem="IIP-P3-7NZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="fbg-B7-lPu"/>
-                <constraint firstItem="eW7-YJ-P02" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="gon-mq-57X"/>
+                <constraint firstItem="H72-jR-Pjc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="42T-FM-VxI"/>
+                <constraint firstItem="r4k-o8-v23" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="9mH-iN-fgW"/>
+                <constraint firstItem="r4k-o8-v23" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="Kqs-96-F9o"/>
+                <constraint firstItem="r4k-o8-v23" firstAttribute="leading" secondItem="H72-jR-Pjc" secondAttribute="trailing" constant="8" id="cLR-HR-f4m"/>
+                <constraint firstItem="meM-l5-Pq8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dE8-3A-8eJ"/>
+                <constraint firstItem="meM-l5-Pq8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="igX-Fe-2AH"/>
+                <constraint firstItem="r4k-o8-v23" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="ixD-IG-cpG"/>
+                <constraint firstAttribute="bottomMargin" secondItem="H72-jR-Pjc" secondAttribute="bottom" id="kdQ-jI-8YU"/>
+                <constraint firstItem="H72-jR-Pjc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="ox5-JD-m3T"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="33" y="-223.5"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="a0c-fJ-tsj" appends="YES" id="YIx-kc-PeH"/>
+            </connections>
+            <point key="canvasLocation" x="33" y="-195"/>
         </view>
+        <tapGestureRecognizer id="a0c-fJ-tsj">
+            <connections>
+                <action selector="viewTapped:" destination="-1" id="ns6-8n-Rhs"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

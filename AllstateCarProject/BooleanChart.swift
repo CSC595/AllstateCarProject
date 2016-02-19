@@ -75,18 +75,18 @@ import UIKit
     
     func setData(data:Data, actionType:DangerousActionTypes) {
                
-        var distractionTime:Double = 0
+        var distractionTime:Int = 0
         
         for item in data.dangerousActionSet {
             if (item.1 == actionType) {
-                distractionTime += item.2.timeIntervalSinceDate(item.0)
+                distractionTime += Int(item.2.timeIntervalSinceDate(item.0))
             }
         }
         
-        let totalTime = data.drivingTimeHour * 3600
+        let totalTime = data.drivingTimeSecond
         
-        let score:Double = (totalTime - distractionTime) / totalTime * 100
-        scoreLabel.text = String(format: "%.0f%%", arguments: [score])
+        let score:Int = ((totalTime - distractionTime) * 100) / totalTime
+        scoreLabel.text = String(format: "%d%%", arguments: [score])
         
         dataSpace.actionType = actionType
         dataSpace.data = data

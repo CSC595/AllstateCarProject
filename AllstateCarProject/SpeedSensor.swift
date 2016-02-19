@@ -12,7 +12,7 @@ class SpeedSensor {
     
     var isDistracted:Bool {
         get {
-            if (currentSpeed > 80) {
+            if (currentSpeed > speedLimit_Global) {
                 return true
             }
             else {

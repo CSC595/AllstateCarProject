@@ -11,7 +11,10 @@ import CoreMotion
 class PhoneMotion {
     
     var isDistracted:Bool
-    var debugText:String    
+    var debugText:String
+    
+    // sample rate
+    let sampleRate:Double = 0.5
     
     // To get data from sensors
     private let motionManager = CMMotionManager()
@@ -20,18 +23,16 @@ class PhoneMotion {
     // Previous data points
     private var referenceAttitude:[CMAttitude] = []
     
-    init (sampleRateInSeconds:Double) {
+    init () {
         self.isDistracted = false
         self.debugText = "Waiting for data"
     
         if motionManager.deviceMotionAvailable {
-            motionManager.deviceMotionUpdateInterval = sampleRateInSeconds
+            motionManager.deviceMotionUpdateInterval = sampleRate
             
             motionManager.startDeviceMotionUpdatesToQueue(queue, withHandler: { (motion:CMDeviceMotion?, error:NSError?) -> Void in
                 
                 let attitude = motion!.attitude
-                self.debugText = String(format: "Roll: %+.2f, Pitch: %+.2f, Yaw: %+.2f",
-                    attitude.roll, attitude.pitch, attitude.yaw)
                 
                 // Populate the reference array
                 if self.referenceAttitude.isEmpty {
@@ -45,8 +46,6 @@ class PhoneMotion {
                 // See if the device has been stable
                 let stabilityScore = self.getDeviceStabilityScore(self.referenceAttitude)
                 
-                self.debugText += "\nScore: \(stabilityScore)/5"
-                
                 self.isDistracted = stabilityScore < 5 ? true : false
                 
             })
@@ -55,22 +54,33 @@ class PhoneMotion {
     
     func getDeviceStabilityScore(attitudeArray:[CMAttitude]) -> Int {
         
+        
+//        self.debugText += "\nScore: \(stabilityScore)/5"
+
         var score = 0
-        let marginOfError = 0.2;
+//        let marginOfError = 0.2;
         
-        if let reference = attitudeArray.first {
-            for a in attitudeArray {
-                let pitchChanged = fabs(reference.pitch - a.pitch) > marginOfError
-                let rollChanged = fabs(reference.roll - a.roll) > marginOfError
-                let yawChanged = fabs(reference.yaw - a.yaw) > marginOfError
-                
-                if pitchChanged || rollChanged || yawChanged {
-                    return score
-                }
-                score++
+        debugText = String(format: "[0] r: %5+.2f, p: %5+.2f, y: %5+.2f", attitudeArray[0].roll, attitudeArray[0].pitch, attitudeArray[0].yaw)
+        
+        for index in (1..<attitudeArray.count) {
+            let deltaRoll = attitudeArray[0].roll - attitudeArray[index].roll
+            let deltaPitch = attitudeArray[0].pitch - attitudeArray[index].pitch
+            let deltaYaw = attitudeArray[0].yaw - attitudeArray[index].yaw
+            
+            debugText += String(format: "\n[%d] r: %5+.2f, p: %5+.2f, y: %5+.2f", index, deltaRoll, deltaPitch, deltaYaw)
+            
+//            
+//                let pitchChanged = fabs(reference.pitch - a.pitch) > marginOfError
+//                let rollChanged = fabs(reference.roll - a.roll) > marginOfError
+//                let yawChanged = fabs(reference.yaw - a.yaw) > marginOfError
+//                
+//                debugText += String(format: "r: %+.2f, p: %+.2f, y: %+.2f\n", pitchChanged, rollChanged, yawChanged)
+//                
+//                if pitchChanged || rollChanged || yawChanged {
+//                    return score
+//                }
+//                score++
             }
-        }
-        
         return score
     }
     

@@ -10,18 +10,14 @@ import UIKit
 
 class DashboardViewController: UIViewController {
 
-    @IBOutlet weak var tripDetection: DashboardItem!
+    @IBOutlet weak var tripDetection: DashboardTitle!
     @IBOutlet weak var faceDetection: DashboardItem!
     @IBOutlet weak var phoneMotion: DashboardItem!
     @IBOutlet weak var microphoneNoise: DashboardItem!
     @IBOutlet weak var excessiveSpeed: DashboardItem!
-    @IBOutlet weak var beaconDetection: DashboardItem!
-    
+        
     @IBOutlet var scrollView: UIScrollView!
     var refreshTimer: NSTimer?
-    
-    // Sample Rate in Seconds
-    let sampleRate:Double = 2.0
     
     // Sensor Objects
     var motionSensor:PhoneMotion?
@@ -33,25 +29,29 @@ class DashboardViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        tripDetection.actionSwitch.enabled = true
-        beaconDetection.actionSwitch.enabled = true
-        
+        tripDetection.enabled = true
+        tripDetection.primaryIcon.image = UIImage(named: "WheelIcon")
         tripDetection.switchCode = {
-            self.tripDetection.actionSwitch.on ? self.startTrip() : self.stopTrip()
+            self.tripDetection.tripInProgress ? self.startTrip() : self.stopTrip()
         }
-        faceDetection.switchCode = {
-            self.faceDetection.actionSwitch.on ? self.startCameraDistraction() : self.stopCameraDistraction()
-        }
-        phoneMotion.switchCode = {
-            self.phoneMotion.actionSwitch.on ? self.startPhoneMotionDistraction() : self.stopPhoneMotionDistraction()
-        }
-        microphoneNoise.switchCode = {
-            self.microphoneNoise.actionSwitch.on ? self.startMicrophoneDistraction() : self.stopMicrophoneDistraction()
-        }
-        excessiveSpeed.switchCode = {
-            self.excessiveSpeed.actionSwitch.on ? self.startExcessiveSpeed() : self.stopExcessiveSpeed()
-        }
+        
+        faceDetection.title.text = "Attention"
+        faceDetection.icon.image = UIImage(named: "SteeringIcon")
+        faceDetection.type = DangerousActionTypes.LookingAway
                 
+        
+        phoneMotion.title.text = "Motion"
+        phoneMotion.icon.image = UIImage(named: "PhoneIcon")
+        phoneMotion.type = DangerousActionTypes.LookPhone
+
+        microphoneNoise.title.text = "Noise"
+        microphoneNoise.icon.image = UIImage(named: "SoundIcon")
+        microphoneNoise.type = DangerousActionTypes.MicTooLoud
+        
+        excessiveSpeed.title.text = "Speed"
+        excessiveSpeed.icon.image = UIImage(named: "SpeedIcon")
+        excessiveSpeed.type = DangerousActionTypes.OverSpeeded
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,55 +71,33 @@ class DashboardViewController: UIViewController {
     */
     
     func startTrip() {
-        tripDetection.debugData.text = "Trip in progress"
         
-        faceDetection.actionSwitch.enabled = true
-        phoneMotion.actionSwitch.enabled = debugMode_Global
-        microphoneNoise.actionSwitch.enabled = debugMode_Global
-        excessiveSpeed.actionSwitch.enabled = debugMode_Global
+        // Start UI Elements
+        tripDetection.startTrip()
+        faceDetection.startTrip()
+        phoneMotion.startTrip()
+        microphoneNoise.startTrip()
+        excessiveSpeed.startTrip()
         
         // Create Sensor Objects
-        motionSensor = PhoneMotion(sampleRateInSeconds: sampleRate)
+        motionSensor = PhoneMotion()
         microphoneSensor = MicrophoneNoise()
         speedSensor = SpeedSensor()
         
         DataCollector.defaultCollector().start()
 
         checkSensors()
-        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(sampleRate, target: self, selector: "checkSensors", userInfo: nil, repeats: true)
+        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(sampleRate_Global, target: self, selector: "checkSensors", userInfo: nil, repeats: true)
     }
     
     func stopTrip() {
         
-        // Disable user interaction with switches
-        faceDetection.actionSwitch.enabled = false
-        phoneMotion.actionSwitch.enabled = false
-        microphoneNoise.actionSwitch.enabled = false
-        excessiveSpeed.actionSwitch.enabled = false
-        
-        tripDetection.debugData.text = "Trip Ended"
-        faceDetection.debugData.text = "Waiting for data"
-        phoneMotion.debugData.text = "Waiting for data"
-        microphoneNoise.debugData.text = "Waiting for data"
-        excessiveSpeed.debugData.text = "Waiting for data"
-        
-        // Stop actions and turn swithces off
-        if (faceDetection.actionSwitch.on) {
-            faceDetection.actionSwitch.on = false
-            stopCameraDistraction()
-        }
-        if (phoneMotion.actionSwitch.on) {
-            phoneMotion.actionSwitch.on = false
-            stopPhoneMotionDistraction()
-        }
-        if (microphoneNoise.actionSwitch.on) {
-            microphoneNoise.actionSwitch.on = false
-            stopMicrophoneDistraction()
-        }
-        if (excessiveSpeed.actionSwitch.on) {
-            excessiveSpeed.actionSwitch.on = false
-            stopExcessiveSpeed()
-        }
+        // Stop UI elements
+        tripDetection.stopTrip()
+        faceDetection.stopTrip()
+        phoneMotion.stopTrip()
+        microphoneNoise.stopTrip()
+        excessiveSpeed.stopTrip()
         
         if let t = refreshTimer {
             t.invalidate()
@@ -140,65 +118,27 @@ class DashboardViewController: UIViewController {
         
     }
     
-    func startCameraDistraction() {
-        faceDetection.debugData.text = "Driver Looking Away"
-    }
-    
-    func stopCameraDistraction() {
-        faceDetection.debugData.text = "Waiting for data"
-    }
-    
-    func startPhoneMotionDistraction() {
-        phoneMotion.actionSwitch.on = true
-        DataCollector.defaultCollector().catchDangerousAciton(DangerousActionTypes.LookPhone)
-    }
-    
-    func stopPhoneMotionDistraction() {
-        phoneMotion.actionSwitch.on = false
-        DataCollector.defaultCollector().releaseDangerousAction(DangerousActionTypes.LookPhone)
-    }
-    
-    func startMicrophoneDistraction() {
-        microphoneNoise.actionSwitch.on = true
-        DataCollector.defaultCollector().catchDangerousAciton(DangerousActionTypes.MicTooLoud)
-    }
-    
-    func stopMicrophoneDistraction() {
-        microphoneNoise.actionSwitch.on = false
-        DataCollector.defaultCollector().releaseDangerousAction(DangerousActionTypes.MicTooLoud)
-    }
-    
-    func startExcessiveSpeed() {
-        excessiveSpeed.actionSwitch.on = true
-        DataCollector.defaultCollector().catchDangerousAciton(DangerousActionTypes.OverSpeeded)
-    }
-    
-    func stopExcessiveSpeed() {
-        excessiveSpeed.actionSwitch.on = false
-        DataCollector.defaultCollector().releaseDangerousAction(DangerousActionTypes.OverSpeeded)
-    }
-    
     func checkSensors() {
         if let m = motionSensor {
-            phoneMotion.debugData.text = m.debugText
-            if (!debugMode_Global) {
-                m.isDistracted ? startPhoneMotionDistraction() : stopPhoneMotionDistraction()
+            phoneMotion.debug.text = m.debugText
+            if (enableSensors_Global) {
+                m.isDistracted ? phoneMotion.startDistraction() : phoneMotion.stopDistraction()
             }
         }
         
         if let m = microphoneSensor {
             m.updateSoundMeter()
-            microphoneNoise.debugData.text = m.debugText
-            if (!debugMode_Global) {
-                m.isDistracted ? startMicrophoneDistraction() : stopMicrophoneDistraction()
+            microphoneNoise.debug.text = m.debugText
+            if (enableSensors_Global) {
+                m.isDistracted ? microphoneNoise.startDistraction() : microphoneNoise.stopDistraction()
             }
         }
         
         if let s = speedSensor {
             s.updateSpeed()
-            excessiveSpeed.debugData.text = s.debugText
-            if (!debugMode_Global) {
-                s.isDistracted ? startExcessiveSpeed() : stopExcessiveSpeed()
+            excessiveSpeed.debug.text = s.debugText
+            if (enableSensors_Global) {
+                s.isDistracted ? excessiveSpeed.startDistraction() : excessiveSpeed.stopDistraction()
             }
         }
 

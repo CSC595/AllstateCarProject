@@ -166,6 +166,8 @@ class DataBaseManager {
                         tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.MicTooLoud, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
                     case "Over Speeded":
                         tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.OverSpeeded, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
+                    case "Looking Away":
+                        tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.LookingAway, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
                     default:
                         break;
                     }
@@ -179,6 +181,8 @@ class DataBaseManager {
                                 tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.MicTooLoud, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
                             case "Over Speeded":
                                 tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.OverSpeeded, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
+                            case "Looking Away":
+                                 tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.LookingAway, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
                             default:
                                 break;
                             }
@@ -193,6 +197,8 @@ class DataBaseManager {
                                 tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.MicTooLoud, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
                             case "Over Speeded":
                                 tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.OverSpeeded, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
+                            case "Looking Away":
+                                 tmpDangerousActionsSet.append((NSDate(timeIntervalSince1970: dAResult.doubleForColumn("sTimeInterval")), DangerousActionTypes.LookingAway, NSDate(timeIntervalSince1970: dAResult.doubleForColumn("eTimeInterval"))))
                             default:
                                 break;
                             }

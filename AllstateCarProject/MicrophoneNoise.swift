@@ -13,7 +13,7 @@ class MicrophoneNoise {
     
     var isDistracted:Bool {
         get {
-            if (soundLevel > -30) {
+            if (soundLevel > noiseLevel_Global) {
                 return true
             }
             else {

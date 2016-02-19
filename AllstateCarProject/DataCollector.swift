@@ -175,7 +175,14 @@ class DataCollector {
     // Remember to release dangerous action
     func releaseDangerousAction(type: DangerousActionTypes) {
         if let startTime = tmpDangerousActions[type] {
-            dangerousActionSet.append((startTime, type, NSDate()))
+            if let dTime = departureTime {
+                if (startTime.compare(dTime) == NSComparisonResult.OrderedAscending) {
+                    dangerousActionSet.append((dTime, type, NSDate()))
+                }
+                else {
+                    dangerousActionSet.append((startTime, type, NSDate()))
+                }
+            }
             tmpDangerousActions[type] = nil
         }
     }

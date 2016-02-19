@@ -41,6 +41,7 @@ class SummaryViewController : UIViewController {
             pointsLabel.text = "100"
             
             // NEED AN ADDTION TO THE DANGEROUSACTIONTYPES ENUM
+            faceDetection.setData(d, actionType: DangerousActionTypes.LookingAway)
             phoneMotion.setData(d, actionType: DangerousActionTypes.LookPhone)
             noiseDetection.setData(d, actionType: DangerousActionTypes.MicTooLoud)
             excessiveSpeed.setData(d, actionType: DangerousActionTypes.OverSpeeded)

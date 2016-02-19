@@ -6,7 +6,6 @@
 //  Copyright © 2016 ZZC. All rights reserved.
 //
 
-import Foundation
 
 
 /* CODE FROM MY SAMPLE APP, HASN'T BEEN INTEGRATED YET

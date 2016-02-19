@@ -10,26 +10,27 @@ import UIKit
 
 @IBDesignable class DashboardItem: UIView {
 
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var debugData: UILabel!
-    @IBOutlet weak var actionSwitch: UISwitch!
-    @IBOutlet var view: UIView!
-    
     let nibName = "DashboardItem"
+
+    @IBOutlet var view: UIView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var debug: UILabel!
+    
+    var type:DangerousActionTypes?
     
     var switchCode: (()->())?
+    var distraction:Bool = false
+    var enabled:Bool?
     
-    @IBInspectable var Name: String {
-        get {
-            if let x = title.text {
-                return x
-            }
-            return ""
-        }
-        set(name) {
-            title.text = name
-        }
+    enum State {
+        case good
+        case bad
+        case off
     }
+    
+    var state:State = State.off
+    
     
     func xibSetup() {
         view = loadViewFromNib()
@@ -73,19 +74,70 @@ import UIKit
         // 3. Setup view from .xib file
         xibSetup()
     }
-
-    @IBAction func switchTapped(sender: UISwitch) {
-        if let callMeMaybe = switchCode {
-            callMeMaybe()
-        }        
+    
+    
+    @IBAction func viewTapped(sender: AnyObject) {
+        
+        if let e = enabled {
+            if (e) {
+                distraction = !distraction
+                distraction ? startDistraction() : stopDistraction()
+            }
+        }
     }
     
-    /*
+    func startTrip() {
+        setState(State.good)
+        debug.text = "Waiting for data"
+        enabled = !enableSensors_Global
+        debug.hidden = hideSensorData_Global
+        title.hidden = !hideSensorData_Global
+    }
+    
+    func stopTrip() {
+        enabled = false
+        if (distraction) {
+            distraction = false
+            stopDistraction()
+        }
+        setState(State.off)
+        debug.hidden = true
+        title.hidden = false
+    }
+    func startDistraction() {
+        if let t = type {
+            DataCollector.defaultCollector().catchDangerousAciton(t)
+            setState(State.bad)
+        }
+    }
+    
+    func stopDistraction() {
+        if let t = type {
+            DataCollector.defaultCollector().releaseDangerousAction(t)
+            setState(State.good)
+        }
+    }
+    
+    func setState(nextState:State) {
+
+        state = nextState
+        
+        switch (state) {
+        case State.good:
+            view.backgroundColor = UIColor.greenColor()
+        case State.bad:
+            view.backgroundColor = UIColor.redColor()
+        case State.off:
+            view.backgroundColor = UIColor.lightGrayColor()
+        }
+        
+    }
+    
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
+//    override func drawRect(rect: CGRect) {
+//
+//    }
+    
 
 }
