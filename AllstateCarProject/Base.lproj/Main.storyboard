@@ -582,13 +582,7 @@ Distractions
                                     <action selector="sampleRateChanged:" destination="bI0-gt-il4" eventType="valueChanged" id="RKX-cT-VBR"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x Tolerance +/- 0.4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3d-Tf-sMh">
-                                <rect key="frame" x="211" y="137.5" width="183" height="16"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.40000000000000002" minValue="0.050000000000000003" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aVy-dp-tcd">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.20000000000000001" minValue="0.050000000000000003" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aVy-dp-tcd">
                                 <rect key="frame" x="18" y="130.5" width="187" height="31"/>
                                 <connections>
                                     <action selector="xToleranceChanged:" destination="bI0-gt-il4" eventType="valueChanged" id="ESi-QB-3eT"/>
@@ -606,13 +600,13 @@ Distractions
                                     <action selector="yToleranceChanged:" destination="bI0-gt-il4" eventType="valueChanged" id="5cY-Ta-7eu"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="z Tolerance +/- 0.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHA-dy-eSh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="z Tolerance +/- 0.4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHA-dy-eSh">
                                 <rect key="frame" x="211" y="213" width="183" height="16"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.20000000000000001" minValue="0.050000000000000003" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0a2-RG-UUr">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.40000000000000002" minValue="0.050000000000000003" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0a2-RG-UUr">
                                 <rect key="frame" x="18" y="206" width="187" height="31"/>
                                 <connections>
                                     <action selector="zToleranceChanged:" destination="bI0-gt-il4" eventType="valueChanged" id="Ywk-VI-c3U"/>
@@ -655,6 +649,12 @@ Distractions
                                     <action selector="sensorTextButtonPressed:" destination="bI0-gt-il4" eventType="touchUpInside" id="xHs-Bp-uZv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x Tolerance +/- 0.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3d-Tf-sMh">
+                                <rect key="frame" x="211" y="138" width="183" height="16"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -713,11 +713,17 @@ Distractions
                         <outlet property="enableSensorsButton" destination="0pZ-oz-jg7" id="0Ly-35-nzt"/>
                         <outlet property="hideSensorTextButton" destination="YsJ-zP-2cS" id="GCY-ht-kvx"/>
                         <outlet property="noiseLabel" destination="bku-ZH-rwC" id="2Lh-gh-Uak"/>
+                        <outlet property="noiseSlider" destination="uzj-3D-oxQ" id="GzK-W6-MSb"/>
                         <outlet property="sampleRateLabel" destination="eE7-dB-Tc9" id="nNS-3q-lUF"/>
+                        <outlet property="sampleRateSlider" destination="aK2-0M-Yg2" id="bS8-hN-866"/>
                         <outlet property="speedLabel" destination="Agi-2K-f4N" id="AGt-hn-du1"/>
+                        <outlet property="speedSlider" destination="kMs-Tp-di4" id="gTD-WK-bKA"/>
                         <outlet property="xToleranceLabel" destination="Q3d-Tf-sMh" id="Kna-BJ-r7Y"/>
+                        <outlet property="xToleranceSlider" destination="aVy-dp-tcd" id="9Xf-bd-LG2"/>
                         <outlet property="yToleranceLabel" destination="toF-Ja-Dme" id="bgH-aT-ZBp"/>
+                        <outlet property="yToleranceSlider" destination="Vi8-Pj-wjd" id="wrK-42-BTg"/>
                         <outlet property="zToleranceLabel" destination="GHA-dy-eSh" id="Afx-53-I8c"/>
+                        <outlet property="zToleranceSlider" destination="0a2-RG-UUr" id="sVO-HM-vhe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1Y-nj-vpR" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -33,7 +33,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4k-o8-v23">
                     <rect key="frame" x="128" y="8" width="254" height="112"/>
-                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="10"/>
+                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="9"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>

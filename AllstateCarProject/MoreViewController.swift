@@ -12,8 +12,8 @@ var enableSensors_Global:Bool = true
 var hideSensorData_Global:Bool = false
 var sampleRate_Global:Double = 2.0
 var xTolerance_Global:Double = 0.4
-var yTolerance_Global:Double = 0.2
-var zTolerance_Global:Double = 0.2
+var yTolerance_Global:Double = 0.4
+var zTolerance_Global:Double = 0.8
 var noiseLevel_Global:Float = -30
 var speedLimit_Global:Double = 80.0
 
@@ -30,9 +30,30 @@ class MoreViewController: UIViewController {
     @IBOutlet weak var noiseLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     
+    @IBOutlet weak var sampleRateSlider: UISlider!
+    @IBOutlet weak var xToleranceSlider: UISlider!
+    @IBOutlet weak var yToleranceSlider: UISlider!
+    @IBOutlet weak var zToleranceSlider: UISlider!
+    @IBOutlet weak var noiseSlider: UISlider!
+    @IBOutlet weak var speedSlider: UISlider!
+
+
+
+    
     override func viewDidLoad() {
         setSensorButton()
         setSensorTextButton()
+        setXTolerance()
+        setYTolerance()
+        setZTolerance()
+        setNoiseLevel()
+        setSpeedLimit()
+        sampleRateSlider.value = Float(sampleRate_Global)
+        xToleranceSlider.value = Float(xTolerance_Global)
+        yToleranceSlider.value = Float(yTolerance_Global)
+        zToleranceSlider.value = Float(zTolerance_Global)
+        noiseSlider.value = Float(noiseLevel_Global)
+        speedSlider.value = Float(speedLimit_Global)
     }
     
     @IBAction func ClearDataPressed(sender: AnyObject) {
@@ -50,41 +71,34 @@ class MoreViewController: UIViewController {
     }
     
     @IBAction func sampleRateChanged(sender: UISlider) {
-        let currentValue = Double(sender.value)
-        sampleRate_Global = currentValue
-        sampleRateLabel.text = String(format: "Sample rate %.1f sec", arguments: [sampleRate_Global])
+        sampleRate_Global = Double(sender.value)
+        setSampleRate()
     }
     
     @IBAction func xToleranceChanged(sender: UISlider) {
-        let currentValue = Double(sender.value)
-        xTolerance_Global = currentValue
-        xToleranceLabel.text = String(format: "x Tolerance +/- %.2f", arguments: [xTolerance_Global])
+        xTolerance_Global = Double(sender.value)
+        setXTolerance()
     }
     
     @IBAction func yToleranceChanged(sender: UISlider) {
-        let currentValue = Double(sender.value)
-        yTolerance_Global = currentValue
-        yToleranceLabel.text = String(format: "y Tolerance +/- %.2f", arguments: [yTolerance_Global])
+        yTolerance_Global = Double(sender.value)
+        setYTolerance()
     }
     
     @IBAction func zToleranceChanged(sender: UISlider) {
-        let currentValue = Double(sender.value)
-        zTolerance_Global = currentValue
-        zToleranceLabel.text = String(format: "z Tolerance +/- %.2f", arguments: [zTolerance_Global])
+        zTolerance_Global = Double(sender.value)
+        setZTolerance()
     }
     
     @IBAction func noiseChanged(sender: UISlider) {
-        let currentValue = Float(sender.value)
-        noiseLevel_Global = currentValue
-        noiseLabel.text = String(format: "Noise Level %.0f db", arguments: [noiseLevel_Global])
+        noiseLevel_Global = sender.value
+        setNoiseLevel()
     }
     
     @IBAction func speedLimitChanged(sender: UISlider) {
-        let currentValue = Double(sender.value)
-        speedLimit_Global = currentValue
-        speedLabel.text = String(format: "Speed Limit %.0f mph", arguments: [speedLimit_Global])
+        speedLimit_Global = Double(sender.value)
+        setSpeedLimit()
     }
-    
     
     @IBAction func sensorModePressed(sender: UIButton) {
         enableSensors_Global = !enableSensors_Global
@@ -94,6 +108,30 @@ class MoreViewController: UIViewController {
     @IBAction func sensorTextButtonPressed(sender: UIButton) {
         hideSensorData_Global = !hideSensorData_Global
         setSensorTextButton()
+    }
+    
+    func setSampleRate() {
+        sampleRateLabel.text = String(format: "Sample rate %.1f sec", arguments: [sampleRate_Global])
+    }
+    
+    func setXTolerance() {
+        xToleranceLabel.text = String(format: "x Tolerance +/- %.2f", arguments: [xTolerance_Global])
+    }
+    
+    func setYTolerance() {
+        yToleranceLabel.text = String(format: "y Tolerance +/- %.2f", arguments: [yTolerance_Global])
+    }
+    
+    func setZTolerance() {
+        zToleranceLabel.text = String(format: "z Tolerance +/- %.2f", arguments: [zTolerance_Global])
+    }
+    
+    func setNoiseLevel() {
+        noiseLabel.text = String(format: "Noise Level %.0f db", arguments: [noiseLevel_Global])
+    }
+    
+    func setSpeedLimit() {
+        speedLabel.text = String(format: "Speed Limit %.0f mph", arguments: [speedLimit_Global])
     }
     
     func setSensorButton() {
@@ -113,6 +151,8 @@ class MoreViewController: UIViewController {
             hideSensorTextButton.setTitle("Sensor data is showing", forState: .Normal)
         }
     }
+    
+    
     
     
     

@@ -93,7 +93,6 @@ import UIKit
     }
     
     func stopTrip() {
-        print("stopTrip() \(title.text)")
         enabled = false
         if (distraction) {
             distraction = false
@@ -113,11 +112,12 @@ import UIKit
     }
     
     func stopDistraction() {
-        print("stopDistraction() \(title.text)")
-        if let t = type {
-            DataCollector.defaultCollector().releaseDangerousAction(t)
-            setState(State.good)
-            distraction = false
+        if distraction {
+            if let t = type {
+                DataCollector.defaultCollector().releaseDangerousAction(t)
+                setState(State.good)
+                distraction = false
+            }
         }
     }
     
