@@ -77,11 +77,9 @@ import UIKit
     
     
     @IBAction func viewTapped(sender: AnyObject) {
-        
         if let e = enabled {
             if (e) {
-                distraction = !distraction
-                distraction ? startDistraction() : stopDistraction()
+                distraction ? stopDistraction() : startDistraction()
             }
         }
     }
@@ -95,6 +93,7 @@ import UIKit
     }
     
     func stopTrip() {
+        print("stopTrip() \(title.text)")
         enabled = false
         if (distraction) {
             distraction = false
@@ -104,17 +103,21 @@ import UIKit
         debug.hidden = true
         title.hidden = false
     }
+    
     func startDistraction() {
         if let t = type {
             DataCollector.defaultCollector().catchDangerousAciton(t)
             setState(State.bad)
+            distraction = true
         }
     }
     
     func stopDistraction() {
+        print("stopDistraction() \(title.text)")
         if let t = type {
             DataCollector.defaultCollector().releaseDangerousAction(t)
             setState(State.good)
+            distraction = false
         }
     }
     
