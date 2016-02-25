@@ -25,6 +25,7 @@ class DashboardViewController: UIViewController {
     var microphoneSensor:MicrophoneNoise?
     var speedSensor:SpeedSensor?
     let beaconSensor:BeaconSensor = BeaconSensor()
+    var faceSensor: FaceDetection?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +90,8 @@ class DashboardViewController: UIViewController {
         motionSensor = PhoneMotion()
         microphoneSensor = MicrophoneNoise()
         speedSensor = SpeedSensor()
+        faceSensor = FaceDetection()
+        
         
         DataCollector.defaultCollector().start()
 
@@ -108,6 +111,10 @@ class DashboardViewController: UIViewController {
         
         if let t = refreshTimer {
             t.invalidate()
+        }
+        
+        if let f = faceSensor {
+            f.endService()
         }
 
         // Record speed array
@@ -146,6 +153,14 @@ class DashboardViewController: UIViewController {
             excessiveSpeed.debug.text = s.debugText
             if (enableSensors_Global) {
                 s.isDistracted ? excessiveSpeed.startDistraction() : excessiveSpeed.stopDistraction()
+            }
+        }
+        
+        if let f = faceSensor {
+            f.checkResult()
+            faceDetection.debug.text = f.debugText
+            if (enableSensors_Global) {
+                f.isDistracted ? faceDetection.startDistraction() : faceDetection.stopDistraction()
             }
         }
         
