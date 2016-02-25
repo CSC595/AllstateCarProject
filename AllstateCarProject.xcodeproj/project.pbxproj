@@ -15,10 +15,9 @@
 		204B8BA71C6D47C90013D440 /* PhoneMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B8BA61C6D47C90013D440 /* PhoneMotion.swift */; };
 		204B8BA91C6D60DF0013D440 /* MicrophoneNoise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B8BA81C6D60DF0013D440 /* MicrophoneNoise.swift */; };
 		205409F91C69061300E13463 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205409F81C69061300E13463 /* MoreViewController.swift */; };
+		20625D751C7F3E75005FBB00 /* DistractionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20625D741C7F3E75005FBB00 /* DistractionItem.swift */; };
 		206AB54D1C77430C0079FDC6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 206AB54C1C77430C0079FDC6 /* libz.tbd */; };
 		206AB5511C7743BB0079FDC6 /* Gimbal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206AB5501C7743BB0079FDC6 /* Gimbal.framework */; };
-		2080BA281C76211B00251366 /* DashboardTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080BA271C76211B00251366 /* DashboardTitle.swift */; };
-		2080BA2A1C76213B00251366 /* DashboardTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2080BA291C76213B00251366 /* DashboardTitle.xib */; };
 		2080BA2D1C7694D500251366 /* gimbal.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 2080BA2C1C7694D500251366 /* gimbal.apikey */; };
 		2080BA2F1C76D6F700251366 /* GetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080BA2E1C76D6F700251366 /* GetKey.swift */; };
 		209ADB321C6C160900C9E3F8 /* DashboardItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 209ADB311C6C160900C9E3F8 /* DashboardItem.xib */; };
@@ -71,11 +70,10 @@
 		204B8BA61C6D47C90013D440 /* PhoneMotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneMotion.swift; sourceTree = "<group>"; };
 		204B8BA81C6D60DF0013D440 /* MicrophoneNoise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneNoise.swift; sourceTree = "<group>"; };
 		205409F81C69061300E13463 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		20625D741C7F3E75005FBB00 /* DistractionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistractionItem.swift; sourceTree = "<group>"; };
 		206AB54C1C77430C0079FDC6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		206AB5501C7743BB0079FDC6 /* Gimbal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gimbal.framework; path = Frameworks/Gimbal.framework; sourceTree = "<group>"; };
 		206AB5521C7744A70079FDC6 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
-		2080BA271C76211B00251366 /* DashboardTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTitle.swift; sourceTree = "<group>"; };
-		2080BA291C76213B00251366 /* DashboardTitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardTitle.xib; sourceTree = "<group>"; };
 		2080BA2C1C7694D500251366 /* gimbal.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gimbal.apikey; sourceTree = "<group>"; };
 		2080BA2E1C76D6F700251366 /* GetKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKey.swift; sourceTree = "<group>"; };
 		209ADB311C6C160900C9E3F8 /* DashboardItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardItem.xib; sourceTree = "<group>"; };
@@ -160,10 +158,9 @@
 		20CEB8FC1C72383B006400DC /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				2080BA291C76213B00251366 /* DashboardTitle.xib */,
-				2080BA271C76211B00251366 /* DashboardTitle.swift */,
 				209ADB311C6C160900C9E3F8 /* DashboardItem.xib */,
 				209ADB331C6C189100C9E3F8 /* DashboardItem.swift */,
+				20625D741C7F3E75005FBB00 /* DistractionItem.swift */,
 				209ADB351C6C218700C9E3F8 /* DashboardViewController.swift */,
 			);
 			name = Dashboard;
@@ -378,7 +375,6 @@
 				32D567291C556ACE008EB5EF /* LaunchScreen.storyboard in Resources */,
 				32D567261C556ACE008EB5EF /* Assets.xcassets in Resources */,
 				2080BA2D1C7694D500251366 /* gimbal.apikey in Resources */,
-				2080BA2A1C76213B00251366 /* DashboardTitle.xib in Resources */,
 				32D567241C556ACE008EB5EF /* Main.storyboard in Resources */,
 				2005A6E51C6FE00300B1452C /* XYChart.xib in Resources */,
 				203254FE1C6A69F100A4C353 /* BooleanChart.xib in Resources */,
@@ -460,7 +456,7 @@
 				7C7DF2071C6BB24400B9499F /* BooleanChartData.swift in Sources */,
 				320D616E1C598D1200814A47 /* HistoryViewController.swift in Sources */,
 				20BAADB91C7130EA006BDB39 /* XYChartData.swift in Sources */,
-				2080BA281C76211B00251366 /* DashboardTitle.swift in Sources */,
+				20625D751C7F3E75005FBB00 /* DistractionItem.swift in Sources */,
 				32F678BA1C7E8FEF00501AD7 /* FaceDetection.swift in Sources */,
 				32D567531C55C5B9008EB5EF /* Extension.swift in Sources */,
 				32D567211C556ACE008EB5EF /* DemoViewController.swift in Sources */,

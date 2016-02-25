@@ -13,123 +13,128 @@
                         <viewControllerLayoutGuide type="top" id="pmt-hs-mQK"/>
                         <viewControllerLayoutGuide type="bottom" id="mxR-gE-268"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="le8-Go-ypQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <view key="view" contentMode="scaleToFill" id="Q8t-SX-77o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="851"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nge-jM-W3K">
-                                <rect key="frame" x="8" y="28" width="398" height="659"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdZ-Ct-83d">
+                                <rect key="frame" x="0.0" y="20" width="414" height="831"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7y-R1-vlZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="659"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzq-Rc-frU" userLabel="Main View">
+                                        <rect key="frame" x="8" y="8" width="398" height="609"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPv-PL-AdK">
-                                                <rect key="frame" x="0.0" y="0.0" width="398" height="616"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Da5-Ib-bBY" userLabel="Title View" customClass="DashboardTitle" customModule="AllstateCarProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="80"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="KWV-ON-RBL"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsJ-Sh-lwD" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="88" width="398" height="80"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="MSs-ln-hKD"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icQ-fk-sVE" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="176" width="398" height="80"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="UbN-eP-DZa"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bnh-sk-Vca" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="264" width="398" height="80"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="dBJ-vB-aAd"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5c-zZ-a7O" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="352" width="398" height="80"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="Rmc-m7-y6W"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0a-wi-lRk" userLabel="Beacon" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="440" width="398" height="80"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="Urf-Lc-cau"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMx-XP-SDS" userLabel="Title View" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="88" width="398" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="rsJ-Sh-lwD" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="227-FE-KLM"/>
-                                                    <constraint firstAttribute="trailing" secondItem="icQ-fk-sVE" secondAttribute="trailing" id="4DW-qA-dNG"/>
-                                                    <constraint firstItem="L0a-wi-lRk" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="6R3-1v-I7b"/>
-                                                    <constraint firstAttribute="trailing" secondItem="c5c-zZ-a7O" secondAttribute="trailing" id="85t-rA-ghy"/>
-                                                    <constraint firstItem="L0a-wi-lRk" firstAttribute="top" secondItem="c5c-zZ-a7O" secondAttribute="bottom" constant="8" id="8xV-dS-vNN"/>
-                                                    <constraint firstItem="Da5-Ib-bBY" firstAttribute="top" secondItem="GPv-PL-AdK" secondAttribute="top" id="BTf-EZ-DLN"/>
-                                                    <constraint firstItem="c5c-zZ-a7O" firstAttribute="top" secondItem="Bnh-sk-Vca" secondAttribute="bottom" constant="8" id="Fnu-qc-HCo"/>
-                                                    <constraint firstItem="Da5-Ib-bBY" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="GWd-XO-svI"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Bnh-sk-Vca" secondAttribute="trailing" id="IeX-Lm-BCD"/>
-                                                    <constraint firstAttribute="trailing" secondItem="rsJ-Sh-lwD" secondAttribute="trailing" id="M9b-4a-PmW"/>
-                                                    <constraint firstItem="Bnh-sk-Vca" firstAttribute="top" secondItem="icQ-fk-sVE" secondAttribute="bottom" constant="8" id="Ooc-Gy-35j"/>
-                                                    <constraint firstItem="icQ-fk-sVE" firstAttribute="top" secondItem="rsJ-Sh-lwD" secondAttribute="bottom" constant="8" id="TvD-CR-B76"/>
-                                                    <constraint firstAttribute="height" constant="616" id="ZBP-r4-3vv"/>
-                                                    <constraint firstItem="c5c-zZ-a7O" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="faw-g1-FOV"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Da5-Ib-bBY" secondAttribute="trailing" id="g0o-Vk-ZZV"/>
-                                                    <constraint firstAttribute="trailing" secondItem="L0a-wi-lRk" secondAttribute="trailing" id="gyJ-BJ-RTl"/>
-                                                    <constraint firstItem="Bnh-sk-Vca" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="j0j-21-wJO"/>
-                                                    <constraint firstItem="icQ-fk-sVE" firstAttribute="leading" secondItem="GPv-PL-AdK" secondAttribute="leading" id="lgW-nQ-wx7"/>
-                                                    <constraint firstItem="rsJ-Sh-lwD" firstAttribute="top" secondItem="Da5-Ib-bBY" secondAttribute="bottom" constant="8" id="rEc-g7-0cl"/>
+                                                    <constraint firstAttribute="height" constant="80" id="q0A-rf-dtx"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5Z-dk-vfe" customClass="DistractionItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="176" width="398" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="Ktw-Uf-jOl"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-bD-F8A" customClass="DistractionItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="264" width="398" height="80.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="srh-z1-73I"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vz-Nf-fFV" customClass="DistractionItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="352.5" width="398" height="80.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="SGt-xb-IJb"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fH-Jl-Ahh" customClass="DistractionItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="440.5" width="398" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="QO9-zz-mc8"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYc-sQ-6cN" userLabel="Beacon" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="528.5" width="398" height="80.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="ESd-pI-sR9"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Distracted Driving Sensors" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tw7-0a-PiB">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="80"/>
+                                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="bbb-xE-0BE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="GPv-PL-AdK" secondAttribute="bottom" id="KHd-qL-FYd"/>
-                                            <constraint firstItem="GPv-PL-AdK" firstAttribute="leading" secondItem="I7y-R1-vlZ" secondAttribute="leading" id="Xcv-ye-s0Y"/>
-                                            <constraint firstItem="GPv-PL-AdK" firstAttribute="width" secondItem="I7y-R1-vlZ" secondAttribute="width" id="ckJ-dy-zim"/>
-                                            <constraint firstItem="GPv-PL-AdK" firstAttribute="top" secondItem="I7y-R1-vlZ" secondAttribute="top" id="nB0-o6-Y9u"/>
-                                            <constraint firstItem="GPv-PL-AdK" firstAttribute="centerX" secondItem="I7y-R1-vlZ" secondAttribute="centerX" id="rKe-4k-AQg"/>
-                                            <constraint firstAttribute="trailing" secondItem="GPv-PL-AdK" secondAttribute="trailing" id="utk-bI-yRZ"/>
+                                            <constraint firstItem="j5Z-dk-vfe" firstAttribute="top" secondItem="hMx-XP-SDS" secondAttribute="bottom" constant="8" id="8gb-6b-OJ7"/>
+                                            <constraint firstItem="7fH-Jl-Ahh" firstAttribute="top" secondItem="5Vz-Nf-fFV" secondAttribute="bottom" constant="8" id="9mZ-Ow-7ms"/>
+                                            <constraint firstItem="5Vz-Nf-fFV" firstAttribute="leading" secondItem="tzq-Rc-frU" secondAttribute="leading" id="D9l-0U-w68"/>
+                                            <constraint firstItem="xbb-bD-F8A" firstAttribute="leading" secondItem="tzq-Rc-frU" secondAttribute="leading" id="LvF-8z-xMr"/>
+                                            <constraint firstItem="DYc-sQ-6cN" firstAttribute="top" secondItem="7fH-Jl-Ahh" secondAttribute="bottom" constant="8" id="N3t-Nf-eut"/>
+                                            <constraint firstItem="DYc-sQ-6cN" firstAttribute="leading" secondItem="tzq-Rc-frU" secondAttribute="leading" id="NAd-U4-sma"/>
+                                            <constraint firstItem="tw7-0a-PiB" firstAttribute="leading" secondItem="tzq-Rc-frU" secondAttribute="leading" id="SHx-rT-X64"/>
+                                            <constraint firstItem="hMx-XP-SDS" firstAttribute="leading" secondItem="tzq-Rc-frU" secondAttribute="leading" id="Wti-zm-pbf"/>
+                                            <constraint firstItem="j5Z-dk-vfe" firstAttribute="leading" secondItem="tzq-Rc-frU" secondAttribute="leading" id="XcG-e7-jeQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="tw7-0a-PiB" secondAttribute="trailing" id="Yh8-Vu-gEv"/>
+                                            <constraint firstItem="7fH-Jl-Ahh" firstAttribute="leading" secondItem="tzq-Rc-frU" secondAttribute="leading" id="Z9n-Mo-LjJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="7fH-Jl-Ahh" secondAttribute="trailing" id="fa5-MD-aMO"/>
+                                            <constraint firstItem="xbb-bD-F8A" firstAttribute="top" secondItem="j5Z-dk-vfe" secondAttribute="bottom" constant="8" id="hLD-Jc-D7Q"/>
+                                            <constraint firstItem="hMx-XP-SDS" firstAttribute="top" secondItem="tw7-0a-PiB" secondAttribute="bottom" constant="8" id="hLe-5F-kQx"/>
+                                            <constraint firstAttribute="trailing" secondItem="5Vz-Nf-fFV" secondAttribute="trailing" id="iwa-Tp-UQA"/>
+                                            <constraint firstAttribute="trailing" secondItem="DYc-sQ-6cN" secondAttribute="trailing" id="oDN-0R-W2G"/>
+                                            <constraint firstItem="tw7-0a-PiB" firstAttribute="top" secondItem="tzq-Rc-frU" secondAttribute="top" id="pOt-mU-uzu"/>
+                                            <constraint firstAttribute="trailing" secondItem="hMx-XP-SDS" secondAttribute="trailing" id="ppY-VZ-T4y"/>
+                                            <constraint firstAttribute="bottom" secondItem="DYc-sQ-6cN" secondAttribute="bottom" id="qku-uI-QwW"/>
+                                            <constraint firstAttribute="trailing" secondItem="j5Z-dk-vfe" secondAttribute="trailing" id="seP-ja-GU7"/>
+                                            <constraint firstAttribute="trailing" secondItem="xbb-bD-F8A" secondAttribute="trailing" id="u8c-ON-1Pi"/>
+                                            <constraint firstItem="5Vz-Nf-fFV" firstAttribute="top" secondItem="xbb-bD-F8A" secondAttribute="bottom" constant="8" id="uBy-CX-vcr"/>
                                         </constraints>
-                                    </scrollView>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="I7y-R1-vlZ" firstAttribute="top" secondItem="Nge-jM-W3K" secondAttribute="top" id="65y-dt-Jru"/>
-                                    <constraint firstItem="I7y-R1-vlZ" firstAttribute="leading" secondItem="Nge-jM-W3K" secondAttribute="leading" id="6QP-88-4Jd"/>
-                                    <constraint firstAttribute="bottom" secondItem="I7y-R1-vlZ" secondAttribute="bottom" id="IUc-i1-IP6"/>
-                                    <constraint firstAttribute="trailing" secondItem="I7y-R1-vlZ" secondAttribute="trailing" id="VRl-qh-x2f"/>
+                                    <constraint firstItem="tzq-Rc-frU" firstAttribute="leading" secondItem="wdZ-Ct-83d" secondAttribute="leading" constant="8" id="37V-r3-wrm"/>
+                                    <constraint firstAttribute="trailing" secondItem="tzq-Rc-frU" secondAttribute="trailing" constant="8" id="HXf-0v-s1O"/>
+                                    <constraint firstItem="tzq-Rc-frU" firstAttribute="top" secondItem="wdZ-Ct-83d" secondAttribute="top" constant="8" id="O2E-f8-fhZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="tzq-Rc-frU" secondAttribute="bottom" constant="8" id="SZW-tY-aMa"/>
+                                    <constraint firstItem="tzq-Rc-frU" firstAttribute="width" secondItem="wdZ-Ct-83d" secondAttribute="width" constant="-16" id="czz-xF-uj3"/>
                                 </constraints>
-                            </view>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mxR-gE-268" firstAttribute="top" secondItem="Nge-jM-W3K" secondAttribute="bottom" id="C9d-hc-Wgv"/>
-                            <constraint firstItem="Nge-jM-W3K" firstAttribute="leading" secondItem="le8-Go-ypQ" secondAttribute="leading" constant="8" id="M8Z-Tz-Lmz"/>
-                            <constraint firstItem="Nge-jM-W3K" firstAttribute="top" secondItem="pmt-hs-mQK" secondAttribute="bottom" constant="8" id="btb-jb-8hy"/>
-                            <constraint firstAttribute="trailing" secondItem="Nge-jM-W3K" secondAttribute="trailing" constant="8" id="huR-VV-mP3"/>
+                            <constraint firstItem="wdZ-Ct-83d" firstAttribute="width" secondItem="Q8t-SX-77o" secondAttribute="width" id="DKl-54-0qe"/>
+                            <constraint firstItem="wdZ-Ct-83d" firstAttribute="centerX" secondItem="Q8t-SX-77o" secondAttribute="centerX" id="HAZ-ov-QvL"/>
+                            <constraint firstItem="mxR-gE-268" firstAttribute="top" secondItem="wdZ-Ct-83d" secondAttribute="bottom" id="Yct-rm-oWh"/>
+                            <constraint firstItem="wdZ-Ct-83d" firstAttribute="top" secondItem="pmt-hs-mQK" secondAttribute="bottom" id="agk-VK-YjV"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="CarIcon" id="YEY-AW-5E9" userLabel="Demo"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="900"/>
                     <connections>
-                        <outlet property="beacon" destination="L0a-wi-lRk" id="B1U-k8-hAw"/>
-                        <outlet property="excessiveSpeed" destination="c5c-zZ-a7O" id="Orm-QL-36T"/>
-                        <outlet property="faceDetection" destination="rsJ-Sh-lwD" id="RhD-on-wVb"/>
-                        <outlet property="microphoneNoise" destination="Bnh-sk-Vca" id="efI-s4-6eG"/>
-                        <outlet property="phoneMotion" destination="icQ-fk-sVE" id="sDl-Iy-7c4"/>
-                        <outlet property="scrollView" destination="I7y-R1-vlZ" id="gjX-cO-xzR"/>
-                        <outlet property="tripDetection" destination="Da5-Ib-bBY" id="hit-f7-eRG"/>
+                        <outlet property="beacon" destination="DYc-sQ-6cN" id="16q-yQ-QnZ"/>
+                        <outlet property="excessiveSpeed" destination="7fH-Jl-Ahh" id="H7V-RR-F3T"/>
+                        <outlet property="faceDetection" destination="j5Z-dk-vfe" id="l9m-9h-xnS"/>
+                        <outlet property="microphoneNoise" destination="5Vz-Nf-fFV" id="dlo-PM-kXz"/>
+                        <outlet property="phoneMotion" destination="xbb-bD-F8A" id="hi1-0c-z4R"/>
+                        <outlet property="scrollView" destination="wdZ-Ct-83d" id="EYO-BS-Ljt"/>
+                        <outlet property="tripDetection" destination="hMx-XP-SDS" id="dXD-Pk-bnr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RE1-0u-IOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,9 +194,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="ar8-tp-CyW"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Face Detection"/>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UF5-z6-sRX" customClass="BooleanChart" customModule="AllstateCarProject" customModuleProvider="target">
                                         <rect key="frame" x="8" y="224" width="398" height="100"/>
@@ -199,9 +201,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="zK4-71-FfY"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Phone Motion"/>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZJ-0m-i1h" customClass="BooleanChart" customModule="AllstateCarProject" customModuleProvider="target">
                                         <rect key="frame" x="8" y="332" width="398" height="100"/>
@@ -209,9 +208,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="JdE-kx-NXG"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Noise Detection"/>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vg9-jO-j7Y" customClass="BooleanChart" customModule="AllstateCarProject" customModuleProvider="target">
                                         <rect key="frame" x="8" y="440" width="398" height="100"/>
@@ -219,9 +215,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="QwP-BP-S7H"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Excessive Speed"/>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H0c-b4-zWi" userLabel="Summary">
                                         <rect key="frame" x="8" y="8" width="398" height="100"/>
@@ -298,9 +291,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="MbK-DI-D4z"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="Name" value="Speed"/>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

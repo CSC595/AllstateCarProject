@@ -17,10 +17,10 @@ import UIKit
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var debug: UILabel!
     
-    var type:DangerousActionTypes?
+//    var type:DangerousActionTypes?
     
-//    var switchCode: (()->())?
-    var distraction:Bool = false
+    var pressed:(()->())?
+//    var distraction:Bool = false
     var enabled:Bool?
     
     enum State {
@@ -79,76 +79,88 @@ import UIKit
     @IBAction func viewTapped(sender: AnyObject) {
         if let e = enabled {
             if (e) {
-                distraction ? stopDistraction() : startDistraction()
+                if let p = pressed {
+                    p()
+                }
             }
         }
     }
     
-    func startInfo() {
-        setState(State.off)
-        enabled = !enableSensors_Global
+    func start() {
         debug.hidden = hideSensorData_Global
         title.hidden = !hideSensorData_Global
     }
     
-    func stopInfo() {
-        setState(State.off)
+    func stop() {
+        setStateOff()
         debug.hidden = true
         title.hidden = false
 
     }
     
-    func startTrip() {
-        setState(State.good)
-        debug.text = "Waiting for data"
-        enabled = !enableSensors_Global
-        debug.hidden = hideSensorData_Global
-        title.hidden = !hideSensorData_Global
+//    func startTrip() {
+//        setState(State.good)
+//        debug.text = "Waiting for data"
+//        enabled = !enableSensors_Global
+//        debug.hidden = hideSensorData_Global
+//        title.hidden = !hideSensorData_Global
+//    }
+//    
+//    func stopTrip() {
+//        enabled = false
+//        if (distraction) {
+//            distraction = false
+//            stopDistraction()
+//        }
+//        setState(State.off)
+//        debug.hidden = true
+//        title.hidden = false
+//    }
+//
+//    func startDistraction() {
+//        if let t = type {
+//            DataCollector.defaultCollector().catchDangerousAciton(t)
+//            setState(State.bad)
+//            distraction = true
+//        }
+//    }
+//    
+//    func stopDistraction() {
+//        if distraction {
+//            if let t = type {
+//                DataCollector.defaultCollector().releaseDangerousAction(t)
+//                setState(State.good)
+//                distraction = false
+//            }
+//        }
+//    }
+    
+    func setStateGood() {
+        view.backgroundColor = UIColor.greenColor()
     }
     
-    func stopTrip() {
-        enabled = false
-        if (distraction) {
-            distraction = false
-            stopDistraction()
-        }
-        setState(State.off)
-        debug.hidden = true
-        title.hidden = false
+    func setStateBad() {
+        view.backgroundColor = UIColor.redColor()
     }
     
-    func startDistraction() {
-        if let t = type {
-            DataCollector.defaultCollector().catchDangerousAciton(t)
-            setState(State.bad)
-            distraction = true
-        }
+    func setStateOff() {
+        view.backgroundColor = UIColor.lightGrayColor()
     }
     
-    func stopDistraction() {
-        if distraction {
-            if let t = type {
-                DataCollector.defaultCollector().releaseDangerousAction(t)
-                setState(State.good)
-                distraction = false
-            }
-        }
-    }
-    
-    func setState(nextState:State) {
-
-        state = nextState
-        
-        switch (state) {
-        case State.good:
-            view.backgroundColor = UIColor.greenColor()
-        case State.bad:
-            view.backgroundColor = UIColor.redColor()
-        case State.off:
-            view.backgroundColor = UIColor.lightGrayColor()
-        }
-        
-    }
+//    func setState(nextState:State) {
+//
+//        state = nextState
+//        
+//        switch (state) {
+//        case State.good:
+//            view.backgroundColor = UIColor.greenColor()
+//        case State.bad:
+//            view.backgroundColor = UIColor.redColor()
+//        case State.off:
+//            view.backgroundColor = UIColor.lightGrayColor()
+//        }
+//        
+//    }
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

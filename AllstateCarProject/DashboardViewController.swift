@@ -10,15 +10,16 @@ import UIKit
 
 class DashboardViewController: UIViewController {
 
-    @IBOutlet weak var tripDetection: DashboardTitle!
-    @IBOutlet weak var faceDetection: DashboardItem!
-    @IBOutlet weak var phoneMotion: DashboardItem!
-    @IBOutlet weak var microphoneNoise: DashboardItem!
-    @IBOutlet weak var excessiveSpeed: DashboardItem!
-        
+    // UI Objects
+    @IBOutlet weak var tripDetection: DashboardItem!
+    @IBOutlet weak var faceDetection: DistractionItem!
+    @IBOutlet weak var phoneMotion: DistractionItem!
+    @IBOutlet weak var microphoneNoise: DistractionItem!
+    @IBOutlet weak var excessiveSpeed: DistractionItem!
     @IBOutlet weak var beacon: DashboardItem!
+
     @IBOutlet var scrollView: UIScrollView!
-    var refreshTimer: NSTimer?
+//    @IBOutlet weak var stackView: UIStackView!
     
     // Sensor Objects
     var motionSensor:PhoneMotion?
@@ -26,16 +27,21 @@ class DashboardViewController: UIViewController {
     var speedSensor:SpeedSensor?
     var faceSensor: FaceDetection?
     var beaconSensor:BeaconSensor?
-    
+
+
+    var isTripInProgress:Bool = false
+    var refreshTimer: NSTimer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
         tripDetection.enabled = true
-        tripDetection.primaryIcon.image = UIImage(named: "WheelIcon")
-        tripDetection.switchCode = {
-            self.tripDetection.tripInProgress ? self.startTrip() : self.stopTrip()
+        tripDetection.title.text = "Start"
+        tripDetection.icon.image = UIImage(named: "WheelIcon")
+        tripDetection.pressed = {
+            self.isTripInProgress ? self.stopTrip() : self.startTrip()
         }
         
         faceDetection.title.text = "Attention"
@@ -59,6 +65,11 @@ class DashboardViewController: UIViewController {
         beacon.icon.image = UIImage(named: "BeaconIcon")
         
     }
+    
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height)
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -79,12 +90,12 @@ class DashboardViewController: UIViewController {
     func startTrip() {
         
         // Start UI Elements
-        tripDetection.startTrip()
-        faceDetection.startTrip()
-        phoneMotion.startTrip()
-        microphoneNoise.startTrip()
-        excessiveSpeed.startTrip()
-        beacon.startInfo()
+        tripDetection.start()
+        faceDetection.start()
+        phoneMotion.start()
+        microphoneNoise.start()
+        excessiveSpeed.start()
+        beacon.start()
         
         // Create Sensor Objects
         motionSensor = PhoneMotion()
@@ -93,21 +104,25 @@ class DashboardViewController: UIViewController {
         faceSensor = FaceDetection()
         beaconSensor = BeaconSensor()
         
+        tripDetection.title.text = "Stop"
+        
         DataCollector.defaultCollector().start()
 
         checkSensors()
         refreshTimer = NSTimer.scheduledTimerWithTimeInterval(sampleRate_Global, target: self, selector: "checkSensors", userInfo: nil, repeats: true)
+        
+        isTripInProgress = true
     }
     
     func stopTrip() {
         
         // Stop UI elements
-        tripDetection.stopTrip()
-        faceDetection.stopTrip()
-        phoneMotion.stopTrip()
-        microphoneNoise.stopTrip()
-        excessiveSpeed.stopTrip()
-        beacon.stopInfo()
+        tripDetection.stop()
+        faceDetection.stop()
+        phoneMotion.stop()
+        microphoneNoise.stop()
+        excessiveSpeed.stop()
+        beacon.stop()
         
         if let t = refreshTimer {
             t.invalidate()
@@ -123,16 +138,23 @@ class DashboardViewController: UIViewController {
             s.stop()
         }
         
+        tripDetection.title.text = "Start"
+
+        
         // Stop sensor objects if needed
         
         // Get distance
         let distance = Double(lround((Double(arc4random()) / 0xFFFFFFFF  * (60 - 10) + 10) * 1000)) / 1000
         DataCollector.defaultCollector().end(distance)
         
+        isTripInProgress = false
         
     }
     
     func checkSensors() {
+
+        tripDetection.debug.text = "Trip in progress"
+        
         if let m = motionSensor {
             phoneMotion.debug.text = m.debugText
             if (enableSensors_Global) {
@@ -165,14 +187,12 @@ class DashboardViewController: UIViewController {
         }
         
         // Update beacon status
-        if (beaconSensor.isVisiting) {
-            beacon.setState(DashboardItem.State.good)
-            if let b = beaconSensor {
-                beacon.debug.text = b.debugText
+        if let b = beaconSensor {
+            beacon.debug.text = b.debugText
+            if (b.isVisiting) {
+                beacon.setStateGood()
             }
         }
-            
-        
     }
         
 }
