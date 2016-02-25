@@ -14,7 +14,7 @@ class PhoneMotion {
     var debugText:String
     
     // sample rate
-    let sampleRate:Double = 0.5
+    let sampleRate:Double = sampleRate_Global / 5
     
     // To get data from sensors
     private let motionManager = CMMotionManager()
@@ -22,6 +22,7 @@ class PhoneMotion {
     
     // Previous data points
     private var attitudeArray:[CMAttitude] = []
+    private var gravityArray:[CMAcceleration] = []
     
     init () {
         self.isDistracted = false
@@ -33,6 +34,7 @@ class PhoneMotion {
             motionManager.startDeviceMotionUpdatesToQueue(queue, withHandler: { (motion:CMDeviceMotion?, error:NSError?) -> Void in
                 
                 let attitude = motion!.attitude
+                let gravity = motion!.gravity
                 
                 // Populate the reference array
                 if self.attitudeArray.isEmpty {
@@ -43,13 +45,46 @@ class PhoneMotion {
                     self.attitudeArray.insert(attitude, atIndex: 0)
                 }
                 
+                // Populate the reference array
+                if self.gravityArray.isEmpty {
+                    self.gravityArray = [CMAcceleration](count:5, repeatedValue:gravity)
+                }
+                else {
+                    self.gravityArray.removeLast()
+                    self.gravityArray.insert(gravity, atIndex: 0)
+                }
+                
                 // See if the device has been stable
-                self.updateStability()
+                useGravity_Global ? self.updateGravity() : self.updateAttitude()
+                
+                
             })
         }
     }
     
-    func updateStability() {
+    func updateGravity() {
+        debugText = String(format: "[ref] x: %+.2f, y: %+.2f, z: %+.2f", gravityArray[0].x, gravityArray[0].y, gravityArray[0].z)
+        print(debugText)
+        var accX:Double = 0
+        var accY:Double = 0
+        var accZ:Double = 0
+        
+        for index in (1..<gravityArray.count) {
+            accX += fabs(gravityArray[0].x - gravityArray[index].x)
+            accY += fabs(gravityArray[0].y - gravityArray[index].y)
+            accZ += fabs(gravityArray[0].z - gravityArray[index].z)
+        }
+        debugText += String(format: "\n[dif] x: %+.2f, y: %+.2f, z: %+.2f", accX, accY, accZ)
+        
+        if (accX + accY + accZ > gravityTolerance_Global) {
+            isDistracted = true
+        }
+        else {
+            isDistracted = false
+        }
+    }
+    
+    func updateAttitude() {
         
         debugText = String(format: "[ref] roll: %+.2f, pitch: %+.2f, yaw: %+.2f", attitudeArray[0].roll, attitudeArray[0].pitch, attitudeArray[0].yaw)
         
@@ -78,5 +113,6 @@ class PhoneMotion {
         }
         
     }
+    
 }
 

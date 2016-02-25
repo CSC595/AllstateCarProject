@@ -24,8 +24,8 @@ class DashboardViewController: UIViewController {
     var motionSensor:PhoneMotion?
     var microphoneSensor:MicrophoneNoise?
     var speedSensor:SpeedSensor?
-    let beaconSensor:BeaconSensor = BeaconSensor()
     var faceSensor: FaceDetection?
+    var beaconSensor:BeaconSensor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,14 +84,14 @@ class DashboardViewController: UIViewController {
         phoneMotion.startTrip()
         microphoneNoise.startTrip()
         excessiveSpeed.startTrip()
-        beacon.startTrip()
+        beacon.startInfo()
         
         // Create Sensor Objects
         motionSensor = PhoneMotion()
         microphoneSensor = MicrophoneNoise()
         speedSensor = SpeedSensor()
         faceSensor = FaceDetection()
-        
+        beaconSensor = BeaconSensor()
         
         DataCollector.defaultCollector().start()
 
@@ -107,7 +107,7 @@ class DashboardViewController: UIViewController {
         phoneMotion.stopTrip()
         microphoneNoise.stopTrip()
         excessiveSpeed.stopTrip()
-        beacon.stopTrip()
+        beacon.stopInfo()
         
         if let t = refreshTimer {
             t.invalidate()
@@ -167,11 +167,10 @@ class DashboardViewController: UIViewController {
         // Update beacon status
         if (beaconSensor.isVisiting) {
             beacon.setState(DashboardItem.State.good)
+            if let b = beaconSensor {
+                beacon.debug.text = b.debugText
+            }
         }
-        else {
-            beacon.setState(DashboardItem.State.off)
-        }
-        beacon.debug.text = beaconSensor.debugText
             
         
     }

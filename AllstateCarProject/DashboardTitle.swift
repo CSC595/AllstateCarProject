@@ -68,7 +68,6 @@ import UIKit
         
         if let e = enabled {
             if (e) {
-                print("Dashboard Title viewTapped() - enabled")
                 if (tripInProgress) {
                     stopTrip()
                 }

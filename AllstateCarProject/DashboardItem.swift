@@ -84,6 +84,20 @@ import UIKit
         }
     }
     
+    func startInfo() {
+        setState(State.off)
+        enabled = !enableSensors_Global
+        debug.hidden = hideSensorData_Global
+        title.hidden = !hideSensorData_Global
+    }
+    
+    func stopInfo() {
+        setState(State.off)
+        debug.hidden = true
+        title.hidden = false
+
+    }
+    
     func startTrip() {
         setState(State.good)
         debug.text = "Waiting for data"

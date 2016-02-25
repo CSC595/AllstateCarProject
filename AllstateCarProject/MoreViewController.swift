@@ -14,6 +14,8 @@ var sampleRate_Global:Double = 2.0
 var xTolerance_Global:Double = 0.4
 var yTolerance_Global:Double = 0.4
 var zTolerance_Global:Double = 0.8
+var gravityTolerance_Global:Double = 0.6
+var useGravity_Global:Bool = false
 var noiseLevel_Global:Float = -30
 var speedLimit_Global:Double = 80.0
 
@@ -22,11 +24,13 @@ class MoreViewController: UIViewController {
     
     @IBOutlet weak var enableSensorsButton: UIButton!
     @IBOutlet weak var hideSensorTextButton: UIButton!
+    @IBOutlet weak var gravityTextButton: UIButton!
     
     @IBOutlet var sampleRateLabel: UILabel!
     @IBOutlet weak var xToleranceLabel: UILabel!
     @IBOutlet weak var yToleranceLabel: UILabel!
     @IBOutlet weak var zToleranceLabel: UILabel!
+    @IBOutlet weak var gravityToleranceLabel: UILabel!
     @IBOutlet weak var noiseLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     
@@ -34,24 +38,25 @@ class MoreViewController: UIViewController {
     @IBOutlet weak var xToleranceSlider: UISlider!
     @IBOutlet weak var yToleranceSlider: UISlider!
     @IBOutlet weak var zToleranceSlider: UISlider!
+    @IBOutlet weak var gravityToleranceSlider: UISlider!
     @IBOutlet weak var noiseSlider: UISlider!
     @IBOutlet weak var speedSlider: UISlider!
-
-
-
     
     override func viewDidLoad() {
         setSensorButton()
         setSensorTextButton()
+        setGravityTextButton()
         setXTolerance()
         setYTolerance()
         setZTolerance()
+        setGravityTolerance()
         setNoiseLevel()
         setSpeedLimit()
         sampleRateSlider.value = Float(sampleRate_Global)
         xToleranceSlider.value = Float(xTolerance_Global)
         yToleranceSlider.value = Float(yTolerance_Global)
         zToleranceSlider.value = Float(zTolerance_Global)
+        gravityToleranceSlider.value = Float(gravityTolerance_Global)
         noiseSlider.value = Float(noiseLevel_Global)
         speedSlider.value = Float(speedLimit_Global)
     }
@@ -90,6 +95,11 @@ class MoreViewController: UIViewController {
         setZTolerance()
     }
     
+    @IBAction func gravityToleranceChanged(sender: UISlider) {
+        gravityTolerance_Global = Double(sender.value)
+        setGravityTolerance()
+    }
+    
     @IBAction func noiseChanged(sender: UISlider) {
         noiseLevel_Global = sender.value
         setNoiseLevel()
@@ -110,6 +120,11 @@ class MoreViewController: UIViewController {
         setSensorTextButton()
     }
     
+    @IBAction func gravityButtonPressed(sender: UIButton) {
+        useGravity_Global = !useGravity_Global
+        setGravityTextButton()
+    }
+    
     func setSampleRate() {
         sampleRateLabel.text = String(format: "Sample rate %.1f sec", arguments: [sampleRate_Global])
     }
@@ -124,6 +139,10 @@ class MoreViewController: UIViewController {
     
     func setZTolerance() {
         zToleranceLabel.text = String(format: "z Tolerance +/- %.2f", arguments: [zTolerance_Global])
+    }
+    
+    func setGravityTolerance() {
+        gravityToleranceLabel.text = String(format: "g Tolerance +/- %.2f", arguments: [gravityTolerance_Global])
     }
     
     func setNoiseLevel() {
@@ -152,6 +171,14 @@ class MoreViewController: UIViewController {
         }
     }
     
+    func setGravityTextButton() {
+        if (useGravity_Global) {
+            gravityTextButton.setTitle("Phone motion uses gravity", forState: .Normal)
+        }
+        else {
+            gravityTextButton.setTitle("Phone motion uses attitude", forState: .Normal)
+        }
+    }
     
     
     
