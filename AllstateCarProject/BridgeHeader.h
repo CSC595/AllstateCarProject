@@ -13,3 +13,5 @@
 #endif /* BridgeHeader_h */
 
 #import <Gimbal/Gimbal.h>
+#import <CoreEngine/CoreEngine.h>
+

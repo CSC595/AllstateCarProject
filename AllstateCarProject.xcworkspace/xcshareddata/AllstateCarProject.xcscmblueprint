@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E7A06BFD83FB72765932FC071F251A5EC74FD695",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "BC72268CAE4A2279B40BBFDBE71A5E628A391F8B" : 0,
+    "E7A06BFD83FB72765932FC071F251A5EC74FD695" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F6242212-1840-4513-BF7A-810AD2BD0293",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "BC72268CAE4A2279B40BBFDBE71A5E628A391F8B" : "AllstateCarProject\/AllstateCarProject\/EngineTest_IOS\/",
+    "E7A06BFD83FB72765932FC071F251A5EC74FD695" : "AllstateCarProject\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AllstateCarProject",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "AllstateCarProject.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.allstate.com\/dshie\/EngineTest_IOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BC72268CAE4A2279B40BBFDBE71A5E628A391F8B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CSC595\/AllstateCarProject.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E7A06BFD83FB72765932FC071F251A5EC74FD695"
+    }
+  ]
+}

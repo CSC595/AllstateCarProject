@@ -133,7 +133,6 @@
                         <outlet property="faceDetection" destination="j5Z-dk-vfe" id="l9m-9h-xnS"/>
                         <outlet property="microphoneNoise" destination="5Vz-Nf-fFV" id="dlo-PM-kXz"/>
                         <outlet property="phoneMotion" destination="xbb-bD-F8A" id="hi1-0c-z4R"/>
-                        <outlet property="scrollView" destination="wdZ-Ct-83d" id="EYO-BS-Ljt"/>
                         <outlet property="tripDetection" destination="hMx-XP-SDS" id="dXD-Pk-bnr"/>
                     </connections>
                 </viewController>

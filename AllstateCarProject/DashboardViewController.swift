@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
 
     // UI Objects
     @IBOutlet weak var tripDetection: DashboardItem!
@@ -17,31 +17,32 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var microphoneNoise: DistractionItem!
     @IBOutlet weak var excessiveSpeed: DistractionItem!
     @IBOutlet weak var beacon: DashboardItem!
-
-    @IBOutlet var scrollView: UIScrollView!
-//    @IBOutlet weak var stackView: UIStackView!
     
     // Sensor Objects
     var motionSensor:PhoneMotion?
     var microphoneSensor:MicrophoneNoise?
-    var speedSensor:SpeedSensor?
+//    var speedSensor:SpeedSensor?
     var faceSensor: FaceDetection?
     var beaconSensor:BeaconSensor?
-
-
+    var drivingEngine:DEMDrivingEngineManager?
+    
     var isTripInProgress:Bool = false
     var refreshTimer: NSTimer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        // CoreEngine
+        drivingEngine = DEMDrivingEngineManager.sharedManager() as? DEMDrivingEngineManager
+        drivingEngine!.delegate = self
+        drivingEngine!.registerForEventCapture(DEMEventCaptureMask.All)
+        drivingEngine!.startEngine()
         
         tripDetection.enabled = true
         tripDetection.title.text = "Start"
         tripDetection.icon.image = UIImage(named: "WheelIcon")
         tripDetection.pressed = {
-            self.isTripInProgress ? self.stopTrip() : self.startTrip()
+            self.isTripInProgress ? self.stopMockTrip() : self.startMockTrip()
         }
         
         faceDetection.title.text = "Attention"
@@ -58,6 +59,7 @@ class DashboardViewController: UIViewController {
         microphoneNoise.type = DangerousActionTypes.MicTooLoud
         
         excessiveSpeed.title.text = "Speed"
+        excessiveSpeed.debug.text = "Good"
         excessiveSpeed.icon.image = UIImage(named: "SpeedIcon")
         excessiveSpeed.type = DangerousActionTypes.OverSpeeded
         
@@ -65,27 +67,86 @@ class DashboardViewController: UIViewController {
         beacon.icon.image = UIImage(named: "BeaconIcon")
         
     }
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height)
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func didStartTripRecording(drivingEngine: DEMDrivingEngineManager!) -> String! {
+        tripDetection.addText("didStartTripRecording()")
+        startTrip()
+        return ""
     }
-    */
+    
+    func didStopTripRecording(drivingEngine: DEMDrivingEngineManager!) {
+        tripDetection.addText("didStopTripRecording()")
+        stopTrip()
+    }
+    
+    func didStopInvalidTripRecording(drivingEngine: DEMDrivingEngineManager!) {
+        tripDetection.addText("didStopInvalidTripRecording()")
+        stopTrip()
+    }
+    
+    func drivingEngine(drivingEngine: DEMDrivingEngineManager!, didSaveTripInformation trip: DEMTripInfo!, driveStatus driveCompletionFlag: Bool) {
+//        addText("distanceCovered: \(trip.distanceCovered) mi")
+//        addText("averageSpeed: \(trip.averageSpeed) mph")
+        tripDetection.addText("didSaveTripInformation()")
+        tripDetection.addText("distanceCovered: \(trip.distanceCovered) mi")
+        
+        // If the trip is complete save it to our local database
+        if (driveCompletionFlag) {
+            DataCollector.defaultCollector().collectingSpeeds([(NSDate(), 1.0)])
+            DataCollector.defaultCollector().end(Double(trip.distanceCovered))
+        }
+    }
+    
+    func drivingEngine(drivingEngine: DEMDrivingEngineManager!, didDetectBraking brakingEvent: DEMEventInfo!) {
+        tripDetection.addText("drivingEngine(didDetectBraking)")
+//
+//        addText("drivingEngine(didDetectBraking)")
+//        addText("eventID: \(brakingEvent.eventID)")
+//        addText("eventDuration: \(brakingEvent.eventDuration)")
+//        addText("eventType: \(brakingEvent.eventType)")
+    }
+
+    func drivingEngine(drivingEngine: DEMDrivingEngineManager!, didDetectStartOfSpeeding overSpeedingEvent: DEMEventInfo!) {
+
+        tripDetection.addText("drivingEngine(didDetectStartOfSpeeding)")
+        if let s = overSpeedingEvent {
+            excessiveSpeed.addText("\(s.sensorStartReading) mph")
+            if (enableSensors_Global) {
+                excessiveSpeed.startDistraction()
+            }
+        }
+    }
+    
+    func drivingEngine(drivingEngine: DEMDrivingEngineManager!, didDetectEndOfSpeeding overSpeedingEvent: DEMEventInfo!) {
+
+        tripDetection.addText("drivingEngine(didDetectEndOfSpeeding)")
+        if let s = overSpeedingEvent {
+            excessiveSpeed.addText("\(s.sensorEndReading) mph")
+            if (enableSensors_Global) {
+                excessiveSpeed.stopDistraction()
+            }
+        }
+
+    }
+    
+    func startMockTrip() {
+        print("startMockTrip()")
+        let file:String = NSBundle.mainBundle().pathForResource("mockDataSpeeding", ofType: "txt")!
+        print("file: \(file)")
+        drivingEngine?.setMockDataPath(file, cadence: 50)
+        drivingEngine?.startTripRecording()        
+    }
+    
+    func stopMockTrip() {
+        print("stopMockTrip()")
+        drivingEngine?.cancelMockData()
+    }
     
     func startTrip() {
         
@@ -100,7 +161,7 @@ class DashboardViewController: UIViewController {
         // Create Sensor Objects
         motionSensor = PhoneMotion()
         microphoneSensor = MicrophoneNoise()
-        speedSensor = SpeedSensor()
+//        speedSensor = SpeedSensor()
         faceSensor = FaceDetection()
         beaconSensor = BeaconSensor()
         
@@ -132,11 +193,11 @@ class DashboardViewController: UIViewController {
             f.endService()
         }
 
-        // Record speed array
-        if let s = speedSensor {
-            DataCollector.defaultCollector().collectingSpeeds(s.tmpSpeedsArr)
-            s.stop()
-        }
+//        // Record speed array
+//        if let s = speedSensor {
+//            DataCollector.defaultCollector().collectingSpeeds(s.tmpSpeedsArr)
+//            s.stop()
+//        }
         
         tripDetection.title.text = "Start"
 
@@ -144,8 +205,8 @@ class DashboardViewController: UIViewController {
         // Stop sensor objects if needed
         
         // Get distance
-        let distance = Double(lround((Double(arc4random()) / 0xFFFFFFFF  * (60 - 10) + 10) * 1000)) / 1000
-        DataCollector.defaultCollector().end(distance)
+//        let distance = Double(lround((Double(arc4random()) / 0xFFFFFFFF  * (60 - 10) + 10) * 1000)) / 1000
+//        DataCollector.defaultCollector().end(distance)
         
         isTripInProgress = false
         
@@ -153,7 +214,7 @@ class DashboardViewController: UIViewController {
     
     func checkSensors() {
 
-        tripDetection.debug.text = "Trip in progress"
+//        tripDetection.debug.text = "Trip in progress"
         
         if let m = motionSensor {
             phoneMotion.debug.text = m.debugText
@@ -170,13 +231,13 @@ class DashboardViewController: UIViewController {
             }
         }
         
-        if let s = speedSensor {
-            s.updateSpeed()
-            excessiveSpeed.debug.text = s.debugText
-            if (enableSensors_Global) {
-                s.isDistracted ? excessiveSpeed.startDistraction() : excessiveSpeed.stopDistraction()
-            }
-        }
+//        if let s = speedSensor {
+//            s.updateSpeed()
+//            excessiveSpeed.debug.text = s.debugText
+//            if (enableSensors_Global) {
+//                s.isDistracted ? excessiveSpeed.startDistraction() : excessiveSpeed.stopDistraction()
+//            }
+//        }
         
         if let f = faceSensor {
             f.checkResult()

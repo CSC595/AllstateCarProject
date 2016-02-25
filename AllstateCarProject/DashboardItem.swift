@@ -17,20 +17,10 @@ import UIKit
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var debug: UILabel!
     
-//    var type:DangerousActionTypes?
-    
     var pressed:(()->())?
-//    var distraction:Bool = false
     var enabled:Bool?
     
-    enum State {
-        case good
-        case bad
-        case off
-    }
-    
-    var state:State = State.off
-    
+    var statusText:[String] = []
     
     func xibSetup() {
         view = loadViewFromNib()
@@ -93,48 +83,10 @@ import UIKit
     
     func stop() {
         setStateOff()
-        debug.hidden = true
-        title.hidden = false
-
-    }
-    
-//    func startTrip() {
-//        setState(State.good)
-//        debug.text = "Waiting for data"
-//        enabled = !enableSensors_Global
-//        debug.hidden = hideSensorData_Global
-//        title.hidden = !hideSensorData_Global
-//    }
-//    
-//    func stopTrip() {
-//        enabled = false
-//        if (distraction) {
-//            distraction = false
-//            stopDistraction()
-//        }
-//        setState(State.off)
 //        debug.hidden = true
 //        title.hidden = false
-//    }
-//
-//    func startDistraction() {
-//        if let t = type {
-//            DataCollector.defaultCollector().catchDangerousAciton(t)
-//            setState(State.bad)
-//            distraction = true
-//        }
-//    }
-//    
-//    func stopDistraction() {
-//        if distraction {
-//            if let t = type {
-//                DataCollector.defaultCollector().releaseDangerousAction(t)
-//                setState(State.good)
-//                distraction = false
-//            }
-//        }
-//    }
-    
+
+    }
     func setStateGood() {
         view.backgroundColor = UIColor.greenColor()
     }
@@ -147,26 +99,28 @@ import UIKit
         view.backgroundColor = UIColor.lightGrayColor()
     }
     
-//    func setState(nextState:State) {
-//
-//        state = nextState
-//        
-//        switch (state) {
-//        case State.good:
-//            view.backgroundColor = UIColor.greenColor()
-//        case State.bad:
-//            view.backgroundColor = UIColor.redColor()
-//        case State.off:
-//            view.backgroundColor = UIColor.lightGrayColor()
-//        }
-//        
-//    }
+    func setText(text:String) {
+        debug.text = text
+    }
     
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-//    override func drawRect(rect: CGRect) {
-//
-//    }
+    func addText(text:String) {
+        
+        if (statusText.count > 4) {
+            statusText.removeFirst()
+        }
+        statusText.append(text)
+        
+        var newText = ""
+        for s in statusText {
+            newText += "\(s)\n"
+        }
+        
+        debug.text = newText.substringToIndex(newText.endIndex.advancedBy(-1))
+        
+    }
     
+    func clearText() {
+        statusText.removeAll()
+    }
 
 }
