@@ -140,7 +140,9 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
     
     func stopMockTrip() {
         print("stopMockTrip()")
+        drivingEngine?.stopTripRecording()
         drivingEngine?.cancelMockData()
+        stopTrip()
     }
     
     func startTrip() {
