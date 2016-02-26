@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BooleanChartData: UIView {
+class DistractionChartData: UIView {
 
     var data:Data?
     var actionType:DangerousActionTypes?

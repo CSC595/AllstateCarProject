@@ -59,7 +59,6 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
         microphoneNoise.type = DangerousActionTypes.MicTooLoud
         
         excessiveSpeed.title.text = "Speed"
-        excessiveSpeed.debug.text = "Good"
         excessiveSpeed.icon.image = UIImage(named: "SpeedIcon")
         excessiveSpeed.type = DangerousActionTypes.OverSpeeded
         
@@ -126,20 +125,16 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
     func drivingEngine(drivingEngine: DEMDrivingEngineManager!, didDetectEndOfSpeeding overSpeedingEvent: DEMEventInfo!) {
 
         tripDetection.addText("drivingEngine(didDetectEndOfSpeeding)")
-        if let s = overSpeedingEvent {
-            excessiveSpeed.addText("\(s.sensorEndReading) mph")
-            if (enableSensors_Global) {
-                excessiveSpeed.stopDistraction()
-            }
+        excessiveSpeed.setText("Waiting for data")
+        if (enableSensors_Global) {
+            excessiveSpeed.stopDistraction()
         }
-
     }
     
     func startMockTrip() {
         print("startMockTrip()")
-        let file:String = NSBundle.mainBundle().pathForResource("mockDataSpeeding", ofType: "txt")!
-        print("file: \(file)")
-        drivingEngine?.setMockDataPath(file, cadence: 50)
+        let file:String = NSBundle.mainBundle().pathForResource(mockDataFiles_Global[mockDataIndex_Global], ofType: "txt")!
+        drivingEngine?.setMockDataPath(file, cadence: 250)
         drivingEngine?.startTripRecording()        
     }
     

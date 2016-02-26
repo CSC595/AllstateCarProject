@@ -69,7 +69,7 @@ class ShowDataTableViewController: UITableViewController {
         let indexPath = tableView.indexPathForCell(senderCell)!
         
         // Get the destination VC and set the selected Item
-        let destinationVC = segue.destinationViewController as! SummaryViewController
+        let destinationVC = segue.destinationViewController as! TripViewController
         destinationVC.data = datas[indexPath.row]
     }
 

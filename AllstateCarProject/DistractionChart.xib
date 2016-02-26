@@ -1,15 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DistractionChart" customModule="AllstateCarProject" customModuleProvider="target">
+            <connections>
+                <outlet property="distractionDataView" destination="54j-UU-B2O" id="tRE-2Q-GgX"/>
+                <outlet property="icon" destination="FSi-zA-KbL" id="7fz-iy-SDf"/>
+                <outlet property="title" destination="Pol-vA-rTj" id="WzQ-ee-8sn"/>
+                <outlet property="view" destination="iN0-l3-epB" id="gXP-En-H8J"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="694" height="267"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FSi-zA-KbL">
+                    <rect key="frame" x="8" y="8" width="251" height="251"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="FSi-zA-KbL" secondAttribute="height" multiplier="1:1" id="qnG-5y-m4D"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pol-vA-rTj">
+                    <rect key="frame" x="267" y="246.5" width="419" height="12.5"/>
+                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="10"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54j-UU-B2O" customClass="DistractionChartData" customModule="AllstateCarProject" customModuleProvider="target">
+                    <rect key="frame" x="267" y="8" width="419" height="238.5"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottomMargin" secondItem="Pol-vA-rTj" secondAttribute="bottom" id="17t-kU-wvK"/>
+                <constraint firstItem="54j-UU-B2O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="2ZK-fv-gu7"/>
+                <constraint firstAttribute="trailingMargin" secondItem="54j-UU-B2O" secondAttribute="trailing" id="7Vd-Da-Y7d"/>
+                <constraint firstItem="Pol-vA-rTj" firstAttribute="top" secondItem="54j-UU-B2O" secondAttribute="bottom" id="Pjc-q1-djb"/>
+                <constraint firstItem="FSi-zA-KbL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="Raz-Ny-HfX"/>
+                <constraint firstItem="54j-UU-B2O" firstAttribute="leading" secondItem="FSi-zA-KbL" secondAttribute="trailing" constant="8" id="aav-l6-9Ky"/>
+                <constraint firstAttribute="trailingMargin" secondItem="Pol-vA-rTj" secondAttribute="trailing" id="kbU-Vk-3OA"/>
+                <constraint firstItem="FSi-zA-KbL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="tbz-Tq-QBD"/>
+                <constraint firstItem="Pol-vA-rTj" firstAttribute="leading" secondItem="FSi-zA-KbL" secondAttribute="trailing" constant="8" id="whJ-Qq-npQ"/>
+                <constraint firstAttribute="bottomMargin" secondItem="FSi-zA-KbL" secondAttribute="bottom" id="yxm-qj-gJe"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="407" y="165.5"/>
         </view>
     </objects>
 </document>

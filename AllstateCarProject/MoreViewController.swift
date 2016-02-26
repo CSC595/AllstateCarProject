@@ -15,9 +15,11 @@ var xTolerance_Global:Double = 0.4
 var yTolerance_Global:Double = 0.4
 var zTolerance_Global:Double = 0.8
 var gravityTolerance_Global:Double = 0.6
-var useGravity_Global:Bool = false
+var useGravity_Global:Bool = true
 var noiseLevel_Global:Float = -30
 var speedLimit_Global:Double = 80.0
+var mockDataIndex_Global:Int = 0
+let mockDataFiles_Global = ["mockDataSpeeding" , "mockDataBraking"]
 
 
 class MoreViewController: UIViewController {
@@ -25,6 +27,7 @@ class MoreViewController: UIViewController {
     @IBOutlet weak var enableSensorsButton: UIButton!
     @IBOutlet weak var hideSensorTextButton: UIButton!
     @IBOutlet weak var gravityTextButton: UIButton!
+    @IBOutlet weak var mockDataButton: UIButton!
     
     @IBOutlet var sampleRateLabel: UILabel!
     @IBOutlet weak var xToleranceLabel: UILabel!
@@ -46,6 +49,7 @@ class MoreViewController: UIViewController {
         setSensorButton()
         setSensorTextButton()
         setGravityTextButton()
+        setMockDataButton()
         setXTolerance()
         setYTolerance()
         setZTolerance()
@@ -125,6 +129,13 @@ class MoreViewController: UIViewController {
         setGravityTextButton()
     }
     
+    @IBAction func mockDataButtonPressed(sender: UIButton) {
+        mockDataIndex_Global++
+        if (mockDataIndex_Global > mockDataFiles_Global.count - 1) {
+            mockDataIndex_Global = 0
+        }
+        setMockDataButton()
+    }
     func setSampleRate() {
         sampleRateLabel.text = String(format: "Sample rate %.1f sec", arguments: [sampleRate_Global])
     }
@@ -178,6 +189,10 @@ class MoreViewController: UIViewController {
         else {
             gravityTextButton.setTitle("Phone motion uses attitude", forState: .Normal)
         }
+    }
+    
+    func setMockDataButton() {
+        mockDataButton.setTitle("Using \(mockDataFiles_Global[mockDataIndex_Global]).txt", forState: .Normal)
     }
     
     

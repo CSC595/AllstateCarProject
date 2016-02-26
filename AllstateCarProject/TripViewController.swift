@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SummaryViewController : UIViewController {
+class TripViewController : UIViewController {
    
     var data:Data?
 
@@ -18,34 +18,38 @@ class SummaryViewController : UIViewController {
     @IBOutlet weak var driveTimeLabel: UILabel!
     @IBOutlet weak var averageSpeedLabel: UILabel!
     
-    @IBOutlet weak var trafficScoreLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     
-    @IBOutlet weak var faceDetection: BooleanChart!
-    @IBOutlet weak var phoneMotion: BooleanChart!
-    @IBOutlet weak var noiseDetection: BooleanChart!
-    @IBOutlet weak var excessiveSpeed: BooleanChart!
-//    @IBOutlet weak var speedChart: XYChart!
+    @IBOutlet weak var attention: DistractionChart!
+    @IBOutlet weak var motion: DistractionChart!
+    @IBOutlet weak var noise: DistractionChart!
+    @IBOutlet weak var speed: DistractionChart!
     
     override func viewDidLoad() {
         
-        scrollView.contentSize.height = 864
+        scrollView.alwaysBounceVertical = true
         
         if let d = data {
             
-            
             driveTimeLabel.text = getDurationString(d)
             averageSpeedLabel.text = getAverageSpeedString(d)
-            trafficScoreLabel.text = getTrafficScoreString(d)
-
             pointsLabel.text = "100"
             
-            faceDetection.setData(d, actionType: DangerousActionTypes.LookingAway)
-            phoneMotion.setData(d, actionType: DangerousActionTypes.LookPhone)
-            noiseDetection.setData(d, actionType: DangerousActionTypes.MicTooLoud)
-            excessiveSpeed.setData(d, actionType: DangerousActionTypes.OverSpeeded)
-//            speedChart.setData(d)
+            attention.icon.image = UIImage(named: "SteeringIcon")
+            attention.title.text = "Attention"
+            attention.setData(d, actionType: DangerousActionTypes.LookingAway)
             
+            motion.icon.image = UIImage(named: "PhoneIcon")
+            motion.title.text = "Motion"
+            motion.setData(d, actionType: DangerousActionTypes.LookPhone)
+            
+            noise.icon.image = UIImage(named: "SoundIcon")
+            noise.title.text = "Noise"
+            noise.setData(d, actionType: DangerousActionTypes.MicTooLoud)
+            
+            speed.icon.image = UIImage(named: "SpeedIcon")
+            speed.title.text = "Speed"
+            speed.setData(d, actionType: DangerousActionTypes.OverSpeeded)
             
         }
 
@@ -67,19 +71,5 @@ class SummaryViewController : UIViewController {
     func getAverageSpeedString(d:Data) -> String {
         return String(format: "Average Speed: %.1f mph", arguments: [d.avgSpeed])
     }
-    
-    func getTrafficScoreString(d:Data) -> String {
         
-        var slowSpeeds:Double = 0
-        for s in d.speedArr {
-            if (s.1 < 5.0) {
-                slowSpeeds++
-            }
-        }
-        let count = Double(d.speedArr.count)
-        let score = (count - slowSpeeds) / count * 100
-        
-        return String(format: "Traffic Score %.0f%%", arguments: [score])
-    }
-    
 }

@@ -64,7 +64,7 @@ class PhoneMotion {
     
     func updateGravity() {
         debugText = String(format: "[ref] x: %+.2f, y: %+.2f, z: %+.2f", gravityArray[0].x, gravityArray[0].y, gravityArray[0].z)
-        print(debugText)
+//        print(debugText)
         var accX:Double = 0
         var accY:Double = 0
         var accZ:Double = 0
