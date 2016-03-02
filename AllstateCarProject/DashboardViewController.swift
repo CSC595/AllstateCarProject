@@ -111,7 +111,7 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
 
         tripDetection.addText("drivingEngine(didDetectStartOfSpeeding)")
         if let s = overSpeedingEvent {
-            excessiveSpeed.addText("\(s.sensorStartReading) mph")
+            excessiveSpeed.setText(String(format: "%.1f mph", arguments: [s.sensorStartReading]))
             if (enableSensors_Global) {
                 excessiveSpeed.startDistraction()
             }
@@ -145,6 +145,7 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
         
         // Start UI Elements
         tripDetection.start()
+        tripDetection.setStateGood()
         faceDetection.start()
         phoneMotion.start()
         microphoneNoise.start()
@@ -172,6 +173,7 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
         
         // Stop UI elements
         tripDetection.stop()
+        tripDetection.setStateOff()
         faceDetection.stop()
         phoneMotion.stop()
         microphoneNoise.stop()

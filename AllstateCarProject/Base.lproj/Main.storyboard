@@ -20,8 +20,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdZ-Ct-83d">
                                 <rect key="frame" x="0.0" y="20" width="414" height="831"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tzq-Rc-frU" userLabel="Main View">
-                                        <rect key="frame" x="8" y="8" width="398" height="609"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzq-Rc-frU" userLabel="Main View">
+                                        <rect key="frame" x="8" y="8" width="398" height="608"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMx-XP-SDS" userLabel="Title View" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="88" width="398" height="80"/>
@@ -37,29 +37,29 @@
                                                     <constraint firstAttribute="height" constant="80" id="Ktw-Uf-jOl"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-bD-F8A" customClass="DistractionItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="264" width="398" height="81"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-bD-F8A" customClass="DistractionItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="264" width="398" height="80"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="srh-z1-73I"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Vz-Nf-fFV" customClass="DistractionItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="353" width="398" height="81"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vz-Nf-fFV" customClass="DistractionItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="352" width="398" height="80"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="SGt-xb-IJb"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7fH-Jl-Ahh" customClass="DistractionItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="441" width="398" height="80"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fH-Jl-Ahh" customClass="DistractionItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="440" width="398" height="80"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="QO9-zz-mc8"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DYc-sQ-6cN" userLabel="Beacon" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="529" width="398" height="81"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYc-sQ-6cN" userLabel="Beacon" customClass="DashboardItem" customModule="AllstateCarProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="528" width="398" height="80"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="ESd-pI-sR9"/>
@@ -391,6 +391,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="4cn-eU-soB" kind="show" id="1kV-ph-e7B"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -401,7 +404,6 @@
                     <navigationItem key="navigationItem" id="dOZ-jA-gSM"/>
                     <connections>
                         <outlet property="badgeTableView" destination="dtf-Hy-iz9" id="9YO-OO-u2c"/>
-                        <segue destination="4cn-eU-soB" kind="show" identifier="" id="ekz-RK-pj0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYo-jW-h3l" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,7 +17,7 @@ class BeaconSensor: NSObject, GMBLPlaceManagerDelegate {
     override init() {
         
         isVisiting = false
-        debugText = "Waiting for data"
+        debugText = "No beacon detected"
 
         super.init()
         

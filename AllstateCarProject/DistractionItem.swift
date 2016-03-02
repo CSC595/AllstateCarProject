@@ -43,8 +43,7 @@ class DistractionItem : DashboardItem {
     override func start() {
         super.start()
         enabled = !enableSensors_Global
-        setStateGood()
-        debug.text = "Waiting for data"
+        setStateGood()        
     }
     
     override func stop() {
