@@ -7,7 +7,7 @@
 //
 
 import AVFoundation
-import CoreAudio
+//import CoreAudio
 
 class MicrophoneNoise {
     

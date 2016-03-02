@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dUR-lG-wlW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dUR-lG-wlW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -71,7 +71,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="bbb-xE-0BE"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="18"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -143,21 +143,21 @@
         <!--List of Trips-->
         <scene sceneID="MVD-KB-wHP">
             <objects>
-                <tableViewController id="Otv-nD-kmx" userLabel="List of Trips" customClass="ShowDataTableViewController" customModule="AllstateCarProject" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Otv-nD-kmx" userLabel="List of Trips" customClass="HistoryViewController" customModule="AllstateCarProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="NNU-D6-ZwG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="showData" id="i3u-Zo-Rlg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HistoryCell" id="i3u-Zo-Rlg">
                                 <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i3u-Zo-Rlg" id="gcY-0T-apt">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="lMO-z5-c33" kind="show" id="fcV-3b-Tvn"/>
+                                    <segue destination="lMO-z5-c33" kind="show" id="V8D-nP-wA0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -170,7 +170,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rhq-eQ-uKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="211"/>
+            <point key="canvasLocation" x="35" y="237"/>
         </scene>
         <!--Trip-->
         <scene sceneID="lGM-4B-zNF">
@@ -253,13 +253,6 @@
                                                     <constraint firstItem="HAM-kd-3TC" firstAttribute="leading" secondItem="3WW-nX-9dE" secondAttribute="leadingMargin" id="zZc-sd-jnD"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkI-RV-jvv" customClass="DistractionChart" customModule="AllstateCarProject" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="88" width="398" height="80"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="Mdy-2o-ItH"/>
-                                                </constraints>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ib6-oS-ddV" customClass="DistractionChart" customModule="AllstateCarProject" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="176" width="398" height="80"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -279,6 +272,13 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="UAl-o7-97w"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkI-RV-jvv" customClass="DistractionChart" customModule="AllstateCarProject" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="88" width="398" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="Mdy-2o-ItH"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -340,12 +340,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10s-X3-v3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501" y="211"/>
+            <point key="canvasLocation" x="613" y="237"/>
         </scene>
         <!--History-->
         <scene sceneID="asH-RX-XjS">
             <objects>
-                <navigationController id="4yw-V9-RyX" userLabel="History" sceneMemberID="viewController">
+                <navigationController id="4yw-V9-RyX" userLabel="History" customClass="UITabl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="history" id="dJf-q4-qz4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vh4-sh-Vfs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

@@ -61,6 +61,8 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
         excessiveSpeed.title.text = "Speed"
         excessiveSpeed.icon.image = UIImage(named: "SpeedIcon")
         excessiveSpeed.type = DangerousActionTypes.OverSpeeded
+        excessiveSpeed.setText("Speed is under limit")
+
         
         beacon.title.text = "Beacon"
         beacon.icon.image = UIImage(named: "BeaconIcon")
@@ -82,6 +84,7 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
     func didStopTripRecording(drivingEngine: DEMDrivingEngineManager!) {
         tripDetection.addText("didStopTripRecording()")
         stopTrip()
+
     }
     
     func didStopInvalidTripRecording(drivingEngine: DEMDrivingEngineManager!) {
@@ -90,8 +93,6 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
     }
     
     func drivingEngine(drivingEngine: DEMDrivingEngineManager!, didSaveTripInformation trip: DEMTripInfo!, driveStatus driveCompletionFlag: Bool) {
-//        addText("distanceCovered: \(trip.distanceCovered) mi")
-//        addText("averageSpeed: \(trip.averageSpeed) mph")
         tripDetection.addText("didSaveTripInformation()")
         tripDetection.addText("distanceCovered: \(trip.distanceCovered) mi")
         
@@ -104,11 +105,6 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
     
     func drivingEngine(drivingEngine: DEMDrivingEngineManager!, didDetectBraking brakingEvent: DEMEventInfo!) {
         tripDetection.addText("drivingEngine(didDetectBraking)")
-//
-//        addText("drivingEngine(didDetectBraking)")
-//        addText("eventID: \(brakingEvent.eventID)")
-//        addText("eventDuration: \(brakingEvent.eventDuration)")
-//        addText("eventType: \(brakingEvent.eventType)")
     }
 
     func drivingEngine(drivingEngine: DEMDrivingEngineManager!, didDetectStartOfSpeeding overSpeedingEvent: DEMEventInfo!) {
@@ -125,21 +121,21 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
     func drivingEngine(drivingEngine: DEMDrivingEngineManager!, didDetectEndOfSpeeding overSpeedingEvent: DEMEventInfo!) {
 
         tripDetection.addText("drivingEngine(didDetectEndOfSpeeding)")
-        excessiveSpeed.setText("Waiting for data")
+        excessiveSpeed.setText("Speed is under limit")
         if (enableSensors_Global) {
             excessiveSpeed.stopDistraction()
         }
     }
     
     func startMockTrip() {
-        print("startMockTrip()")
+        tripDetection.addText("startMockTrip()")
         let file:String = NSBundle.mainBundle().pathForResource(mockDataFiles_Global[mockDataIndex_Global], ofType: "txt")!
-        drivingEngine?.setMockDataPath(file, cadence: 250)
+        drivingEngine?.setMockDataPath(file, cadence: 125)
         drivingEngine?.startTripRecording()        
     }
     
     func stopMockTrip() {
-        print("stopMockTrip()")
+        tripDetection.addText("stopMockTrip()")
         drivingEngine?.stopTripRecording()
         drivingEngine?.cancelMockData()
         stopTrip()
@@ -162,7 +158,7 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
         faceSensor = FaceDetection()
         beaconSensor = BeaconSensor()
         
-        tripDetection.title.text = "Stop"
+        tripDetection.title.text = "Cancel Trip"
         
         DataCollector.defaultCollector().start()
 

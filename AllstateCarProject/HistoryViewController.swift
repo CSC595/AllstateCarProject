@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowDataTableViewController: UITableViewController {
+class HistoryViewController: UITableViewController {
     
     var datas = [Data]()
 
@@ -19,6 +19,7 @@ class ShowDataTableViewController: UITableViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: Selector("loadData"), forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl = refreshControl
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -37,13 +38,15 @@ class ShowDataTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datas.count
     }
-
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("showData", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell", forIndexPath: indexPath)
+
         let data = datas[indexPath.row]
         
-        cell.textLabel?.text = "Start Time: \(data.departureTime.toString())"
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEE MMM d, yyyy 'at' h:mm a"
+        cell.textLabel!.text = dateFormatter.stringFromDate(data.departureTime)
+        cell.textLabel!.font = UIFont(name: "Verdana", size: 14)
         return cell
     }
     
