@@ -13,14 +13,11 @@
 		204B8BA91C6D60DF0013D440 /* MicrophoneNoise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B8BA81C6D60DF0013D440 /* MicrophoneNoise.swift */; };
 		205409F91C69061300E13463 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205409F81C69061300E13463 /* MoreViewController.swift */; };
 		20625D751C7F3E75005FBB00 /* DistractionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20625D741C7F3E75005FBB00 /* DistractionItem.swift */; };
-		20625D861C7F7F1E005FBB00 /* CoreEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20625D811C7F7E59005FBB00 /* CoreEngine.framework */; };
-		20625D871C7F7F1E005FBB00 /* CoreEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 20625D811C7F7E59005FBB00 /* CoreEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		20625D8A1C7F8146005FBB00 /* mockData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20625D891C7F8146005FBB00 /* mockData.txt */; };
 		20625D8C1C7F83AA005FBB00 /* mockDataSpeeding.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20625D8B1C7F83AA005FBB00 /* mockDataSpeeding.txt */; };
 		20625D8E1C7F9DEB005FBB00 /* DistractionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20625D8D1C7F9DEB005FBB00 /* DistractionChart.swift */; };
 		20625D901C7F9DFC005FBB00 /* DistractionChart.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20625D8F1C7F9DFC005FBB00 /* DistractionChart.xib */; };
 		206AB54D1C77430C0079FDC6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 206AB54C1C77430C0079FDC6 /* libz.tbd */; };
-		206AB5511C7743BB0079FDC6 /* Gimbal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206AB5501C7743BB0079FDC6 /* Gimbal.framework */; };
 		2080BA2D1C7694D500251366 /* gimbal.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 2080BA2C1C7694D500251366 /* gimbal.apikey */; };
 		2080BA2F1C76D6F700251366 /* GetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080BA2E1C76D6F700251366 /* GetKey.swift */; };
 		209ADB321C6C160900C9E3F8 /* DashboardItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 209ADB311C6C160900C9E3F8 /* DashboardItem.xib */; };
@@ -39,8 +36,16 @@
 		32D5674F1C55871F008EB5EF /* DataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5674E1C55871F008EB5EF /* DataCollector.swift */; };
 		32D567531C55C5B9008EB5EF /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D567521C55C5B9008EB5EF /* Extension.swift */; };
 		32F678BA1C7E8FEF00501AD7 /* FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F678B91C7E8FEF00501AD7 /* FaceDetection.swift */; };
+		7C6F26351C87071200E743F6 /* BadgeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F26341C87071200E743F6 /* BadgeDetailViewController.swift */; };
 		7C7DF2071C6BB24400B9499F /* DistractionChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DF2061C6BB24400B9499F /* DistractionChartData.swift */; };
 		7C7DF2091C6BB53B00B9499F /* RewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DF2081C6BB53B00B9499F /* RewardsViewController.swift */; };
+		7C91ABD91C84CCEF00F6638D /* Gimbal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C91ABD81C84CCEF00F6638D /* Gimbal.framework */; };
+		7C91ABDD1C84CD2500F6638D /* gimbal.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 7C91ABDC1C84CD2500F6638D /* gimbal.apikey */; };
+		7C91ABDE1C84CD6A00F6638D /* CoreEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C91ABDA1C84CCFA00F6638D /* CoreEngine.framework */; };
+		7C91ABDF1C84CD6A00F6638D /* CoreEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7C91ABDA1C84CCFA00F6638D /* CoreEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7C91ABE41C85410F00F6638D /* BadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C91ABE31C85410F00F6638D /* BadgeViewController.swift */; };
+		7C91ABE61C85425F00F6638D /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C91ABE51C85425F00F6638D /* Badge.swift */; };
+		7C91ABE81C85430F00F6638D /* BadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C91ABE71C85430F00F6638D /* BadgeTableViewCell.swift */; };
 		91019BB30FE2420D5A256D5F /* Pods_AllstateCarProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C1481B48EEC01BE1EEC5CD /* Pods_AllstateCarProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +73,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				20625D871C7F7F1E005FBB00 /* CoreEngine.framework in Embed Frameworks */,
+				7C91ABDF1C84CD6A00F6638D /* CoreEngine.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,13 +88,11 @@
 		204B8BA81C6D60DF0013D440 /* MicrophoneNoise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneNoise.swift; sourceTree = "<group>"; };
 		205409F81C69061300E13463 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		20625D741C7F3E75005FBB00 /* DistractionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistractionItem.swift; sourceTree = "<group>"; };
-		20625D811C7F7E59005FBB00 /* CoreEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreEngine.framework; path = Frameworks/CoreEngine.framework; sourceTree = "<group>"; };
 		20625D891C7F8146005FBB00 /* mockData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mockData.txt; sourceTree = "<group>"; };
 		20625D8B1C7F83AA005FBB00 /* mockDataSpeeding.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mockDataSpeeding.txt; sourceTree = "<group>"; };
 		20625D8D1C7F9DEB005FBB00 /* DistractionChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistractionChart.swift; sourceTree = "<group>"; };
 		20625D8F1C7F9DFC005FBB00 /* DistractionChart.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DistractionChart.xib; sourceTree = "<group>"; };
 		206AB54C1C77430C0079FDC6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		206AB5501C7743BB0079FDC6 /* Gimbal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gimbal.framework; path = Frameworks/Gimbal.framework; sourceTree = "<group>"; };
 		206AB5521C7744A70079FDC6 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
 		2080BA2C1C7694D500251366 /* gimbal.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gimbal.apikey; sourceTree = "<group>"; };
 		2080BA2E1C76D6F700251366 /* GetKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKey.swift; sourceTree = "<group>"; };
@@ -116,8 +119,15 @@
 		32D5674E1C55871F008EB5EF /* DataCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCollector.swift; sourceTree = "<group>"; };
 		32D567521C55C5B9008EB5EF /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = ../Extension.swift; sourceTree = "<group>"; };
 		32F678B91C7E8FEF00501AD7 /* FaceDetection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDetection.swift; sourceTree = "<group>"; };
+		7C6F26341C87071200E743F6 /* BadgeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeDetailViewController.swift; sourceTree = "<group>"; };
 		7C7DF2061C6BB24400B9499F /* DistractionChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistractionChartData.swift; sourceTree = "<group>"; };
 		7C7DF2081C6BB53B00B9499F /* RewardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsViewController.swift; sourceTree = "<group>"; };
+		7C91ABD81C84CCEF00F6638D /* Gimbal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gimbal.framework; sourceTree = "<group>"; };
+		7C91ABDA1C84CCFA00F6638D /* CoreEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreEngine.framework; sourceTree = "<group>"; };
+		7C91ABDC1C84CD2500F6638D /* gimbal.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gimbal.apikey; sourceTree = "<group>"; };
+		7C91ABE31C85410F00F6638D /* BadgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeViewController.swift; sourceTree = "<group>"; };
+		7C91ABE51C85425F00F6638D /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		7C91ABE71C85430F00F6638D /* BadgeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeTableViewCell.swift; sourceTree = "<group>"; };
 		C8A5C1620A1ACCD523CB01FB /* Pods-AllstateCarProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllstateCarProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-AllstateCarProject/Pods-AllstateCarProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,8 +138,8 @@
 			files = (
 				206AB54D1C77430C0079FDC6 /* libz.tbd in Frameworks */,
 				91019BB30FE2420D5A256D5F /* Pods_AllstateCarProject.framework in Frameworks */,
-				206AB5511C7743BB0079FDC6 /* Gimbal.framework in Frameworks */,
-				20625D861C7F7F1E005FBB00 /* CoreEngine.framework in Frameworks */,
+				7C91ABD91C84CCEF00F6638D /* Gimbal.framework in Frameworks */,
+				7C91ABDE1C84CD6A00F6638D /* CoreEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,11 +238,13 @@
 		32D5671D1C556ACE008EB5EF /* AllstateCarProject */ = {
 			isa = PBXGroup;
 			children = (
+				7C91ABDC1C84CD2500F6638D /* gimbal.apikey */,
 				206AB5521C7744A70079FDC6 /* BridgeHeader.h */,
 				2080BA2B1C76949800251366 /* Keys */,
 				32D567521C55C5B9008EB5EF /* Extension.swift */,
 				32D5671E1C556ACE008EB5EF /* AppDelegate.swift */,
 				32D567221C556ACE008EB5EF /* Main.storyboard */,
+				7C91ABE01C85403200F6638D /* Badges */,
 				20CEB8FC1C72383B006400DC /* Dashboard */,
 				20CEB8FB1C723802006400DC /* Sensors */,
 				20CEB8FD1C72385E006400DC /* History */,
@@ -276,11 +288,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7C91ABE01C85403200F6638D /* Badges */ = {
+			isa = PBXGroup;
+			children = (
+				7C91ABE51C85425F00F6638D /* Badge.swift */,
+				7C91ABE71C85430F00F6638D /* BadgeTableViewCell.swift */,
+				7C91ABE31C85410F00F6638D /* BadgeViewController.swift */,
+				7C6F26341C87071200E743F6 /* BadgeDetailViewController.swift */,
+			);
+			name = Badges;
+			sourceTree = "<group>";
+		};
 		FC7A62E40978A7ABC0CE95EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				20625D811C7F7E59005FBB00 /* CoreEngine.framework */,
-				206AB5501C7743BB0079FDC6 /* Gimbal.framework */,
+				7C91ABDA1C84CCFA00F6638D /* CoreEngine.framework */,
+				7C91ABD81C84CCEF00F6638D /* Gimbal.framework */,
 				206AB54C1C77430C0079FDC6 /* libz.tbd */,
 				13C1481B48EEC01BE1EEC5CD /* Pods_AllstateCarProject.framework */,
 			);
@@ -358,7 +381,7 @@
 				TargetAttributes = {
 					32D5671A1C556ACE008EB5EF = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 53QW47KCT9;
+						DevelopmentTeam = YB543736EW;
 					};
 					32D5672E1C556ACE008EB5EF = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -401,6 +424,7 @@
 				32D567261C556ACE008EB5EF /* Assets.xcassets in Resources */,
 				20625D901C7F9DFC005FBB00 /* DistractionChart.xib in Resources */,
 				2080BA2D1C7694D500251366 /* gimbal.apikey in Resources */,
+				7C91ABDD1C84CD2500F6638D /* gimbal.apikey in Resources */,
 				32D567241C556ACE008EB5EF /* Main.storyboard in Resources */,
 				20625D8A1C7F8146005FBB00 /* mockData.txt in Resources */,
 				209ADB321C6C160900C9E3F8 /* DashboardItem.xib in Resources */,
@@ -482,12 +506,16 @@
 				205409F91C69061300E13463 /* MoreViewController.swift in Sources */,
 				7C7DF2071C6BB24400B9499F /* DistractionChartData.swift in Sources */,
 				320D616E1C598D1200814A47 /* HistoryViewController.swift in Sources */,
+				7C6F26351C87071200E743F6 /* BadgeDetailViewController.swift in Sources */,
 				20625D751C7F3E75005FBB00 /* DistractionItem.swift in Sources */,
 				32F678BA1C7E8FEF00501AD7 /* FaceDetection.swift in Sources */,
 				32D567531C55C5B9008EB5EF /* Extension.swift in Sources */,
+				7C91ABE81C85430F00F6638D /* BadgeTableViewCell.swift in Sources */,
+				7C91ABE61C85425F00F6638D /* Badge.swift in Sources */,
 				32D567211C556ACE008EB5EF /* DemoViewController.swift in Sources */,
 				209ADB341C6C189100C9E3F8 /* DashboardItem.swift in Sources */,
 				32D5674D1C556BAF008EB5EF /* DataBaseManager.swift in Sources */,
+				7C91ABE41C85410F00F6638D /* BadgeViewController.swift in Sources */,
 				209ADB361C6C218700C9E3F8 /* DashboardViewController.swift in Sources */,
 				32D5671F1C556ACE008EB5EF /* AppDelegate.swift in Sources */,
 				2080BA2F1C76D6F700251366 /* GetKey.swift in Sources */,
