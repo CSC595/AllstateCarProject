@@ -10,7 +10,7 @@ import UIKit
 
 var enableSensors_Global:Bool = true
 var hideSensorData_Global:Bool = false
-var sampleRate_Global:Double = 2.0
+var sampleRate_Global:Double = 0.5
 var xTolerance_Global:Double = 0.4
 var yTolerance_Global:Double = 0.4
 var zTolerance_Global:Double = 0.8

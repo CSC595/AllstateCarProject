@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let serverIP = "http://75.102.226.14:5000/"
+let serverIP = "http://75.102.224.118:5000/"
 let startServiceURL = serverIP + "run_app"
 let endServiceURL = serverIP + "stop_app"
 let getResultURL = serverIP + "result"
