@@ -158,6 +158,14 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
         faceSensor = FaceDetection()
         beaconSensor = BeaconSensor()
         
+        // Start sensor objects
+        if let ms = motionSensor {
+            ms.start()
+        }
+        if let b = beaconSensor {
+            b.start()
+        }
+        
         tripDetection.title.text = "Cancel Trip"
         DataCollector.defaultCollector().start()
 
@@ -189,7 +197,15 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
         tripDetection.title.text = "Start"
 
         
-        // Stop sensor objects if needed
+        // Stop sensor objects if possible
+        if let ms = motionSensor {
+            ms.stop()
+        }
+        if let b = beaconSensor {
+            b.stop()
+        }
+
+        
         isTripInProgress = false
         
     }

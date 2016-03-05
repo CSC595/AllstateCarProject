@@ -21,7 +21,6 @@ class BeaconSensor: NSObject, GMBLPlaceManagerDelegate {
     
     override init() {
         
-//        isVisiting = false
         placeCount = 0
         isDriver = false
         debugText = "No beacons detected"
@@ -36,9 +35,17 @@ class BeaconSensor: NSObject, GMBLPlaceManagerDelegate {
         // Get api key from file
         Gimbal.setAPIKey(GetKey.byName("gimbal"), options: nil)
         self.placeManager = GMBLPlaceManager()
-        placeManager!.delegate = self
+        if let pm = placeManager {
+            pm.delegate = self
+        }
+    }
+    
+    func start() {
         GMBLPlaceManager.startMonitoring()
-
+    }
+    
+    func stop() {
+        GMBLPlaceManager.stopMonitoring()
     }
     
     func placeManager(manager: GMBLPlaceManager!, didBeginVisit visit: GMBLVisit!) {
@@ -58,12 +65,6 @@ class BeaconSensor: NSObject, GMBLPlaceManagerDelegate {
         
         updateSensor()
         
-        
-//        if let pm = placeManager {
-//            if (pm.currentVisits().count == 0) {
-//                isVisiting = false
-//            }
-//        }
     }
         
     //This will be invoked when a user sights a beacon
@@ -77,13 +78,6 @@ class BeaconSensor: NSObject, GMBLPlaceManagerDelegate {
             }
         }
         updateSensor()
-        
-//                isVisiting = true
-//            }
-//            else {
-//                debugText = "No visits in progress"
-//            }
-//        }
         
 //        if let s = sighting {
 //            if let b = s.beacon {

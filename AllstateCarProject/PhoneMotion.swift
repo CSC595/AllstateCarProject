@@ -26,8 +26,10 @@ class PhoneMotion {
     
     init () {
         self.isDistracted = false
-        self.debugText = "Waiting for data"
+        self.debugText = "Waiting for data"    
+    }
     
+    func start() {
         if motionManager.deviceMotionAvailable {
             motionManager.deviceMotionUpdateInterval = sampleRate
             
@@ -60,6 +62,10 @@ class PhoneMotion {
                 
             })
         }
+    }
+    
+    func stop() {
+        motionManager.stopDeviceMotionUpdates()
     }
     
     func updateGravity() {

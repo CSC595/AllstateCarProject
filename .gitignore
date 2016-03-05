@@ -2,7 +2,3 @@
 ####################
 *.apikey
 
-#Ignore Frameworks #
-####################
-*.framework
-

@@ -18,10 +18,10 @@
 		20625D8E1C7F9DEB005FBB00 /* DistractionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20625D8D1C7F9DEB005FBB00 /* DistractionChart.swift */; };
 		20625D901C7F9DFC005FBB00 /* DistractionChart.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20625D8F1C7F9DFC005FBB00 /* DistractionChart.xib */; };
 		206AB54D1C77430C0079FDC6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 206AB54C1C77430C0079FDC6 /* libz.tbd */; };
-		2078E6221C8B7C940088EBD4 /* mockDataSpeeding.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2078E61F1C8B7C940088EBD4 /* mockDataSpeeding.txt */; };
-		2078E6231C8B7C940088EBD4 /* mockDataNoSpeeding.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2078E6201C8B7C940088EBD4 /* mockDataNoSpeeding.txt */; };
-		2078E6241C8B7C940088EBD4 /* mockDataHardBraking.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2078E6211C8B7C940088EBD4 /* mockDataHardBraking.txt */; };
 		2078E6261C8B7CAC0088EBD4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078E6251C8B7CAC0088EBD4 /* Extension.swift */; };
+		2078E62C1C8B91B10088EBD4 /* mockDataSpeeding.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2078E6291C8B91B10088EBD4 /* mockDataSpeeding.txt */; };
+		2078E62D1C8B91B10088EBD4 /* mockDataNoSpeeding.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2078E62A1C8B91B10088EBD4 /* mockDataNoSpeeding.txt */; };
+		2078E62E1C8B91B10088EBD4 /* mockDataHardBraking.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2078E62B1C8B91B10088EBD4 /* mockDataHardBraking.txt */; };
 		2080BA2D1C7694D500251366 /* gimbal.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 2080BA2C1C7694D500251366 /* gimbal.apikey */; };
 		2080BA2F1C76D6F700251366 /* GetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080BA2E1C76D6F700251366 /* GetKey.swift */; };
 		209ADB321C6C160900C9E3F8 /* DashboardItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 209ADB311C6C160900C9E3F8 /* DashboardItem.xib */; };
@@ -91,10 +91,10 @@
 		20625D8F1C7F9DFC005FBB00 /* DistractionChart.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DistractionChart.xib; sourceTree = "<group>"; };
 		206AB54C1C77430C0079FDC6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		206AB5521C7744A70079FDC6 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
-		2078E61F1C8B7C940088EBD4 /* mockDataSpeeding.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = mockDataSpeeding.txt; path = Mock.Data/mockDataSpeeding.txt; sourceTree = "<group>"; };
-		2078E6201C8B7C940088EBD4 /* mockDataNoSpeeding.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = mockDataNoSpeeding.txt; path = Mock.Data/mockDataNoSpeeding.txt; sourceTree = "<group>"; };
-		2078E6211C8B7C940088EBD4 /* mockDataHardBraking.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = mockDataHardBraking.txt; path = Mock.Data/mockDataHardBraking.txt; sourceTree = "<group>"; };
 		2078E6251C8B7CAC0088EBD4 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		2078E6291C8B91B10088EBD4 /* mockDataSpeeding.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mockDataSpeeding.txt; sourceTree = "<group>"; };
+		2078E62A1C8B91B10088EBD4 /* mockDataNoSpeeding.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mockDataNoSpeeding.txt; sourceTree = "<group>"; };
+		2078E62B1C8B91B10088EBD4 /* mockDataHardBraking.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mockDataHardBraking.txt; sourceTree = "<group>"; };
 		2080BA2C1C7694D500251366 /* gimbal.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gimbal.apikey; sourceTree = "<group>"; };
 		2080BA2E1C76D6F700251366 /* GetKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKey.swift; sourceTree = "<group>"; };
 		209ADB311C6C160900C9E3F8 /* DashboardItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardItem.xib; sourceTree = "<group>"; };
@@ -156,16 +156,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		20625D7E1C7F7539005FBB00 /* Sample Data */ = {
-			isa = PBXGroup;
-			children = (
-				2078E61F1C8B7C940088EBD4 /* mockDataSpeeding.txt */,
-				2078E6201C8B7C940088EBD4 /* mockDataNoSpeeding.txt */,
-				2078E6211C8B7C940088EBD4 /* mockDataHardBraking.txt */,
-			);
-			name = "Sample Data";
-			sourceTree = "<group>";
-		};
 		2078E6271C8B7D340088EBD4 /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +168,9 @@
 		2078E6281C8B7D7D0088EBD4 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				20625D7E1C7F7539005FBB00 /* Sample Data */,
+				2078E6291C8B91B10088EBD4 /* mockDataSpeeding.txt */,
+				2078E62A1C8B91B10088EBD4 /* mockDataNoSpeeding.txt */,
+				2078E62B1C8B91B10088EBD4 /* mockDataHardBraking.txt */,
 				205409F81C69061300E13463 /* MoreViewController.swift */,
 			);
 			name = Configuration;
@@ -434,11 +426,11 @@
 				32D567261C556ACE008EB5EF /* Assets.xcassets in Resources */,
 				20625D901C7F9DFC005FBB00 /* DistractionChart.xib in Resources */,
 				2080BA2D1C7694D500251366 /* gimbal.apikey in Resources */,
-				2078E6231C8B7C940088EBD4 /* mockDataNoSpeeding.txt in Resources */,
-				2078E6221C8B7C940088EBD4 /* mockDataSpeeding.txt in Resources */,
+				2078E62D1C8B91B10088EBD4 /* mockDataNoSpeeding.txt in Resources */,
+				2078E62C1C8B91B10088EBD4 /* mockDataSpeeding.txt in Resources */,
 				32D567241C556ACE008EB5EF /* Main.storyboard in Resources */,
 				209ADB321C6C160900C9E3F8 /* DashboardItem.xib in Resources */,
-				2078E6241C8B7C940088EBD4 /* mockDataHardBraking.txt in Resources */,
+				2078E62E1C8B91B10088EBD4 /* mockDataHardBraking.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
