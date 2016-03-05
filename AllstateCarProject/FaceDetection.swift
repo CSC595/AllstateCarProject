@@ -17,9 +17,8 @@ let getResultURL = serverIP + "result"
 
 class FaceDetection {
     var debugText: String
-    var isDistracted: Bool = false
-    
-    
+    var isDistracted: Bool = true
+        
     init() {
         
         debugText = "Connecting..."

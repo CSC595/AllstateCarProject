@@ -21,7 +21,6 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
     // Sensor Objects
     var motionSensor:PhoneMotion?
     var microphoneSensor:MicrophoneNoise?
-//    var speedSensor:SpeedSensor?
     var faceSensor: FaceDetection?
     var beaconSensor:BeaconSensor?
     var drivingEngine:DEMDrivingEngineManager?
@@ -37,6 +36,7 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
         drivingEngine!.delegate = self
         drivingEngine!.registerForEventCapture(DEMEventCaptureMask.All)
         drivingEngine!.startEngine()
+        
         
         tripDetection.enabled = true
         tripDetection.title.text = "Start"
@@ -74,7 +74,7 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    // Core Engine Callbacks
     func didStartTripRecording(drivingEngine: DEMDrivingEngineManager!) -> String! {
         tripDetection.addText("didStartTripRecording()")
         startTrip()
@@ -130,7 +130,7 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
     func startMockTrip() {
         tripDetection.addText("startMockTrip()")
         let file:String = NSBundle.mainBundle().pathForResource(mockDataFiles_Global[mockDataIndex_Global], ofType: "txt")!
-        drivingEngine?.setMockDataPath(file, cadence: 125)
+        drivingEngine?.setMockDataPath(file, cadence: 100)
         drivingEngine?.startTripRecording()        
     }
     
@@ -155,12 +155,10 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
         // Create Sensor Objects
         motionSensor = PhoneMotion()
         microphoneSensor = MicrophoneNoise()
-//        speedSensor = SpeedSensor()
         faceSensor = FaceDetection()
         beaconSensor = BeaconSensor()
         
         tripDetection.title.text = "Cancel Trip"
-        
         DataCollector.defaultCollector().start()
 
         checkSensors()
@@ -188,29 +186,16 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
             f.endService()
         }
 
-//        // Record speed array
-//        if let s = speedSensor {
-//            DataCollector.defaultCollector().collectingSpeeds(s.tmpSpeedsArr)
-//            s.stop()
-//        }
-        
         tripDetection.title.text = "Start"
 
         
         // Stop sensor objects if needed
-        
-        // Get distance
-//        let distance = Double(lround((Double(arc4random()) / 0xFFFFFFFF  * (60 - 10) + 10) * 1000)) / 1000
-//        DataCollector.defaultCollector().end(distance)
-        
         isTripInProgress = false
         
     }
     
     func checkSensors() {
 
-//        tripDetection.debug.text = "Trip in progress"
-        
         if let m = motionSensor {
             phoneMotion.debug.text = m.debugText
             if (enableSensors_Global) {
@@ -226,14 +211,6 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
             }
         }
         
-//        if let s = speedSensor {
-//            s.updateSpeed()
-//            excessiveSpeed.debug.text = s.debugText
-//            if (enableSensors_Global) {
-//                s.isDistracted ? excessiveSpeed.startDistraction() : excessiveSpeed.stopDistraction()
-//            }
-//        }
-        
         if let f = faceSensor {
             f.checkResult()
             faceDetection.debug.text = f.debugText
@@ -245,8 +222,11 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
         // Update beacon status
         if let b = beaconSensor {
             beacon.debug.text = b.debugText
-            if (b.isVisiting) {
+            if (b.isDriver) {
                 beacon.setStateGood()
+            }
+            else {
+                beacon.setStateOff()
             }
         }
     }

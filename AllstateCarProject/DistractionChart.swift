@@ -71,7 +71,8 @@ import UIKit
             }
         }
         let totalTime = data.drivingTimeSecond
-        let score:Int = ((totalTime - distractionTime) * 100) / totalTime
+        let score:Int = ((totalTime - min(distractionTime, totalTime)) * 100) / totalTime
+        
         
         if let t = title.text {
             title.text = t + String(format: " Score: %d%%", arguments: [score])

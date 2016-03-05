@@ -9,7 +9,7 @@
 import UIKit
 
 var enableSensors_Global:Bool = true
-var hideSensorData_Global:Bool = false
+var hideSensorData_Global:Bool = true
 var sampleRate_Global:Double = 0.5
 var xTolerance_Global:Double = 0.4
 var yTolerance_Global:Double = 0.4
@@ -17,9 +17,8 @@ var zTolerance_Global:Double = 0.8
 var gravityTolerance_Global:Double = 0.6
 var useGravity_Global:Bool = true
 var noiseLevel_Global:Float = -30
-var speedLimit_Global:Double = 80.0
 var mockDataIndex_Global:Int = 0
-let mockDataFiles_Global = ["mockDataSpeeding" , "mockDataBraking"]
+let mockDataFiles_Global = ["mockDataSpeeding" , "mockDataBraking", "mockDataNoSpeeding"]
 
 
 class MoreViewController: UIViewController {
@@ -45,11 +44,15 @@ class MoreViewController: UIViewController {
     @IBOutlet weak var noiseSlider: UISlider!
     @IBOutlet weak var speedSlider: UISlider!
     
+    var drivingEngine = DEMDrivingEngineManager.sharedManager() as? DEMDrivingEngineManager
+    var speedLimit:Double = 80.0
+    
     override func viewDidLoad() {
         setSensorButton()
         setSensorTextButton()
         setGravityTextButton()
         setMockDataButton()
+        setSampleRate()
         setXTolerance()
         setYTolerance()
         setZTolerance()
@@ -62,7 +65,7 @@ class MoreViewController: UIViewController {
         zToleranceSlider.value = Float(zTolerance_Global)
         gravityToleranceSlider.value = Float(gravityTolerance_Global)
         noiseSlider.value = Float(noiseLevel_Global)
-        speedSlider.value = Float(speedLimit_Global)
+        speedSlider.value = Float(speedLimit)
     }
     
     @IBAction func ClearDataPressed(sender: AnyObject) {
@@ -110,7 +113,7 @@ class MoreViewController: UIViewController {
     }
     
     @IBAction func speedLimitChanged(sender: UISlider) {
-        speedLimit_Global = Double(sender.value)
+        speedLimit = Double(sender.value)
         setSpeedLimit()
     }
     
@@ -161,7 +164,26 @@ class MoreViewController: UIViewController {
     }
     
     func setSpeedLimit() {
-        speedLabel.text = String(format: "Speed Limit %.0f mph", arguments: [speedLimit_Global])
+        speedLabel.text = String(format: "Speed Limit %.0f mph", arguments: [speedLimit])
+        let config = DEMConfiguration()
+        config.speedLimit = speedLimit
+        if let de = drivingEngine {
+            if (!de.setConfiguration(config)) {
+                
+                // Message for the user
+                let message = "Unable to set speed limit"
+                
+                // Build the alert controler
+                let controller = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
+                
+                // Build the alert action
+                let okayAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+                
+                // Add action tot alert and present
+                controller.addAction(okayAction)
+                self.presentViewController(controller, animated: true, completion: nil)
+            }
+        }
     }
     
     func setSensorButton() {
