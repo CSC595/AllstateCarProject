@@ -18,11 +18,13 @@ var gravityTolerance_Global:Double = 0.6
 var useGravity_Global:Bool = true
 var noiseLevel_Global:Float = -30
 var mockDataIndex_Global:Int = 0
-let mockDataFiles_Global = ["mockDataSpeeding" , "mockDataBraking", "mockDataNoSpeeding"]
+let mockDataFiles_Global = ["mockDataSpeeding" , "mockDataHardBraking", "mockDataNoSpeeding"]
 
 
 class MoreViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+
     @IBOutlet weak var enableSensorsButton: UIButton!
     @IBOutlet weak var hideSensorTextButton: UIButton!
     @IBOutlet weak var gravityTextButton: UIButton!
@@ -66,6 +68,8 @@ class MoreViewController: UIViewController {
         gravityToleranceSlider.value = Float(gravityTolerance_Global)
         noiseSlider.value = Float(noiseLevel_Global)
         speedSlider.value = Float(speedLimit)
+        
+        scrollView.alwaysBounceVertical = true
     }
     
     @IBAction func ClearDataPressed(sender: AnyObject) {
@@ -113,8 +117,33 @@ class MoreViewController: UIViewController {
     }
     
     @IBAction func speedLimitChanged(sender: UISlider) {
-        speedLimit = Double(sender.value)
-        setSpeedLimit()
+        
+        let config = DEMConfiguration()
+        config.speedLimit = speedLimit
+        if let de = drivingEngine {
+            if (!de.setConfiguration(config)) {
+                
+                // Set slider back
+                speedSlider.value = Float(speedLimit)
+
+                // Message for the user
+                let message = "Unable to set speed limit"
+                
+                // Build the alert controler
+                let controller = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
+                
+                // Build the alert action
+                let okayAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+                
+                // Add action tot alert and present
+                controller.addAction(okayAction)
+                self.presentViewController(controller, animated: true, completion: nil)
+            }
+            else  {
+                speedLimit = Double(sender.value)
+                setSpeedLimit()
+            }
+        }
     }
     
     @IBAction func sensorModePressed(sender: UIButton) {
@@ -164,26 +193,7 @@ class MoreViewController: UIViewController {
     }
     
     func setSpeedLimit() {
-        speedLabel.text = String(format: "Speed Limit %.0f mph", arguments: [speedLimit])
-        let config = DEMConfiguration()
-        config.speedLimit = speedLimit
-        if let de = drivingEngine {
-            if (!de.setConfiguration(config)) {
-                
-                // Message for the user
-                let message = "Unable to set speed limit"
-                
-                // Build the alert controler
-                let controller = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
-                
-                // Build the alert action
-                let okayAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
-                
-                // Add action tot alert and present
-                controller.addAction(okayAction)
-                self.presentViewController(controller, animated: true, completion: nil)
-            }
-        }
+        speedLabel.text = String(format: "Speed Limit %.0f mph", arguments:[speedLimit])
     }
     
     func setSensorButton() {
