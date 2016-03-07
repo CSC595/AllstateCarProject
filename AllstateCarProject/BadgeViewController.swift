@@ -10,7 +10,7 @@ import UIKit
 
 class BadgeViewController: UITableViewController{
 
-    let badge = Badge()
+//    let badge = Badge()
 
 
 
