@@ -244,7 +244,7 @@ class DataBaseManager {
     
     /******************************************************************************************
      //
-     // Call this function to delete old database and create new one
+     // Call this function to delete old database and create a new one
      //
      ******************************************************************************************/
     
@@ -274,4 +274,25 @@ class DataBaseManager {
         return true
     }
     
+    /******************************************************************************************
+    //
+    // Call this function to get data by params
+    //
+    ******************************************************************************************/
+    
+    func getDataByDangerousAction(dAType:DangerousActionTypes, min: Int, max: Int) -> [Data] {
+        if db.open() {
+            var result = [Data]()
+            let allDatas = loadData()
+            for data in allDatas {
+                if data.dangerousActionIsEuqal(dAType, min: min, max: max) {
+                    result.append(data)
+                }
+            }
+            return result
+        } else {
+            print("Open error")
+        }
+        return []
+    }
 }

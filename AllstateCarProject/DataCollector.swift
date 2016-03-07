@@ -86,6 +86,25 @@ struct Data {
         }
         return str
     }
+    
+    /***********************************
+    //
+    // Data meets the requirment or not
+    //
+    ************************************/
+    
+    func dangerousActionIsEuqal(dAType: DangerousActionTypes, min: Int, max: Int) -> Bool {
+        var num = 0
+        for dangerousAction in dangerousActionSet {
+            if dangerousAction.1 == dAType {
+                num += 1
+            }
+        }
+        if num <= max && num >= min {
+            return true
+        }
+        return false
+    }
 }
 
 
