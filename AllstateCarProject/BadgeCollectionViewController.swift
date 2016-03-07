@@ -68,6 +68,12 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
 
     }
 
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        var badg: Badge!
+        badg = badge[indexPath.row]
+        performSegueWithIdentifier("BadgeDetailVC", sender: badg)
+    }
+
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
     }
 
@@ -83,11 +89,18 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+       if segue.identifier == "BadgeDetailVC"{
+        if let detailsVC = segue.destinationViewController as? BadgeDetailViewController{
+            if let badg = sender as? Badge{
+                detailsVC.badge = badg
+            }
+        }
+    }
 
 
     
     
 }
-
+}
 

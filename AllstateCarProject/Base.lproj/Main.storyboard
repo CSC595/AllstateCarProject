@@ -381,13 +381,13 @@
                                 <rect key="frame" x="6" y="72" width="107" height="128"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIH-gN-xrp">
-                                <rect key="frame" x="71" y="217" width="42" height="21"/>
+                                <rect key="frame" x="71" y="217" width="175" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qf0-w3-hYp">
-                                <rect key="frame" x="71" y="250" width="42" height="21"/>
+                                <rect key="frame" x="71" y="250" width="175" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -417,7 +417,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymW-vY-zzE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1108" y="975"/>
+            <point key="canvasLocation" x="1073" y="1087"/>
         </scene>
         <!--More-->
         <scene sceneID="pHh-0f-YQ9">
@@ -731,7 +731,6 @@
                                     <outlet property="badgeEmoticonLabel" destination="MRd-8a-5v3" id="fir-Rc-Bcg"/>
                                     <outlet property="badgeImage" destination="hnE-Te-saK" id="Tzf-eQ-clZ"/>
                                     <outlet property="badgeNameLabel" destination="INN-yh-MJM" id="fuZ-wV-cor"/>
-                                    <segue destination="4cn-eU-soB" kind="show" id="wV5-Oe-2eu"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -743,11 +742,12 @@
                     <navigationItem key="navigationItem" id="zd7-B9-urh"/>
                     <connections>
                         <outlet property="collection" destination="2lt-ne-tWl" id="frm-4u-c0Q"/>
+                        <segue destination="4cn-eU-soB" kind="show" identifier="BadgeDetailVC" id="Cs3-Bx-dKZ"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46m-mM-NA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="578" y="1037"/>
+            <point key="canvasLocation" x="580" y="1087"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="Rgh-xo-P0g">

@@ -9,24 +9,24 @@
 import UIKit
 
 class BadgeDetailViewController: UIViewController {
-
+    var badge: Badge!
 
     @IBOutlet weak var badgeAwardsLabel: UILabel!
     @IBOutlet weak var badgeNameLabel: UILabel!
     @IBOutlet weak var badgeIcon: UIImageView!
     @IBOutlet weak var badgeDetailsTextBox: UITextView!
-    var badgeName = [String]()
-    var badgeImage = [String]()
-    var badgeAward = [String]()
-    var badgeActive = [Bool]()
-    var badgeDetail = [String]()
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        badgeAwardsLabel.text = "\(badgeAward)"
-        badgeDetailsTextBox.text = "\(badgeDetail)"
-        //badgeIcon = UIImage(named: badgeImage)
+        badgeNameLabel.text = badge.badgeName
+        badgeAwardsLabel.text = badge.emoticon
+        var imageString = String(badge.badgeId)
+        let image: UIImage = UIImage(named: imageString)!
+        //badgeDetailsTextBox.text = "\(badgeDetail)"
+        badgeIcon.image = image
     }
 
 
