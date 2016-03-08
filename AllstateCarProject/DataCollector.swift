@@ -88,18 +88,29 @@ struct Data {
     }
     
     /***********************************
-    //
-    // Data meets the requirment or not
-    //
-    ************************************/
+     //
+     // Count of Dangerous Action
+     //
+     ************************************/
     
-    func dangerousActionIsEuqal(dAType: DangerousActionTypes, min: Int, max: Int) -> Bool {
+    func countOfDangerousAction(dAType: DangerousActionTypes) -> Int {
         var num = 0
         for dangerousAction in dangerousActionSet {
             if dangerousAction.1 == dAType {
                 num += 1
             }
         }
+        return num
+    }
+    
+    /***********************************
+    //
+    // Data meets the requirment or not
+    //
+    ************************************/
+    
+    func dangerousActionIsEuqal(dAType: DangerousActionTypes, min: Int, max: Int) -> Bool {
+        let num = countOfDangerousAction(dAType)
         if num <= max && num >= min {
             return true
         }
