@@ -23,7 +23,7 @@ class BadgeDetailViewController: UIViewController {
 
         badgeNameLabel.text = badge.badgeName
         badgeAwardsLabel.text = badge.emoticon
-        var imageString = String(badge.badgeId)
+        let imageString = String(badge.badgeId)
         let image: UIImage = UIImage(named: imageString)!
         //badgeDetailsTextBox.text = "\(badgeDetail)"
         badgeIcon.image = image

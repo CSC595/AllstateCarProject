@@ -285,7 +285,7 @@ class DataBaseManager {
             var result = [Data]()
             let allDatas = loadData()
             for data in allDatas {
-                if data.dangerousActionIsEuqal(dAType, min: min, max: max) {
+                if data.dangerousActionIsEqual(dAType, min: min, max: max) {
                     result.append(data)
                 }
             }

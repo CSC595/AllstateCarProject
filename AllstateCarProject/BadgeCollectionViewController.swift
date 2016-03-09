@@ -13,6 +13,7 @@ import UIKit
 class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var badge =  [Badge]()
+    var datas = [Data]()
 
     @IBOutlet var collection: UICollectionView!
 
@@ -22,8 +23,19 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
         collection.delegate = self
         collection.dataSource = self
         navigationItem.title = "Badges"
-        //print("BADGECOLLECTIONVIEWCONTROLLER VIEWDIDLOAD")
         parseCSV()
+        datas = DataBaseManager.defaultManager().loadData()
+        compileDatasForBadges()
+
+    }
+
+    func compileDatasForBadges(){
+        for data in datas {
+            let countActions = data.countOfDangerousAction(DangerousActionTypes.MicTooLoud)
+            print(countActions)
+        }
+        //print (datas[0].countOfDangerousAction(DangerousActionTypes.MicTooLoud))
+        //print (datas[1].countOfDangerousAction(DangerousActionTypes.MicTooLoud))
     }
 
     func parseCSV(){
@@ -36,8 +48,8 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
             for row in rows{
                 let badgeId = Int(row["badgeId"]!)!
                 let badgeName = row["badgeName"]!
-                let emoticon = row["emoticon"]!
-                let reward = Badge(badgeName: badgeName, badgeId: badgeId, emoticon: emoticon)
+                //let emoticon = row["emoticon"]!
+                let reward = Badge(badgeName: badgeName, badgeId: badgeId)
                 badge.append(reward)
                 print (reward)
             }
@@ -46,10 +58,7 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
@@ -58,7 +67,7 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
 
             let badg = badge[indexPath.row]
             cell.configureCell(badg)
-            if indexPath.row > 4 {
+            if badg.badgeEarned == 0 {
                 cell.alpha = 0.3
             }
             return cell

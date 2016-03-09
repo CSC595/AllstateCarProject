@@ -109,7 +109,7 @@ struct Data {
     //
     ************************************/
     
-    func dangerousActionIsEuqal(dAType: DangerousActionTypes, min: Int, max: Int) -> Bool {
+    func dangerousActionIsEqual(dAType: DangerousActionTypes, min: Int, max: Int) -> Bool {
         let num = countOfDangerousAction(dAType)
         if num <= max && num >= min {
             return true
