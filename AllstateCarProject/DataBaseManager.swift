@@ -50,6 +50,7 @@ import FMDB
  *************************************************************************************************************************/
 class DataBaseManager {
     var db:FMDatabase
+    var picDataPath:String
     var dbPath: String
     private static let instance = DataBaseManager()
     
@@ -68,9 +69,16 @@ class DataBaseManager {
                 print("Error")
             }
         }
-        
         self.dbPath = dbDirectory + "/user_data.sqlite"
-        print(dbPath)
+        
+        self.picDataPath = NSHomeDirectory() + "/Documents/FaceDetectionPic/"
+        if !NSFileManager.defaultManager().fileExistsAtPath(self.picDataPath) {
+            do {
+                try NSFileManager.defaultManager().createDirectoryAtPath(picDataPath, withIntermediateDirectories: false, attributes: nil)
+            }catch _ {
+                print("Error")
+            }
+        }
         self.db = FMDatabase(path: self.dbPath)
         print("DataBase init")
         
@@ -253,6 +261,8 @@ class DataBaseManager {
         do {
             try NSFileManager.defaultManager().removeItemAtPath(dbDirectory)
             try NSFileManager.defaultManager().createDirectoryAtPath(dbDirectory, withIntermediateDirectories: false, attributes: nil)
+            try NSFileManager.defaultManager().removeItemAtPath(picDataPath)
+            try NSFileManager.defaultManager().createDirectoryAtPath(picDataPath, withIntermediateDirectories: false, attributes: nil)
         } catch _ {
             print("Clear Data error!")
             return false
