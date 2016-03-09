@@ -116,6 +116,22 @@ struct Data {
         }
         return false
     }
+    
+    /***************************************
+    //
+    // Count of Dangerous Action in Seconds
+    //
+    ****************************************/
+    
+    func countOfDangerousActionInSeconds(dAType: DangerousActionTypes) -> Int {
+        var seconds = 0
+        for dangerousAction in dangerousActionSet {
+            if dangerousAction.1 == dAType {
+                seconds += Int(dangerousAction.2.timeIntervalSince1970 - dangerousAction.0.timeIntervalSince1970)
+            }
+        }
+        return seconds
+    }
 }
 
 
