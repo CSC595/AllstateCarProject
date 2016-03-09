@@ -13,8 +13,8 @@ class Badge {
 
     private var _badgeName: String!
     private var _badgeId: Int!
-    private var _emoticon: String!
-    private var _badgeEarned: Int!
+    var emoticon: String!
+    var badgeEarned: Int!
 
     //create getters
     var badgeName: String{
@@ -25,13 +25,9 @@ class Badge {
         return _badgeId
     }
 
-    var emoticon: String {
-        return _emoticon
-    }
 
-    var badgeEarned: Int {
-        return _badgeEarned
-    }
+
+
 
 
     //initializaers
@@ -39,8 +35,8 @@ class Badge {
     init (badgeName: String, badgeId: Int){
         self._badgeName = badgeName
         self._badgeId = badgeId
-        self._emoticon = ""
-        self._badgeEarned = 0
+        self.emoticon = ""
+        self.badgeEarned = 0
     }
 /*    var badgeName = [String]()
     var badgeIcon = [String]()

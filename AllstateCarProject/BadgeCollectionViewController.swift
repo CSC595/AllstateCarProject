@@ -12,7 +12,7 @@ import UIKit
 
 class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    var badge =  [Badge]()
+    var badges = [Badge]()
     var datas = [Data]()
 
     @IBOutlet var collection: UICollectionView!
@@ -31,12 +31,24 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
 
     func compileDatasForBadges(){
         for data in datas {
+            //for badge in badges{
             let countActions = data.countOfDangerousAction(DangerousActionTypes.MicTooLoud)
-            print(countActions)
+                if (countActions == 0){
+                    badges[1].badgeEarned = badges[1].badgeEarned+1
+                    badges[1].emoticon = "🌟"
+
+                }
+
+                }
+            //}
         }
         //print (datas[0].countOfDangerousAction(DangerousActionTypes.MicTooLoud))
         //print (datas[1].countOfDangerousAction(DangerousActionTypes.MicTooLoud))
-    }
+
+
+
+
+
 
     func parseCSV(){
         let path = NSBundle.mainBundle().pathForResource("badge", ofType: "csv")!
@@ -50,7 +62,7 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
                 let badgeName = row["badgeName"]!
                 //let emoticon = row["emoticon"]!
                 let reward = Badge(badgeName: badgeName, badgeId: badgeId)
-                badge.append(reward)
+                badges.append(reward)
                 print (reward)
             }
         } catch let err as NSError {
@@ -65,7 +77,7 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("badgeCell", forIndexPath: indexPath) as? BadgeCell {
 
 
-            let badg = badge[indexPath.row]
+            let badg = badges[indexPath.row]
             cell.configureCell(badg)
             if badg.badgeEarned == 0 {
                 cell.alpha = 0.3
@@ -79,7 +91,7 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         var badg: Badge!
-        badg = badge[indexPath.row]
+        badg = badges[indexPath.row]
         performSegueWithIdentifier("BadgeDetailVC", sender: badg)
     }
 
@@ -87,7 +99,7 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return badge.count
+        return badges.count
 
     }
 
