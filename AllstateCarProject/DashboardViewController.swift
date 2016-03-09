@@ -167,7 +167,7 @@ class DashboardViewController: UIViewController, DEMDrivingEngineDelegate {
         }
         
         tripDetection.title.text = "Cancel Trip"
-        DataCollector.defaultCollector().start()
+        faceSensor!.tripDepartureTime = DataCollector.defaultCollector().start()
 
         checkSensors()
         refreshTimer = NSTimer.scheduledTimerWithTimeInterval(sampleRate_Global, target: self, selector: "checkSensors", userInfo: nil, repeats: true)

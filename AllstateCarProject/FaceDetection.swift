@@ -10,14 +10,34 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let serverIP = "http://75.102.224.118:5000/"
+let serverIP = "http://75.102.226.120:5000/"
 let startServiceURL = serverIP + "run_app"
 let endServiceURL = serverIP + "stop_app"
 let getResultURL = serverIP + "result"
+let getPicURL = serverIP + "pic"
+let documentsPath = NSHomeDirectory() + "/Documents/"
 
 class FaceDetection {
     var debugText: String
-    var isDistracted: Bool = true
+    var isDistracted: Bool = false {
+        didSet {
+            if oldValue != isDistracted && isDistracted == true {
+                getPic()
+            }
+        }
+    }
+    
+    var tripDepartureTime: NSDate? {
+        didSet {
+            if let tripDepartureTime = self.tripDepartureTime {
+                picDirectoryPath = documentsPath + tripDepartureTime.toString()
+                num = 0
+            }
+        }
+    }
+    
+    var picDirectoryPath = documentsPath + "FaceDetectionPic/"
+    var num = 0
         
     init() {
         
@@ -80,6 +100,20 @@ class FaceDetection {
                 self.debugText = "\(error)"
             }
         }
+    }
+    
+    func getPic() {
+        Alamofire.download(.GET, getPicURL) { (tmpURL, response) -> NSURL in
+            if !NSFileManager.defaultManager().fileExistsAtPath(self.picDirectoryPath) {
+                do {
+                    try NSFileManager.defaultManager().createDirectoryAtPath(self.picDirectoryPath, withIntermediateDirectories: false, attributes: nil)
+                }catch _ {
+                    print("Error")
+                }
+            }
+            let picPath = self.picDirectoryPath + "\(self.num++).png"
+            return NSURL(fileURLWithPath: picPath)
+         }
     }
     
 }
