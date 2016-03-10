@@ -10,14 +10,49 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let serverIP = "http://75.102.224.118:5000/"
+let serverIP = "http://75.102.224.65:5000/"
 let startServiceURL = serverIP + "run_app"
 let endServiceURL = serverIP + "stop_app"
 let getResultURL = serverIP + "result"
+let getPicURL = serverIP + "pic"
+let faceDetectionPicPath = NSHomeDirectory() + "/Documents/FaceDetectionPic/"
 
 class FaceDetection {
     var debugText: String
-    var isDistracted: Bool = true
+    var isDistracted: Bool = false {
+        didSet {
+            if oldValue != isDistracted && isDistracted == true {
+                getPic()
+            }
+        }
+    }
+    
+    var tripDepartureTime: NSDate? {
+        didSet {
+            if let tripDepartureTime = self.tripDepartureTime {
+                picDirectoryPath = faceDetectionPicPath + tripDepartureTime.toString().md5 + "/"
+            }
+        }
+    }
+    
+    var picDirectoryPath = faceDetectionPicPath {
+        didSet {
+            if !NSFileManager.defaultManager().fileExistsAtPath(faceDetectionPicPath) {
+                do {
+                    try NSFileManager.defaultManager().createDirectoryAtPath(faceDetectionPicPath, withIntermediateDirectories: false, attributes: nil)
+                }catch _ {
+                    print("Error")
+                }
+            }
+            if !NSFileManager.defaultManager().fileExistsAtPath(self.picDirectoryPath) {
+                do {
+                    try NSFileManager.defaultManager().createDirectoryAtPath(self.picDirectoryPath, withIntermediateDirectories: false, attributes: nil)
+                }catch _ {
+                    print("Error")
+                }
+            }
+        }
+    }
         
     init() {
         
@@ -80,6 +115,14 @@ class FaceDetection {
                 self.debugText = "\(error)"
             }
         }
+    }
+    
+    func getPic() {
+        Alamofire.download(.GET, getPicURL) { (tmpURL, response) -> NSURL in
+            let picPath = self.picDirectoryPath + NSDate().picName()
+            return NSURL(fileURLWithPath: picPath)
+            
+         }
     }
     
 }

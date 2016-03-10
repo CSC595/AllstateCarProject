@@ -194,8 +194,9 @@ class DataCollector {
      *********************************************************************************************/
     
     // Start a new collection
-    func start() {
+    func start() -> NSDate {
         departureTime = NSDate()
+        return departureTime!
     }
     
     // Finish the collection

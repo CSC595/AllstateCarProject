@@ -47,6 +47,7 @@
 		7CA800811C8D01AE00D03188 /* badge.csv in Resources */ = {isa = PBXBuildFile; fileRef = 7CA800801C8D01AE00D03188 /* badge.csv */; };
 		7CA800831C8D039100D03188 /* BadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA800821C8D039100D03188 /* BadgeCell.swift */; };
 		91019BB30FE2420D5A256D5F /* Pods_AllstateCarProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C1481B48EEC01BE1EEC5CD /* Pods_AllstateCarProject.framework */; };
+		DC9B512D1C90DA4A00935441 /* PicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9B512C1C90DA4A00935441 /* PicturesCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		7CA800801C8D01AE00D03188 /* badge.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = badge.csv; sourceTree = "<group>"; };
 		7CA800821C8D039100D03188 /* BadgeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeCell.swift; sourceTree = "<group>"; };
 		C8A5C1620A1ACCD523CB01FB /* Pods-AllstateCarProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllstateCarProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-AllstateCarProject/Pods-AllstateCarProject.release.xcconfig"; sourceTree = "<group>"; };
+		DC9B512C1C90DA4A00935441 /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				20625D8F1C7F9DFC005FBB00 /* DistractionChart.xib */,
 				20625D8D1C7F9DEB005FBB00 /* DistractionChart.swift */,
 				7C7DF2061C6BB24400B9499F /* DistractionChartData.swift */,
+				DC9B512C1C90DA4A00935441 /* PicturesCollectionViewController.swift */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -389,7 +392,6 @@
 				TargetAttributes = {
 					32D5671A1C556ACE008EB5EF = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = YB543736EW;
 					};
 					32D5672E1C556ACE008EB5EF = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -527,6 +529,7 @@
 				209ADB361C6C218700C9E3F8 /* DashboardViewController.swift in Sources */,
 				32D5671F1C556ACE008EB5EF /* AppDelegate.swift in Sources */,
 				2080BA2F1C76D6F700251366 /* GetKey.swift in Sources */,
+				DC9B512D1C90DA4A00935441 /* PicturesCollectionViewController.swift in Sources */,
 				32D5674F1C55871F008EB5EF /* DataCollector.swift in Sources */,
 				20625D8E1C7F9DEB005FBB00 /* DistractionChart.swift in Sources */,
 				204B8BA91C6D60DF0013D440 /* MicrophoneNoise.swift in Sources */,
@@ -686,7 +689,7 @@
 				);
 				INFOPLIST_FILE = AllstateCarProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.depaul.csc471.AllstateCarProject;
+				PRODUCT_BUNDLE_IDENTIFIER = Zhicong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = AllstateCarProject/BridgeHeader.h;
@@ -709,7 +712,7 @@
 				);
 				INFOPLIST_FILE = AllstateCarProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.depaul.csc471.AllstateCarProject;
+				PRODUCT_BUNDLE_IDENTIFIER = Zhicong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = AllstateCarProject/BridgeHeader.h;

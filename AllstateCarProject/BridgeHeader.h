@@ -14,4 +14,5 @@
 
 #import <Gimbal/Gimbal.h>
 #import <CoreEngine/CoreEngine.h>
+#import <CommonCrypto/CommonCrypto.h>
 

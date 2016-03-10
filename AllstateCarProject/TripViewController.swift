@@ -25,6 +25,8 @@ class TripViewController : UIViewController {
     @IBOutlet weak var noise: DistractionChart!
     @IBOutlet weak var speed: DistractionChart!
     
+    @IBOutlet weak var viewPicButton: UIButton!
+    
     override func viewDidLoad() {
         
         scrollView.alwaysBounceVertical = true
@@ -51,6 +53,11 @@ class TripViewController : UIViewController {
             speed.title.text = "Speed"
             speed.setData(d, actionType: DangerousActionTypes.OverSpeeded)
             
+            if NSFileManager.defaultManager().fileExistsAtPath(NSHomeDirectory() + "/Documents/FaceDetectionPic/" + d.departureTime.toString().md5 + "/") {
+                viewPicButton.enabled = true
+            } else {
+                viewPicButton.enabled = false
+            }
         }
 
     }
@@ -70,6 +77,15 @@ class TripViewController : UIViewController {
     
     func getAverageSpeedString(d:Data) -> String {
         return String(format: "Average Speed: %.1f mph", arguments: [d.avgSpeed])
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let data = self.data {
+            if segue.identifier == "showPictures" {
+                let picturesCVC = segue.destinationViewController as! PicturesCollectionViewController
+                picturesCVC.picDirPath = NSHomeDirectory() + "/Documents/FaceDetectionPic/" + data.departureTime.toString().md5 + "/"
+            }
+        }
     }
         
 }
