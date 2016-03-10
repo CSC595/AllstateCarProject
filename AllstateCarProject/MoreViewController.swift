@@ -18,7 +18,7 @@ var gravityTolerance_Global:Double = 0.6
 var useGravity_Global:Bool = true
 var noiseLevel_Global:Float = -30
 var mockDataIndex_Global:Int = 0
-let mockDataFiles_Global = ["mockDataSpeeding" , "mockDataHardBraking", "mockDataNoSpeeding"]
+let mockDataFiles_Global = ["mockDataSpeeding" , "mockDataHardBraking", "mockDataNoSpeeding", "mockDataLongTrip"]
 
 
 class MoreViewController: UIViewController {

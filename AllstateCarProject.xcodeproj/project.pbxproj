@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2019FBE01C91416A00C89098 /* mockDataLongTrip.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2019FBDF1C91416A00C89098 /* mockDataLongTrip.txt */; };
 		203107E61C87495E0059CBFF /* Gimbal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203107E41C87495E0059CBFF /* Gimbal.framework */; };
 		203107E81C8749720059CBFF /* CoreEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203107E51C87495E0059CBFF /* CoreEngine.framework */; };
 		203107E91C8749720059CBFF /* CoreEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 203107E51C87495E0059CBFF /* CoreEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -40,7 +41,6 @@
 		7C6F26351C87071200E743F6 /* BadgeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F26341C87071200E743F6 /* BadgeDetailViewController.swift */; };
 		7C7DF2071C6BB24400B9499F /* DistractionChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DF2061C6BB24400B9499F /* DistractionChartData.swift */; };
 		7C91ABE61C85425F00F6638D /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C91ABE51C85425F00F6638D /* Badge.swift */; };
-		7CA800771C8CFB9800D03188 /* gimbal.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 7CA800761C8CFB9800D03188 /* gimbal.apikey */; };
 		7CA800791C8CFBBB00D03188 /* gimbal.apikey in Resources */ = {isa = PBXBuildFile; fileRef = 7CA800781C8CFBBB00D03188 /* gimbal.apikey */; };
 		7CA8007D1C8CFE5E00D03188 /* BadgeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA8007C1C8CFE5E00D03188 /* BadgeCollectionViewController.swift */; };
 		7CA8007F1C8D00AA00D03188 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA8007E1C8D00AA00D03188 /* csv.swift */; };
@@ -83,6 +83,7 @@
 
 /* Begin PBXFileReference section */
 		13C1481B48EEC01BE1EEC5CD /* Pods_AllstateCarProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllstateCarProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2019FBDF1C91416A00C89098 /* mockDataLongTrip.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mockDataLongTrip.txt; sourceTree = "<group>"; };
 		203107E41C87495E0059CBFF /* Gimbal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gimbal.framework; path = Frameworks/Gimbal.framework; sourceTree = "<group>"; };
 		203107E51C87495E0059CBFF /* CoreEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreEngine.framework; path = Frameworks/CoreEngine.framework; sourceTree = "<group>"; };
 		203255011C6ABBFC00A4C353 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
@@ -123,7 +124,6 @@
 		7C6F26341C87071200E743F6 /* BadgeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeDetailViewController.swift; sourceTree = "<group>"; };
 		7C7DF2061C6BB24400B9499F /* DistractionChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistractionChartData.swift; sourceTree = "<group>"; };
 		7C91ABE51C85425F00F6638D /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
-		7CA800761C8CFB9800D03188 /* gimbal.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gimbal.apikey; sourceTree = "<group>"; };
 		7CA800781C8CFBBB00D03188 /* gimbal.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gimbal.apikey; sourceTree = "<group>"; };
 		7CA8007C1C8CFE5E00D03188 /* BadgeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewController.swift; sourceTree = "<group>"; };
 		7CA8007E1C8D00AA00D03188 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
@@ -174,6 +174,7 @@
 		2078E6281C8B7D7D0088EBD4 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				2019FBDF1C91416A00C89098 /* mockDataLongTrip.txt */,
 				2078E6291C8B91B10088EBD4 /* mockDataSpeeding.txt */,
 				2078E62A1C8B91B10088EBD4 /* mockDataNoSpeeding.txt */,
 				2078E62B1C8B91B10088EBD4 /* mockDataHardBraking.txt */,
@@ -186,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				7CA800781C8CFBBB00D03188 /* gimbal.apikey */,
-				7CA800761C8CFB9800D03188 /* gimbal.apikey */,
 				2080BA2E1C76D6F700251366 /* GetKey.swift */,
 			);
 			name = Keys;
@@ -433,11 +433,11 @@
 				32D567291C556ACE008EB5EF /* LaunchScreen.storyboard in Resources */,
 				32D567261C556ACE008EB5EF /* Assets.xcassets in Resources */,
 				20625D901C7F9DFC005FBB00 /* DistractionChart.xib in Resources */,
-				7CA800771C8CFB9800D03188 /* gimbal.apikey in Resources */,
 				7CA800791C8CFBBB00D03188 /* gimbal.apikey in Resources */,
 				2078E62D1C8B91B10088EBD4 /* mockDataNoSpeeding.txt in Resources */,
 				2078E62C1C8B91B10088EBD4 /* mockDataSpeeding.txt in Resources */,
 				32D567241C556ACE008EB5EF /* Main.storyboard in Resources */,
+				2019FBE01C91416A00C89098 /* mockDataLongTrip.txt in Resources */,
 				209ADB321C6C160900C9E3F8 /* DashboardItem.xib in Resources */,
 				2078E62E1C8B91B10088EBD4 /* mockDataHardBraking.txt in Resources */,
 				7CA800811C8D01AE00D03188 /* badge.csv in Resources */,
@@ -689,7 +689,7 @@
 				);
 				INFOPLIST_FILE = AllstateCarProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Zhicong;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.depaul.csc471.AllstateCarProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = AllstateCarProject/BridgeHeader.h;
@@ -712,7 +712,7 @@
 				);
 				INFOPLIST_FILE = AllstateCarProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Zhicong;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.depaul.csc471.AllstateCarProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = AllstateCarProject/BridgeHeader.h;
