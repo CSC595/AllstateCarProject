@@ -1,7 +1,7 @@
-badgeId,badgeName
-1,Ninja Badge
-2,Turtle Badge
-3,Test Badge
-4,Turtle Badge
-5,Ninja Badge
-6,Turtle Badge
+badgeId,badgeName,badgeImage,emoticon,badgeEarned,badgeType,badgeDetail
+1,Test Snail,1,,0,Sound,Type Details here
+2,Turtle Badge,1,,0,Sound,Type Details here
+3,Test Badge,1,,0,Sound,Type Details here
+4,Turtle Badge,1,,0,Sound,Type Details here
+5,Ninja Badge,1,,0,Sound,Type Details here
+6,Turtle Badge,1,,0,Sound,Type Details here

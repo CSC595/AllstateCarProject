@@ -60,8 +60,12 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
             for row in rows{
                 let badgeId = Int(row["badgeId"]!)!
                 let badgeName = row["badgeName"]!
-                //let emoticon = row["emoticon"]!
-                let reward = Badge(badgeName: badgeName, badgeId: badgeId)
+                let badgeImage = row["badgeImage"]!
+                let emoticon = row["emoticon"]!
+                let badgeEarned = Int(row["badgeEarned"]!)!
+                let badgeType = row["badgeType"]!
+                let badgeDetail = row["badgeDetail"]!
+                let reward = Badge(badgeName: badgeName, badgeId: badgeId, badgeImage: badgeImage, emoticon: emoticon, badgeEarned: badgeEarned, badgeType: badgeType, badgeDetail: badgeDetail)
                 badges.append(reward)
                 print (reward)
             }
@@ -71,7 +75,8 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
     }
 
 
-
+    // MARK: - Collection View Methods
+    // TODO: make it divide into three columns
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("badgeCell", forIndexPath: indexPath) as? BadgeCell {

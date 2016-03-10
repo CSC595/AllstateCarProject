@@ -13,6 +13,9 @@ class Badge {
 
     private var _badgeName: String!
     private var _badgeId: Int!
+    private var _badgeImage: String!
+    private var _badgeType: String!
+    private var _badgeDetail: String!
     var emoticon: String!
     var badgeEarned: Int!
 
@@ -32,11 +35,14 @@ class Badge {
 
     //initializaers
 
-    init (badgeName: String, badgeId: Int){
+    init (badgeName: String, badgeId: Int, badgeImage: String, emoticon: String, badgeEarned: Int, badgeType:String, badgeDetail: String){
         self._badgeName = badgeName
         self._badgeId = badgeId
-        self.emoticon = ""
-        self.badgeEarned = 0
+        self._badgeImage = badgeImage
+        self.emoticon = emoticon
+        self.badgeEarned = badgeEarned
+        self._badgeType = badgeType
+        self._badgeDetail = badgeDetail
     }
 /*    var badgeName = [String]()
     var badgeIcon = [String]()
