@@ -16,6 +16,12 @@ extension NSDate {
         return dateFormatter.stringFromDate(self)
     }
     
+    func picName() -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+        return dateFormatter.stringFromDate(self)
+    }
+    
     func createSpeedsTableName() -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyyMMddHHmmss"

@@ -15,7 +15,7 @@ let startServiceURL = serverIP + "run_app"
 let endServiceURL = serverIP + "stop_app"
 let getResultURL = serverIP + "result"
 let getPicURL = serverIP + "pic"
-let documentsPath = NSHomeDirectory() + "/Documents/FaceDetectionPic/"
+let faceDetectionPicPath = NSHomeDirectory() + "/Documents/FaceDetectionPic/"
 
 class FaceDetection {
     var debugText: String
@@ -30,17 +30,23 @@ class FaceDetection {
     var tripDepartureTime: NSDate? {
         didSet {
             if let tripDepartureTime = self.tripDepartureTime {
-                picDirectoryPath = documentsPath + tripDepartureTime.toString().md5 + "/"
+                picDirectoryPath = faceDetectionPicPath + tripDepartureTime.toString().md5 + "/"
             }
         }
     }
     
-    var picDirectoryPath = documentsPath {
+    var picDirectoryPath = faceDetectionPicPath {
         didSet {
+            if !NSFileManager.defaultManager().fileExistsAtPath(faceDetectionPicPath) {
+                do {
+                    try NSFileManager.defaultManager().createDirectoryAtPath(faceDetectionPicPath, withIntermediateDirectories: false, attributes: nil)
+                }catch _ {
+                    print("Error")
+                }
+            }
             if !NSFileManager.defaultManager().fileExistsAtPath(self.picDirectoryPath) {
                 do {
                     try NSFileManager.defaultManager().createDirectoryAtPath(self.picDirectoryPath, withIntermediateDirectories: false, attributes: nil)
-                    print(picDirectoryPath)
                 }catch _ {
                     print("Error")
                 }
@@ -113,8 +119,7 @@ class FaceDetection {
     
     func getPic() {
         Alamofire.download(.GET, getPicURL) { (tmpURL, response) -> NSURL in
-            let picPath = self.picDirectoryPath + NSDate().toString() + ".png"
-            print("saved")
+            let picPath = self.picDirectoryPath + NSDate().picName()
             return NSURL(fileURLWithPath: picPath)
             
          }

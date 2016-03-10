@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "PictureViewCell"
 
-class PicturesCollectionViewController: UICollectionViewController {
+class PicturesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var picDirPath = ""
     var pictures = [(String,UIImage)]()
@@ -76,12 +76,23 @@ class PicturesCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
-    
-        (cell.contentView.viewWithTag(1) as! UIImageView).image = pictures[indexPath.item].1
-       // (cell.contentView.viewWithTag(2) as! UILabel).text = pictures[indexPath.item].0
-    
+        
+        
+        let imageView = UIImageView(image: pictures[indexPath.item].1)
+        imageView.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.width / 4 * 3)
+        let label = UILabel(frame: CGRect(x: 0, y: cell.frame.width / 16 * 13, width: cell.frame.width, height: cell.frame.width / 8))
+        label.textAlignment = NSTextAlignment.Center
+        label.text = pictures[indexPath.item].0
+        label.textColor = UIColor.whiteColor()
+        cell.addSubview(imageView)
+        cell.addSubview(label)
         return cell
     }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake((UIScreen.mainScreen().bounds.width - 10) / 2, (UIScreen.mainScreen().bounds.width - 10) / 2)
+    }
+    
 
     // MARK: UICollectionViewDelegate
 
