@@ -28,6 +28,10 @@ class Badge {
         return _badgeId
     }
 
+    var badgeType: String {
+        return _badgeType
+    }
+
 
 
 
@@ -44,17 +48,5 @@ class Badge {
         self._badgeType = badgeType
         self._badgeDetail = badgeDetail
     }
-/*    var badgeName = [String]()
-    var badgeIcon = [String]()
-    var badgeAward = [String]()
-    var badgeActive = [Bool]()
-    var badgeDetail = [String]()
-    init(){
-        badgeName = ["Keeping Speed Limit","Quiet Rides", "?????","?????","?????"]
-        badgeIcon = ["SpeedIcon", "SoundIcon","QuestionIcon","QuestionIcon","QuestionIcon"]
-        badgeAward = ["🌟🌟🌟","🚕🚕","","",""]
-        badgeActive = [true,true,false,false,false]
-        badgeDetail = ["Badge details for earning this badge go here","Badge details for earning this badge go here","Badge details for earning this badge go here","Badge details for earning this badge go here"]
 
-    } */
 }
