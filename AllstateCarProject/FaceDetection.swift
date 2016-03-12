@@ -19,7 +19,7 @@ let faceDetectionPicPath = NSHomeDirectory() + "/Documents/FaceDetectionPic/"
 
 class FaceDetection {
     var debugText: String
-    var isDistracted: Bool = false {
+    var isDistracted: Bool = true {
         didSet {
             if oldValue != isDistracted && isDistracted == true {
                 getPic()
