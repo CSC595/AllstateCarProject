@@ -25,27 +25,72 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
         navigationItem.title = "Badges"
         parseCSV()
         datas = DataBaseManager.defaultManager().loadData()
-        compileDatasForBadges()
+        compileDatasForPerfectBadges()
+        //compileBadgePerfectDrive()
 
     }
 
-    func compileDatasForBadges(){
+    func compileDatasForPerfectBadges(){
         for data in datas {
-            //for badge in badges{
-            let countActions = data.countOfDangerousAction(DangerousActionTypes.MicTooLoud)
-                if (countActions == 0){
-                    badges[1].badgeEarned = badges[1].badgeEarned+1
-                    badges[1].emoticon = "🌟"
+            let countAttention = data.countOfDangerousAction(DangerousActionTypes.LookingAway)
+            let countFocus = data.countOfDangerousAction(DangerousActionTypes.LookPhone)
+            let countSound = data.countOfDangerousAction(DangerousActionTypes.MicTooLoud)
+            let countSpeed = data.countOfDangerousAction(.OverSpeeded)
+            let countPerfect = countSound + countSpeed + countAttention + countFocus
+            if countPerfect == 0 {
+                badges[0].badgeEarned = badges[0].badgeEarned + 1
+                badges[0].emoticon = setEmoticons(badges[0].badgeEarned, min: 0, max: 0)
+            }
+            if countSpeed == 0 {
+                badges[1].badgeEarned = badges[1].badgeEarned + 1
+                badges[1].emoticon = setEmoticons(badges[1].badgeEarned, min: 0, max: 0)
+            }
+            if countSound == 0 {
+                badges[2].badgeEarned = badges[2].badgeEarned + 1
+                badges[2].emoticon = setEmoticons(badges[2].badgeEarned, min: 0, max: 0)
+            }
+            if countFocus == 0 {
+                badges[3].badgeEarned = badges[3].badgeEarned + 1
+                badges[3].emoticon = setEmoticons(badges[3].badgeEarned, min: 0, max: 0)
+            }
+            if countAttention == 0 {
+                badges[4].badgeEarned = badges[4].badgeEarned + 1
+                badges[4].emoticon = setEmoticons(badges[4].badgeEarned, min: 0, max: 0)
+            }
 
-                }
 
-                }
-            //}
-        }
-        //print (datas[0].countOfDangerousAction(DangerousActionTypes.MicTooLoud))
-        //print (datas[1].countOfDangerousAction(DangerousActionTypes.MicTooLoud))
+            }
 
 
+    }
+
+    func incrementBadgesEarned(badgesEarned: Int)->Int{
+        return 0
+    }
+
+
+
+
+
+
+
+//    func compileBadgePerfectDrive(){
+//        for data in datas {
+//            let countActions = data.countOfDangerousAction(DangerousActionTypes.MicTooLoud) + data.countOfDangerousAction(DangerousActionTypes.OverSpeeded) + data.countOfDangerousAction(DangerousActionTypes.LookingAway) + data.countOfDangerousAction(DangerousActionTypes.MicTooLoud)
+//
+//            print (countActions)
+//
+//            badges[0].emoticon = setEmoticons(badges[0].badgeEarned)
+//            }
+//        }
+
+    
+
+    func setEmoticons (badgesEarned: Int,min: Int, max: Int) -> String {
+        if badgesEarned == 0 {return ""}
+        if min == 0 && max == 0 {return "🌟"}
+        return "😙"
+    }
 
 
 

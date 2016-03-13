@@ -16,6 +16,7 @@ class BadgeDetailViewController: UIViewController {
     @IBOutlet weak var badgeIcon: UIImageView!
     @IBOutlet weak var badgeDetailsTextBox: UITextView!
 
+    @IBOutlet weak var badgeEarned: UILabel!
 
 
     override func viewDidLoad() {
@@ -25,8 +26,9 @@ class BadgeDetailViewController: UIViewController {
         badgeAwardsLabel.text = badge.emoticon
         let imageString = String(badge.badgeId)
         let image: UIImage = UIImage(named: imageString)!
-        //badgeDetailsTextBox.text = "\(badgeDetail)"
+//      badgeDetailsTextBox.text = "\(badge.bad)"
         badgeIcon.image = image
+        badgeEarned.text = String(badge.badgeEarned) + " Time(s)"
     }
 
 
