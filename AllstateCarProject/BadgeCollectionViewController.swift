@@ -14,6 +14,8 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
 
     var badges = [Badge]()
     var datas = [Data]()
+    let min = 1
+    let max = 2
 
     @IBOutlet var collection: UICollectionView!
 
@@ -26,8 +28,7 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
         parseCSV()
         datas = DataBaseManager.defaultManager().loadData()
         compileDatasForPerfectBadges()
-        //compileBadgePerfectDrive()
-
+        compileDatasForSecondaryBadges()
     }
 
     func compileDatasForPerfectBadges(){
@@ -57,11 +58,43 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
                 badges[4].badgeEarned = badges[4].badgeEarned + 1
                 badges[4].emoticon = setEmoticons(badges[4].badgeEarned, min: 0, max: 0)
             }
+            }
+
+    }
 
 
+    func compileDatasForSecondaryBadges(){
+
+        for data in datas {
+//            print (min)
+//            print (max)
+            let countAttention = data.countOfDangerousAction(DangerousActionTypes.LookingAway)
+            let countFocus = data.countOfDangerousAction(DangerousActionTypes.LookPhone)
+            let countSound = data.countOfDangerousAction(DangerousActionTypes.MicTooLoud)
+            let countSpeed = data.countOfDangerousAction(.OverSpeeded)
+
+
+            if countSpeed >= min && countSpeed <= max {
+                badges[5].badgeEarned = badges[5].badgeEarned + 1
+                badges[5].emoticon = setEmoticons(badges[5].badgeEarned, min: min, max: max)
+            }
+            if countSound == 0 {
+                badges[6].badgeEarned = badges[6].badgeEarned + 1
+                badges[6].emoticon = setEmoticons(badges[6].badgeEarned, min: min, max: max)
+            }
+            if countFocus == 0 {
+                badges[7].badgeEarned = badges[7].badgeEarned + 1
+                badges[7].emoticon = setEmoticons(badges[7].badgeEarned, min: min, max: max)
+            }
+            if countAttention == 0 {
+                badges[8].badgeEarned = badges[8].badgeEarned + 1
+                badges[8].emoticon = setEmoticons(badges[8].badgeEarned, min: min, max: max)
             }
 
 
+        }
+        
+        
     }
 
     func incrementBadgesEarned(badgesEarned: Int)->Int{
@@ -86,10 +119,25 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
 
     
 
-    func setEmoticons (badgesEarned: Int,min: Int, max: Int) -> String {
+    func setEmoticons (var badgesEarned: Int,min: Int, max: Int) -> String {
+        var emoticon = ""
         if badgesEarned == 0 {return ""}
-        if min == 0 && max == 0 {return "🌟"}
-        return "😙"
+        if min == 0 && max == 0 {
+            if badgesEarned > 5 {badgesEarned = 5}
+            for var badg=0; badg < badgesEarned; ++badg {
+                emoticon = emoticon + "🌟"
+                print (emoticon)
+            }
+            
+        } else {
+            if badgesEarned > 5 {badgesEarned = 5}
+            for var badg=0; badg < badgesEarned; ++badg {
+                emoticon = emoticon + "🚕"
+                print (emoticon)
+            }
+
+        }
+        return emoticon
     }
 
 
@@ -112,7 +160,7 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
                 let badgeDetail = row["badgeDetail"]!
                 let reward = Badge(badgeName: badgeName, badgeId: badgeId, badgeImage: badgeImage, emoticon: emoticon, badgeEarned: badgeEarned, badgeType: badgeType, badgeDetail: badgeDetail)
                 badges.append(reward)
-                print (reward)
+                //print (reward)
             }
         } catch let err as NSError {
             print (err.debugDescription)
