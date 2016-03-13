@@ -14,8 +14,9 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
 
     var badges = [Badge]()
     var datas = [Data]()
-    let min = 1
-    let max = 2
+    let min = 1 //min number of distracted events per drive
+    let max = 2 //max number of distracted events per drive
+    let badgeIncrement = 1 //number of awards before receiving another star. eg increment of 5 means for 6 accomplishments you will receive 2 award emoticons
 
     @IBOutlet var collection: UICollectionView!
 
@@ -124,15 +125,15 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
         if badgesEarned == 0 {return ""}
         if min == 0 && max == 0 {
             if badgesEarned > 5 {badgesEarned = 5}
-            for var badg=0; badg < badgesEarned; ++badg {
-                emoticon = emoticon + "🌟"
+            for var badg=0; badg < badgesEarned; badg += badgeIncrement {
+                emoticon += "🌟"
                 print (emoticon)
             }
             
         } else {
             if badgesEarned > 5 {badgesEarned = 5}
-            for var badg=0; badg < badgesEarned; ++badg {
-                emoticon = emoticon + "🚕"
+            for var badg=0; badg < badgesEarned; badg += badgeIncrement {
+                emoticon += "🚕"
                 print (emoticon)
             }
 
