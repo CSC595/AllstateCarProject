@@ -67,8 +67,7 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
     func compileDatasForSecondaryBadges(){
 
         for data in datas {
-//            print (min)
-//            print (max)
+
             let countAttention = data.countOfDangerousAction(DangerousActionTypes.LookingAway)
             let countFocus = data.countOfDangerousAction(DangerousActionTypes.LookPhone)
             let countSound = data.countOfDangerousAction(DangerousActionTypes.MicTooLoud)
@@ -79,15 +78,15 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
                 badges[5].badgeEarned = badges[5].badgeEarned + 1
                 badges[5].emoticon = setEmoticons(badges[5].badgeEarned, min: min, max: max)
             }
-            if countSound == 0 {
+            if countSound >= min && countSpeed <= max {
                 badges[6].badgeEarned = badges[6].badgeEarned + 1
                 badges[6].emoticon = setEmoticons(badges[6].badgeEarned, min: min, max: max)
             }
-            if countFocus == 0 {
+            if countFocus >= min && countSpeed <= max {
                 badges[7].badgeEarned = badges[7].badgeEarned + 1
                 badges[7].emoticon = setEmoticons(badges[7].badgeEarned, min: min, max: max)
             }
-            if countAttention == 0 {
+            if countAttention >= min && countSpeed <= max {
                 badges[8].badgeEarned = badges[8].badgeEarned + 1
                 badges[8].emoticon = setEmoticons(badges[8].badgeEarned, min: min, max: max)
             }
@@ -108,36 +107,32 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
 
 
 
-//    func compileBadgePerfectDrive(){
-//        for data in datas {
-//            let countActions = data.countOfDangerousAction(DangerousActionTypes.MicTooLoud) + data.countOfDangerousAction(DangerousActionTypes.OverSpeeded) + data.countOfDangerousAction(DangerousActionTypes.LookingAway) + data.countOfDangerousAction(DangerousActionTypes.MicTooLoud)
-//
-//            print (countActions)
-//
-//            badges[0].emoticon = setEmoticons(badges[0].badgeEarned)
-//            }
-//        }
+
 
     
 
-    func setEmoticons (var badgesEarned: Int,min: Int, max: Int) -> String {
+    func setEmoticons ( badgesEarned: Int,min: Int, max: Int) -> String {
         var emoticon = ""
         if badgesEarned == 0 {return ""}
         if min == 0 && max == 0 {
-            if badgesEarned > 5 {badgesEarned = 5}
+            //if badgesEarned > 5 {badgesEarned = 5}
             for var badg=0; badg < badgesEarned; badg += badgeIncrement {
                 emoticon += "🌟"
-                print (emoticon)
+
             }
             
         } else {
-            if badgesEarned > 5 {badgesEarned = 5}
+            //if badgesEarned > 5 {badgesEarned = 5}
             for var badg=0; badg < badgesEarned; badg += badgeIncrement {
                 emoticon += "🚕"
-                print (emoticon)
+
             }
 
         }
+//        var maxIndexOfEmoticon = emoticon.characters.count
+//        if maxIndexOfEmoticon > 5 {maxIndexOfEmoticon=5}
+//        let finalEmoticon = (emoticon as NSString).substringToIndex(maxIndexOfEmoticon)
+//        return finalEmoticon
         return emoticon
     }
 
@@ -161,7 +156,7 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
                 let badgeDetail = row["badgeDetail"]!
                 let reward = Badge(badgeName: badgeName, badgeId: badgeId, badgeImage: badgeImage, emoticon: emoticon, badgeEarned: badgeEarned, badgeType: badgeType, badgeDetail: badgeDetail)
                 badges.append(reward)
-                //print (reward)
+
             }
         } catch let err as NSError {
             print (err.debugDescription)
