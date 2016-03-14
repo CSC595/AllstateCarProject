@@ -33,25 +33,27 @@ class TripViewController : UIViewController {
         
         if let d = data {
             
+            var points:Int = 0
             driveTimeLabel.text = getDurationString(d)
             averageSpeedLabel.text = getAverageSpeedString(d)
-            pointsLabel.text = "100"
             
             attention.icon.image = UIImage(named: "SteeringIcon")
             attention.title.text = "Attention"
-            attention.setData(d, actionType: DangerousActionTypes.LookingAway)
+            points += attention.setData(d, actionType: DangerousActionTypes.LookingAway)
             
             motion.icon.image = UIImage(named: "PhoneIcon")
             motion.title.text = "Motion"
-            motion.setData(d, actionType: DangerousActionTypes.LookPhone)
+            points += motion.setData(d, actionType: DangerousActionTypes.LookPhone)
             
             noise.icon.image = UIImage(named: "SoundIcon")
             noise.title.text = "Noise"
-            noise.setData(d, actionType: DangerousActionTypes.MicTooLoud)
+            points += noise.setData(d, actionType: DangerousActionTypes.MicTooLoud)
             
             speed.icon.image = UIImage(named: "SpeedIcon")
             speed.title.text = "Speed"
-            speed.setData(d, actionType: DangerousActionTypes.OverSpeeded)
+            points += speed.setData(d, actionType: DangerousActionTypes.OverSpeeded)
+            
+            pointsLabel.text = "\(points)"
             
             if NSFileManager.defaultManager().fileExistsAtPath(NSHomeDirectory() + "/Documents/FaceDetectionPic/" + d.departureTime.toString().md5 + "/") {
                 viewPicButton.enabled = true

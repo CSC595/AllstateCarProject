@@ -62,7 +62,7 @@ import UIKit
         xibSetup()
     }
     
-    func setData(data:Data, actionType:DangerousActionTypes) {
+    func setData(data:Data, actionType:DangerousActionTypes) -> Int {
         
         var distractionTime:Int = 0
         for item in data.dangerousActionSet {
@@ -83,6 +83,8 @@ import UIKit
 
         distractionDataView.actionType = actionType
         distractionDataView.data = data
+        
+        return score
     }
     
 }
