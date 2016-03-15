@@ -32,6 +32,10 @@ class Badge {
         return _badgeType
     }
 
+    var badgeDetail: String {
+        return _badgeDetail
+    }
+
 
 
 

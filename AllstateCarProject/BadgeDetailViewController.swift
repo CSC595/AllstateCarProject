@@ -26,7 +26,7 @@ class BadgeDetailViewController: UIViewController {
         badgeAwardsLabel.text = badge.emoticon
         let imageString = String(badge.badgeId)
         let image: UIImage = UIImage(named: imageString)!
-//      badgeDetailsTextBox.text = "\(badge.bad)"
+        badgeDetailsTextBox.text = "\(badge.badgeDetail)"
         badgeIcon.image = image
         badgeEarned.text = String(badge.badgeEarned) + " Time(s)"
     }

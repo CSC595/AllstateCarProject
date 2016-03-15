@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dUR-lG-wlW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dUR-lG-wlW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -153,7 +153,7 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i3u-Zo-Rlg" id="gcY-0T-apt">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -416,7 +416,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="08C9FA99-FB2B-4F43-84EE-BC6BDD9E79A3" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-Aa-Wr9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="6E729855-24F1-4749-BB40-5FCB0624C11C" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-Aa-Wr9">
                                 <rect key="frame" x="6" y="72" width="142" height="176"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Badge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4h-Nu-jk5">
@@ -778,7 +778,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emoticons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRd-8a-5v3">
-                                            <rect key="frame" x="8" y="138" width="84" height="33.5"/>
+                                            <rect key="frame" x="8" y="138" width="84" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -852,10 +852,11 @@ Name 2</string>
         </scene>
     </scenes>
     <resources>
-        <image name="08C9FA99-FB2B-4F43-84EE-BC6BDD9E79A3" width="512" height="512">
+        <image name="1" width="512" height="512"/>
+        <image name="6E729855-24F1-4749-BB40-5FCB0624C11C" width="512" height="512">
             <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
-GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
+YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
+GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
 c1dOU0NvbG9ygAKADRIgwAAAgAOAC1p7NTEyLCA1MTJ90hUKFhhaTlMub2JqZWN0c6EXgASACtIVChod
 ohscgAWABoAJEADSIAohIl8QFE5TVElGRlJlcHJlc2VudGF0aW9ugAeACE8SABAIrk1NACoAEAAIAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -18371,18 +18372,17 @@ aQBsAGUARwBlAG4AZQByAGUAbAAgAFIARwBCAC0AYgBlAHMAawByAGkAdgBlAGwAcwBldGV4dAAAAABD
 b3B5cmlnaHQgMjAwNyBBcHBsZSBJbmMuLCBhbGwgcmlnaHRzIHJlc2VydmVkLgBYWVogAAAAAAAA81IA
 AQAAAAEWz1hZWiAAAAAAAAB0TQAAPe4AAAPQWFlaIAAAAAAAAFp1AACscwAAFzRYWVogAAAAAAAAKBoA
 ABWfAAC4NmN1cnYAAAAAAAAAAQHNAABzZjMyAAAAAAABDEIAAAXe///zJgAAB5IAAP2R///7ov///aMA
-AAPcAADAbNIlJicoWiRjbGFzc25hbWVYJGNsYXNzZXNfEBBOU0JpdG1hcEltYWdlUmVwoycpKlpOU0lt
-YWdlUmVwWE5TT2JqZWN00iUmLC1XTlNBcnJheaIsKtIlJi8wXk5TTXV0YWJsZUFycmF5oy8sKtMyMwo0
-NTZXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAzSJSY4OVdOU0NvbG9yojgq0iUmOzxXTlNJbWFn
-ZaI7Kl8QD05TS2V5ZWRBcmNoaXZlctE/QFRyb290gAEAAAAIAAAAEQAAABoAAAAjAAAALQAAADIAAAA3
-AAAARgAAAEwAAABXAAAAXgAAAGUAAAByAAAAeQAAAIEAAACDAAAAhQAAAIoAAACMAAAAjgAAAJkAAACe
-AAAAqQAAAKsAAACtAAAArwAAALQAAAC3AAAAuQAAALsAAAC9AAAAvwAAAMQAAADbAAAA3QAAAN8AEAmT
-ABAJmAAQCaMAEAmsABAJvwAQCcMAEAnOABAJ1wAQCdwAEAnkABAJ5wAQCewAEAn7ABAJ/wAQCgYAEAoO
-ABAKGwAQCiAAEAoiABAKJAAQCikAEAoxABAKNAAQCjkAEApBABAKRAAQClYAEApZABAKXgAAAAAAAAQB
-AAAAAAAAAEEAAAAAAAAAAAAAAAAAEApgA
+AAPcAADAbNIlJicoWiRjbGFzc25hbWVYJGNsYXNzZXNfEBBOU0JpdG1hcEltYWdlUmVwoykqK18QEE5T
+Qml0bWFwSW1hZ2VSZXBaTlNJbWFnZVJlcFhOU09iamVjdNIlJi0uV05TQXJyYXmiLSvSJSYwMV5OU011
+dGFibGVBcnJheaMwLSvTMzQKNTY3V05TV2hpdGVcTlNDb2xvclNwYWNlRDAgMAAQA4AM0iUmOTpXTlND
+b2xvcqI5K9IlJjw9V05TSW1hZ2WiPCtfEA9OU0tleWVkQXJjaGl2ZXLRQEFUcm9vdIABAAAACAAAABEA
+AAAaAAAAIwAAAC0AAAAyAAAANwAAAEYAAABMAAAAVwAAAF4AAABlAAAAcgAAAHkAAACBAAAAgwAAAIUA
+AACKAAAAjAAAAI4AAACZAAAAngAAAKkAAACrAAAArQAAAK8AAAC0AAAAtwAAALkAAAC7AAAAvQAAAL8A
+AADEAAAA2wAAAN0AAADfABAJkwAQCZgAEAmjABAJrAAQCb8AEAnDABAJ1gAQCeEAEAnqABAJ7wAQCfcA
+EAn6ABAJ/wAQCg4AEAoSABAKGQAQCiEAEAouABAKMwAQCjUAEAo3ABAKPAAQCkQAEApHABAKTAAQClQA
+EApXABAKaQAQCmwAEApxAAAAAAAABAEAAAAAAAAAQgAAAAAAAAAAAAAAAAAQCnM
 </mutableData>
         </image>
-        <image name="1" width="512" height="512"/>
         <image name="CarIcon" width="30" height="30"/>
         <image name="StarIcon" width="30" height="30"/>
         <image name="bgroad" width="1632" height="1232"/>

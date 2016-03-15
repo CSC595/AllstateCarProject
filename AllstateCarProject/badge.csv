@@ -1,11 +1,10 @@
 badgeId,badgeName,badgeImage,emoticon,badgeEarned,badgeType,badgeDetail
-0,Perfect Drive!,1,,0,All,Type Details here
-1,The Snail,1,,0,Speed,Type Details here
-2,The Ninja,1,,0,Sound,Type Details here
-3,Perfect Focus,1,,0,Focus,Type Details here
-4,Perfect Attention,1,,0,Attention,Type Details here
-5,The Turtle,1,,0,Speed,Type Details here
-6,Not so loud,1,,0,Sound,Type Details here
-7,Phone Alone,1,,0,Focus,Type Details here
-8,Eyes on Road,1,,0,Attention,Type Details here
-
+0,Perfect Drive!,1,,0,All,This badge is earned by having a perfect drive of proper Speed-Attention-Focus-and Quiet Driving.
+1,The Snail,1,,0,Speed,This badge is earned by having a Perfect drive without overspeeding.
+2,The Ninja,1,,0,Sound,This badge is earned by having a perfect drive without loud music.
+3,Perfect Focus,1,,0,This badge is earned by not touching your phone the whole trip.
+4,Perfect Attention,1,,0,Attention,This badge is earned by keeping eyes on the road.
+5,The Turtle,1,,0,This badge is earned by having one speed infraction at most.
+6,Not so loud,1,,0,Sound,This badge is earned by having a mostly quiet drive.
+7,Phone Alone,1,,0,Focus,This badge is earned by mostly not using phone while driving.
+8,Eyes on Road,1,,0,Attention,This badge is earned by mostly keeping eyes on the road.

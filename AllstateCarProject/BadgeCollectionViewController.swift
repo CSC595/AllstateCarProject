@@ -157,6 +157,7 @@ class BadgeCollectionViewController: UIViewController, UICollectionViewDelegate,
                 let reward = Badge(badgeName: badgeName, badgeId: badgeId, badgeImage: badgeImage, emoticon: emoticon, badgeEarned: badgeEarned, badgeType: badgeType, badgeDetail: badgeDetail)
                 badges.append(reward)
 
+
             }
         } catch let err as NSError {
             print (err.debugDescription)
