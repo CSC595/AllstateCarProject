@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let serverIP = "http://75.102.224.65:5000/"
+let serverIP = "http://75.102.224.67:5000/"
 let startServiceURL = serverIP + "run_app"
 let endServiceURL = serverIP + "stop_app"
 let getResultURL = serverIP + "result"
@@ -19,9 +19,9 @@ let faceDetectionPicPath = NSHomeDirectory() + "/Documents/FaceDetectionPic/"
 
 class FaceDetection {
     var debugText: String
-    var isDistracted: Bool = true {
+    var isDistracted: Bool = false {
         didSet {
-            if oldValue != isDistracted && isDistracted == true {
+            if oldValue == false && isDistracted == true {
                 getPic()
             }
         }
